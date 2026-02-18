@@ -15,20 +15,6 @@
       "use": "@vercel/static"
     }
   ],
-  "routes": [
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/apps/(.*)",
-      "dest": "/apps/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
   "headers": [
     {
       "source": "/assets/js/(.*)",
@@ -39,5 +25,7 @@
         }
       ]
     }
-  ]
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
