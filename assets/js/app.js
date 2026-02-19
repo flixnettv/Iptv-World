@@ -2,7 +2,7 @@
 // IPTV World - Main Application Script
 // ===================================
 
-// Initialize Supabase Client
+// Initialize Supabase Client (مهم جدًا: نستورد supabase بدل createClient)
 import { supabase } from './supabase-client.js';
 
 // DOM Elements
@@ -57,7 +57,7 @@ async function loadApplications() {
             </div>
         `;
         
-        // Get applications from the database
+        // Get applications from the database (مهم جدًا: نستخدم supabase مباشرة)
         const { data, error } = await supabase
             .from('apps')
             .select('*')
@@ -220,7 +220,7 @@ function addTripleTapTest() {
 
 async function testSupabaseConnection() {
     try {
-        // اختبار الربط بـ Supabase
+        // اختبار الربط بـ Supabase (مهم جدًا: نستخدم supabase مباشرة)
         const { data, error } = await supabase.from('apps').select('*');
         
         if (error) {
