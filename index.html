@@ -3,80 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IPTV World - تفعيل تطبيقات IPTV والشاشات الذكية بأفضل الأسعار">
+    <meta name="keywords" content="IPTV, تفعيل, شاشات ذكية, Flix, SmartOne">
     <title>IPTV World - تفعيل التطبيقات والشاشات الذكية</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
     <!-- Header -->
-    <header class="main-header">
-        <div class="logo">IPTV World</div>
-        <button class="menu-btn"><i class="fas fa-bars"></i></button>
+    <header class="main-header" role="banner">
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-tv"></i>
+                <span>IPTV World</span>
+            </div>
+            <nav class="main-nav" role="navigation" aria-label="القائمة الرئيسية">
+                <ul>
+                    <li><a href="#home" class="active">الرئيسية</a></li>
+                    <li><a href="#apps">التطبيقات</a></li>
+                    <li><a href="#pricing">الأسعار</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <button class="menu-btn" id="menu-toggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="main-nav">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
 
-    <!-- Hero -->
-    <section class="hero">
-        <h1>عالم IPTV بين يديك</h1>
-        <p>فعّل جميع تطبيقات الشاشات الذكية واشترك في أفضل خدمات IPTV بسعر موحد</p>
-    </section>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="القائمة المتنقلة">
+        <button class="close-menu" id="close-menu" aria-label="إغلاق القائمة">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav role="navigation">
+            <ul>
+                <li><a href="#home">الرئيسية</a></li>                <li><a href="#apps">التطبيقات</a></li>
+                <li><a href="#pricing">الأسعار</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+        </nav>
+    </div>
 
-    <!-- Smart TV Section -->
-    <section class="section container">
-        <div class="card">
-            <h2><i class="fas fa-tv"></i> تفعيل الشاشات الذكية</h2>
-            <p style="text-align: center; color: #777; margin-bottom: 20px;">
-                سامسونج، إل جي، أندرويد تي في، فاير ستيك، والمزيد
-            </p>
-            <div id="smart-tv-apps" class="apps-grid">
-                <div class="spinner"></div>
+    <!-- Hero Section -->
+    <section id="home" class="hero" role="region" aria-label="الصفحة الرئيسية">
+        <div class="container">
+            <div class="hero-content">
+                <h1>عالم IPTV بين يديك</h1>
+                <p>فعل تطبيقات IPTV والشاشات الذكية بأفضل الأسعار وجودة عالية</p>
+                <div class="hero-buttons">
+                    <a href="#apps" class="btn btn-primary">تصفح التطبيقات</a>
+                    <a href="#contact" class="btn btn-secondary">تواصل معنا</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- IPTV Apps Section -->
-    <section class="section container">
-        <div class="card">
-            <h2><i class="fas fa-mobile-alt"></i> تطبيقات IPTV</h2>
-            <p style="text-align: center; color: #777; margin-bottom: 20px;">
-                تطبيقات الأندرويد والهواتف المحمولة
-            </p>
-            <div id="iptv-apps" class="apps-grid">
-                <div class="spinner"></div>
+    <!-- Apps Section -->
+    <section id="apps" class="apps-section" role="region" aria-label="التطبيقات المتاحة">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-th-large"></i>
+                تطبيقاتنا المتاحة
+            </h2>
+            <p class="section-subtitle">اختر التطبيق المناسب لك وفعله الآن بسعر موحد</p>
+            
+            <div id="apps-container" class="apps-grid" role="list" aria-live="polite">
+                <div class="loading" role="status" aria-live="polite">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>جاري تحميل التطبيقات...</p>
+                </div>
+            </div>
+            
+            <div id="no-apps" class="no-apps" style="display: none;" role="alert">
+                <i class="fas fa-inbox"></i>
+                <p>لا توجد تطبيقات متاحة حالياً</p>
             </div>
         </div>
     </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section" role="region" aria-label="الأسعار">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-tag"></i>
+                الأسعار            </h2>
+            <div class="pricing-card">
+                <div class="price-badge">
+                    <span class="price">70$</span>
+                    <span class="period">/ سنوياً</span>
+                </div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> تفعيل كامل للتطبيق</li>
+                    <li><i class="fas fa-check"></i> دعم فني 24/7</li>
+                    <li><i class="fas fa-check"></i> تحديثات مستمرة</li>
+                    <li><i class="fas fa-check"></i> جودة عالية HD/FHD/4K</li>
+                    <li><i class="fas fa-check"></i> قنوات عربية وعالمية</li>
+                    <li><i class="fas fa-check"></i> أفلام ومسلسلات محدثة</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary btn-large">اطلب الآن</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section" role="region" aria-label="اتصل بنا">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-headset"></i>
+                تواصل معنا
+            </h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>واتساب</h3>
+                    <a href="https://wa.link/9r70xe" target="_blank" rel="noopener noreferrer" class="contact-link">
+                        اضغط هنا للتواصل
+                    </a>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-telegram-plane"></i>
+                    <h3>تليجرام</h3>
+                    <a href="https://t.me/FLlXX" target="_blank" rel="noopener noreferrer" class="contact-link">
+                        اضغط هنا للتواصل
+                    </a>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>الدعم الفني</h3>
+                    <a href="tel:+201112246002" class="contact-link">
+                        201112246002+
+                    </a>
+                </div>
+            </div>
+        </div>    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 IPTV World. جميع الحقوق محفوظة</p>
+            <div class="footer-links">
+                <a href="#home">الرئيسية</a>
+                <a href="#apps">التطبيقات</a>
+                <a href="#contact">اتصل بنا</a>
+            </div>
+        </div>
+    </footer>
 
     <!-- Floating Widget -->
-    <div class="floating-widget">
+    <div class="floating-widget" role="complementary" aria-label="أدوات التواصل السريع">
         <div class="widget-options" id="widget-options">
-            <a href="#" target="_blank" class="float-btn telegram" id="tg-link">
+            <a href="https://t.me/FLlXX" target="_blank" rel="noopener noreferrer" class="float-btn telegram" 
+               aria-label="تواصل عبر تليجرام" title="تليجرام">
                 <i class="fab fa-telegram-plane"></i>
             </a>
-            <a href="#" target="_blank" class="float-btn whatsapp" id="wa-link">
+            <a href="https://wa.link/9r70xe" target="_blank" rel="noopener noreferrer" class="float-btn whatsapp" 
+               aria-label="تواصل عبر واتساب" title="واتساب">
                 <i class="fab fa-whatsapp"></i>
             </a>
         </div>
-        <button class="widget-toggle" onclick="toggleWidget()">
+        <button class="widget-toggle" id="widget-toggle" onclick="toggleWidget()" 
+                aria-label="الدعم الفني" aria-expanded="false" aria-controls="widget-options" title="الدعم الفني">
             <i class="fas fa-headset"></i>
         </button>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 IPTV World. جميع الحقوق محفوظة.</p>
-    </footer>
-
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script type="module" src="assets/js/config.js"></script>
     <script type="module" src="assets/js/supabase-client.js"></script>
     <script type="module" src="assets/js/app.js"></script>
+    
     <script>
-        function toggleWidget() {
-            document.getElementById('widget-options').classList.toggle('show');
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        function openMenu() {
+            mobileMenu.classList.add('active');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
         }
+        
+        function closeMenuFunc() {            mobileMenu.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', openMenu);
+        }
+        
+        if (closeMenu) {
+            closeMenu.addEventListener('click', closeMenuFunc);
+        }
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', closeMenuFunc);
+        });
+
+        // Floating Widget Toggle
+        function toggleWidget() {
+            const widgetOptions = document.getElementById('widget-options');
+            const widgetToggle = document.getElementById('widget-toggle');
+            const isExpanded = widgetToggle.getAttribute('aria-expanded') === 'true';
+            
+            widgetOptions.classList.toggle('active');
+            widgetToggle.setAttribute('aria-expanded', !isExpanded);
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Close widget when clicking outside
+        document.addEventListener('click', function(e) {
+            const widget = document.querySelector('.floating-widget');
+            const widgetOptions = document.getElementById('widget-options');
+            const widgetToggle = document.getElementById('widget-toggle');            
+            if (widget && !widget.contains(e.target) && widgetOptions.classList.contains('active')) {
+                widgetOptions.classList.remove('active');
+                widgetToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
     </script>
 </body>
 </html>
