@@ -153,4 +153,105 @@ function initMobileMenu() {
     
     closeMenu.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
-        menu
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    });
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        });
+    });
+}
+
+// ================================
+// Floating Widget Functions
+// ================================
+
+function initFloatingWidget() {
+    if (!widgetToggle || !widgetOptions) return;
+    
+    widgetToggle.addEventListener('click', () => {
+        const isExpanded = widgetToggle.getAttribute('aria-expanded') === 'true';
+        widgetOptions.classList.toggle('active');
+        widgetToggle.setAttribute('aria-expanded', !isExpanded);
+    });
+    
+    // Close widget when clicking outside
+    document.addEventListener('click', (e) => {
+        if (widgetOptions.classList.contains('active') && 
+            !widgetOptions.contains(e.target) && 
+            !widgetToggle.contains(e.target)) {
+            widgetOptions.classList.remove('active');
+            widgetToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
+
+// ================================
+// Triple Tap Test for Supabase
+// ================================
+function addTripleTapTest() {
+    const logo = document.querySelector('.logo');
+    let tapCount = 0;
+    let lastTapTime = 0;
+    const tripleTapThreshold = 500; // 500 مللي ثانية
+
+    if (logo) {
+        logo.addEventListener('click', () => {
+            const currentTime = Date.now();
+            if (currentTime - lastTapTime < tripleTapThreshold) {
+                tapCount++;
+            } else {
+                tapCount = 1;
+            }
+            lastTapTime = currentTime;
+
+            if (tapCount >= 3) {
+                testSupabaseConnection();
+                tapCount = 0;
+            }
+        });
+    }
+}
+
+async function testSupabaseConnection() {
+    try {
+        // اختبار الربط بـ Supabase
+        const { data, error } = await supabase.from('apps').select('*');
+        
+        if (error) {
+            alert(`⚠️ خطأ في الربط: ${error.message}\n\nالسبب المحتمل:\n- المتغيرات غلط على Vercel\n- الجدول مش موجود`);
+        } else {
+            if (data.length > 0) {
+                alert(`✅ الربط شغال!\n\n- وجدنا ${data.length} تطبيقات\n- اضغط على "التطبيقات" لرؤيتها`);
+            } else {
+                alert(`⚠️ الربط شغال لكن الجدول فاضي!\n\n- روح لـ Supabase Dashboard\n- أضف تطبيقات في جدول "apps"`);
+            }
+        }
+    } catch (err) {
+        alert(`❌ خطأ في الاختبار:\n${err.message}\n\nالخطوات المطلوبة:\n1. تأكد من المتغيرات على Vercel\n2. تأكد من وجود جدول "apps"`);
+    }
+}
+
+// ================================
+// Smooth Scroll for Navigation
+// ================================
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');        if (href !== '#' && href.length > 1) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    });
+});
