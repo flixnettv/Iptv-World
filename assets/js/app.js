@@ -37,9 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // ================================
 
 function initApp() {
-    // Check if we're in production
-    const isProduction = import.meta.env.PROD;
-    
     // Load applications
     loadApplications();
 }
@@ -47,10 +44,10 @@ function initApp() {
 // ================================
 // Load Applications from Supabase
 // ================================
+
 async function loadApplications() {
     try {
-        // Show loading state
-        appsContainer.innerHTML = `
+        // Show loading state        appsContainer.innerHTML = `
             <div class="loading" role="status" aria-live="polite">
                 <i class="fas fa-spinner fa-spin"></i>
                 <p>جاري تحميل التطبيقات...</p>
@@ -96,9 +93,9 @@ async function loadApplications() {
     }
 }
 
-// ================================// Render Applications
 // ================================
-
+// Render Applications
+// ================================
 function renderApplications(apps) {
     // Clear container
     appsContainer.innerHTML = '';
@@ -145,10 +142,10 @@ function renderApplications(apps) {
 
 function initMobileMenu() {
     if (!menuToggle || !closeMenu || !mobileMenu) return;
-        menuToggle.addEventListener('click', () => {
+    
+    menuToggle.addEventListener('click', () => {
         mobileMenu.classList.add('active');
-        menuToggle.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
+        menuToggle.setAttribute('aria-expanded', 'true');        document.body.style.overflow = 'hidden';
     });
     
     closeMenu.addEventListener('click', () => {
@@ -194,10 +191,10 @@ function initFloatingWidget() {
 // ================================
 // Triple Tap Test for Supabase
 // ================================
+
 function addTripleTapTest() {
     const logo = document.querySelector('.logo');
-    let tapCount = 0;
-    let lastTapTime = 0;
+    let tapCount = 0;    let lastTapTime = 0;
     const tripleTapThreshold = 500; // 500 مللي ثانية
 
     if (logo) {
@@ -243,10 +240,10 @@ async function testSupabaseConnection() {
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');        if (href !== '#' && href.length > 1) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && href.length > 1) {
             e.preventDefault();
-            const target = document.querySelector(href);
-            if (target) {
+            const target = document.querySelector(href);            if (target) {
                 target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
