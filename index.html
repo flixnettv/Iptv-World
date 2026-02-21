@@ -3,244 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPTV World - أفضل خدمات IPTV</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <meta name="description" content="IPTV World - Smart TV Apps & Activation">
+    <title>IPTV World - Smart TV Apps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <!-- Header -->
-    <header class="main-header">
+    <header class="flix-header">
         <div class="container">
             <div class="logo">
-                <i class="fas fa-tv"></i>
-                <span>IPTV World</span>
+                <span>IpTv World</span>
             </div>
             <button class="mobile-menu-btn" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </button>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#home" data-i18n="nav.home">الرئيسية</a></li>
-                    <li><a href="#apps" data-i18n="nav.apps">التطبيقات</a></li>
-                    <li><a href="mac-lookup.html" data-i18n="nav.mac">فحص الجهاز</a></li>
-                    <li><a href="#pricing" data-i18n="nav.pricing">الأسعار</a></li>
-                    <li><a href="#contact" data-i18n="nav.contact">تواصل معنا</a></li>
-                </ul>
-            </nav>
-            <button class="lang-switcher-btn" onclick="toggleLanguage()">
-                <i class="fas fa-globe"></i>
-                <span id="langText">EN</span>
-            </button>
         </div>
     </header>
 
+    <!-- Mobile Menu -->
+    <nav class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+            <button class="close-menu" onclick="toggleMenu()">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul>
+                <li><a href="#home" onclick="toggleMenu()"><i class="fas fa-home"></i> HOME</a></li>
+                <li class="has-submenu">
+                    <a href="#" onclick="toggleSubmenu(event, 'smart-tv')"><i class="fas fa-tv"></i> SMART TV ACTIVATION <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu" id="smart-tv">
+                        <li><a href="activate.html?app=flixiptv">Flixiptv Activation</a></li>
+                        <li><a href="activate.html?app=ibo">ibo player iptv</a></li>
+                        <li><a href="activate.html?app=duplex">Duplex iptv Activation</a></li>
+                        <li><a href="activate.html?app=elk">ELK Player</a></li>
+                        <li><a href="activate.html?app=nanomid">nanomid</a></li>
+                        <li><a href="activate.html?app=ssiptv">ssiptv Activation</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a href="#" onclick="toggleSubmenu(event, 'apps')"><i class="fas fa-download"></i> IPTV APPLICATION <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu" id="apps">
+                        <li><a href="app.html?name=aroma">Aroma iptv</a></li>
+                        <li><a href="app.html?name=elaf">Elaf ipTv</a></li>
+                        <li><a href="app.html?name=nova">Nova iptv</a></li>                        <li><a href="app.html?name=flix">flixip Tv</a></li>
+                        <li><a href="app.html?name=maven">Maven IpTV</a></li>
+                        <li><a href="app.html?name=cobra">Cobra IpTv</a></li>
+                        <li><a href="app.html?name=dita">DIta iptv</a></li>
+                        <li><a href="app.html?name=ceme">ceme ipTv</a></li>
+                        <li><a href="app.html?name=ipfox">Ipfox Tv</a></li>
+                    </ul>
+                </li>
+                <li><a href="firestick.html"><i class="fas fa-fire"></i> FIRESTICK</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="flix-hero" id="home">
+        <div class="hero-overlay"></div>
         <div class="container">
-            <h1 data-i18n="hero.title">عالم IPTV بين يديك</h1>
-            <p data-i18n="hero.subtitle">فعل تطبيقات IPTV والشاشات الذكية بأفضل الأسعار وجودة عالية</p>
-            <div class="hero-buttons">
-                <a href="#apps" class="btn btn-primary" data-i18n="hero.browse">
-                    <i class="fas fa-th"></i> تصفح التطبيقات
+            <div class="hero-content">
+                <h1 class="hero-title">Smart Tv apps</h1>
+                <p class="hero-subtitle">
+                    All your satellite world channels in one application android & 
+                    smart Tv & apple Tv & windows & xtream & m3u
+                </p>
+                <a href="activate.html" class="flix-btn flix-btn-primary">
+                    ACTIVATE APP + CHANNEL LIST ( LG / SAMSUNG / APPLE )
                 </a>
-                <a href="#contact" class="btn btn-outline" data-i18n="hero.contact">
-                    <i class="fas fa-comment"></i> تواصل معنا
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="container">
+            <div class="links-grid">
+                <a href="activate.html" class="link-card">
+                    <i class="fas fa-tv"></i>
+                    <h3>Smart TV Activation</h3>
+                    <p>Activate your Smart TV now</p>
+                </a>
+                <a href="app.html?name=flix" class="link-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>IPTV Applications</h3>
+                    <p>Download IPTV apps</p>
+                </a>
+                <a href="firestick.html" class="link-card">
+                    <i class="fas fa-fire"></i>
+                    <h3>Firestick Setup</h3>
+                    <p>Install on Firestick</p>
                 </a>
             </div>        </div>
     </section>
 
-    <!-- Apps Section -->
-    <section class="apps-section" id="apps">
+    <!-- Contact Section -->
+    <section class="flix-contact" id="contact">
         <div class="container">
-            <div class="section-title">
-                <i class="fas fa-th"></i>
-                <h2 data-i18n="apps.title">تطبيقاتنا المتاحة</h2>
-                <p data-i18n="apps.subtitle">اختر التطبيق المناسب لك وفعله الآن بسعر موحد</p>
-            </div>
-            
-            <div class="apps-grid">
-                <div class="app-card">
-                    <div class="app-icon">
-                        <i class="fas fa-tv"></i>
-                    </div>
-                    <h3 data-i18n="app1.name">تطبيق IPTV Pro</h3>
-                    <p data-i18n="app1.desc">أفضل تطبيق لمشاهدة القنوات العربية والعالمية</p>
-                    <div class="app-price">
-                        <span class="price">70$</span>
-                        <span class="period" data-i18n="app.period">/ سنوياً</span>
-                    </div>
-                    <a href="#payment" class="btn btn-primary btn-sm" data-i18n="app.subscribe">اشترك الآن</a>
+            <div class="contact-box">
+                <h2>Call us</h2>
+                <div class="contact-info">
+                    <p><strong>whatsapp & Telegram</strong></p>
+                    <a href="https://wa.me/201112246002" class="contact-link">+20 111 224 6002</a>
                 </div>
-
-                <div class="app-card">
-                    <div class="app-icon">
-                        <i class="fas fa-play-circle"></i>
-                    </div>
-                    <h3 data-i18n="app2.name">تطبيق Smart TV</h3>
-                    <p data-i18n="app2.desc">متوافق مع جميع أجهزة الشاشات الذكية</p>
-                    <div class="app-price">
-                        <span class="price">70$</span>
-                        <span class="period" data-i18n="app.period">/ سنوياً</span>
-                    </div>
-                    <a href="#payment" class="btn btn-primary btn-sm" data-i18n="app.subscribe">اشترك الآن</a>
+                <div class="social-links">
+                    <a href="https://wa.me/201112246002" target="_blank" class="social-btn whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="https://t.me/FLlXX" target="_blank" class="social-btn telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>Telegram</span>
+                    </a>
                 </div>
-
-                <div class="app-card">
-                    <div class="app-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3 data-i18n="app3.name">تطبيق Mobile</h3>
-                    <p data-i18n="app3.desc">شاهد على هاتفك المحمول في أي مكان</p>
-                    <div class="app-price">
-                        <span class="price">70$</span>
-                        <span class="period" data-i18n="app.period">/ سنوياً</span>
-                    </div>
-                    <a href="#payment" class="btn btn-primary btn-sm" data-i18n="app.subscribe">اشترك الآن</a>                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features -->
-    <section class="features">
-        <div class="container">
-            <div class="feature-card">
-                <i class="fas fa-broadcast-tower"></i>
-                <h3 data-i18n="feat1.title">بث مباشر عالي الجودة</h3>
-                <p data-i18n="feat1.desc">قنوات بجودة HD/FHD/4K بدون تقطيع</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-globe"></i>
-                <h3 data-i18n="feat2.title">قنوات عربية وعالمية</h3>
-                <p data-i18n="feat2.desc">آلاف القنوات من جميع أنحاء العالم</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-headset"></i>
-                <h3 data-i18n="feat3.title">دعم فني 24/7</h3>
-                <p data-i18n="feat3.desc">فريق دعم جاهز لمساعدتك في أي وقت</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <div class="pricing-card">
-                <h3 data-i18n="pricing.plan">اشتراك سنوي</h3>
-                <div class="price-tag">
-                    <span class="amount">70</span>
-                    <span class="currency">$</span>
-                    <span class="period" data-i18n="pricing.period">/ سنة</span>
-                </div>
-                <ul class="features-list">
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.f1">جميع القنوات</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.f2">جودة HD/FHD/4K</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.f3">دعم فني 24/7</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.f4">تحديثات مستمرة</span></li>
-                </ul>
-                <a href="#payment" class="btn btn-primary btn-block" data-i18n="pricing.subscribe">اشترك الآن</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Payment -->
-    <section class="payment" id="payment">
-        <div class="container">            <h2 data-i18n="payment.title">طرق الدفع</h2>
-            <div class="payment-methods">
-                <a href="https://buy.stripe.com/YOUR_LINK" class="payment-card" target="_blank">
-                    <i class="fas fa-credit-card"></i>
-                    <h4 data-i18n="payment.card">بطاقة ائتمان</h4>
-                    <p data-i18n="payment.cardDesc">ادفع بأمان عبر Stripe</p>
-                    <span class="price">70$</span>
-                </a>
-                <a href="https://paypal.me/YOUR_USERNAME/70USD" class="payment-card" target="_blank">
-                    <i class="fab fa-paypal"></i>
-                    <h4>PayPal</h4>
-                    <p data-i18n="payment.paypalDesc">دفع سريع عبر PayPal</p>
-                    <span class="price">70$</span>
-                </a>
-                <div class="payment-card">
-                    <i class="fab fa-bitcoin"></i>
-                    <h4 data-i18n="payment.crypto">العملات الرقمية</h4>
-                    <p data-i18n="payment.cryptoDesc">Bitcoin, USDT, Ethereum</p>
-                    <button class="btn btn-sm" onclick="showCryptoInfo()" data-i18n="payment.details">عرض التفاصيل</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 data-i18n="contact.title">تواصل معنا</h2>
-            <div class="contact-info">
-                <a href="https://t.me/YOUR_USERNAME" target="_blank">
-                    <i class="fab fa-telegram"></i>
-                    <span>Telegram</span>
-                </a>
-                <a href="https://wa.me/YOUR_NUMBER" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                    <span>WhatsApp</span>
-                </a>
-                <a href="mailto:support@iptvworld.com">
-                    <i class="fas fa-envelope"></i>
-                    <span>Email</span>
-                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="flix-footer">
         <div class="container">
-            <p>&copy; 2026 IPTV World. <span data-i18n="footer.rights">جميع الحقوق محفوظة</span></p>
-        </div>    </footer>
+            <nav class="footer-nav">
+                <a href="#home">HOME</a>
+                <a href="activate.html">SMART TV APPLICATION ACTIVATION</a>
+                <a href="apps.html">DOWNLOAD ALL IPTV SERVER</a>
+                <a href="firestick.html">INSTALL IPTV ON FIRESTICK</a>
+                <a href="#">CCCAM SERVER</a>
+                <a href="#">IPTV RESELLER</a>
+                <a href="#">AFFILIATE MARKETING</a>
+            </nav>
+            <p class="footer-text">©FlixFlash 2026/27</p>
+        </div>
+    </footer>
 
     <!-- Floating Contact Button -->
-    <div class="floating-contact">
-        <a href="https://t.me/YOUR_USERNAME" target="_blank" class="floating-btn telegram" title="Telegram">
-            <i class="fab fa-telegram"></i>
-        </a>
-        <a href="https://wa.me/YOUR_NUMBER" target="_blank" class="floating-btn whatsapp" title="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <button class="floating-btn-toggle" onclick="toggleFloatingMenu()" title="تواصل معنا">
-            <i class="fas fa-comments"></i>
-        </button>
-    </div>
+    <a href="https://wa.me/201112246002" target="_blank" class="floating-contact-btn" title="Contact Us">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-    <script src="assets/js/i18n.js"></script>
-    <script>
-        function toggleMenu() {
-            document.querySelector('.main-nav').classList.toggle('active');
-        }
-
-        function toggleFloatingMenu() {
-            document.querySelector('.floating-contact').classList.toggle('active');
-        }
-
-        function showCryptoInfo() {
-            const msg = I18N.currentLang === 'ar' 
-                ? 'Bitcoin: your_wallet_address\nUSDT (TRC20): your_wallet_address'
-                : 'Bitcoin: your_wallet_address\nUSDT (TRC20): your_wallet_address';
-            alert(msg);
-        }
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        document.addEventListener('click', function(event) {
-            const floatingContact = document.querySelector('.floating-contact');
-            if (!floatingContact.contains(event.target) && floatingContact.classList.contains('active')) {
-                floatingContact.classList.remove('active');
-            }
-        });
-    </script>
-</body></html>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
