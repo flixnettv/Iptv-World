@@ -1,43 +1,44 @@
 // app.js
-// Load applications from Supabase
+// Load apps directly using window.supabase (after config.js loads)
 
 async function loadApps() {
   const container = document.getElementById('apps-container');
-  
-  if (!container) {
-    console.error('Apps container not found');
-    return;
-  }
+  if (!container) return;
 
   try {
     // Show loading
     container.innerHTML = `
-      <div class="loading" role="status" aria-live="polite">
+      <div class="loading" role="status">
         <i class="fas fa-spinner fa-spin"></i>
-        <p>جاري تحميل التطبيقات...</p>
+        <p>جاري التحميل...</p>
       </div>
     `;
 
-    // Check if Supabase client is available
-    if (!window.supabaseClient) {
-      throw new Error('Supabase client not initialized. Waiting...');
+    // ✅ تأكد من أن window.SUPABASE_CONFIG موجود
+    if (typeof window.SUPABASE_CONFIG === 'undefined') {
+      throw new Error('⚠️ window.SUPABASE_CONFIG غير مُعرّف! تحقق من config.js');
     }
 
-    // Fetch from Supabase
-    const { data, error } = await window.supabaseClient
+    const { url, anonKey } = window.SUPABASE_CONFIG;
+    
+    // ✅ استخدم window.supabase مباشرة (اللي تم تحميله من CDN)
+    if (typeof window.supabase === 'undefined') {
+      throw new Error('⚠️ window.supabase غير متوفر! تحقق من تحميل Supabase CDN');
+    }
+
+    const supabase = window.supabase.createClient(url, anonKey);
+
+    const { data, error } = await supabase
       .from('apps')
       .select('*')
       .eq('is_active', true)
       .order('created_at', { ascending: false });
 
-    if (error) {
-      console.error('Error loading apps:', error);
-      throw error;
-    }
+    if (error) throw error;
 
     if (!data || data.length === 0) {
       container.innerHTML = `
-        <div class="no-apps" role="alert">
+        <div class="no-apps">
           <i class="fas fa-inbox"></i>
           <p>لا توجد تطبيقات متاحة حالياً</p>
         </div>
@@ -45,39 +46,31 @@ async function loadApps() {
       return;
     }
 
-    // Display apps
     container.innerHTML = data.map(app => `
-      <div class="app-card" role="listitem">
-        <img src="${app.image_url || 'https://via.placeholder.com/300x200'}" 
-             alt="${app.name}" 
-             loading="lazy">
+      <div class="app-card">
+        <img src="${app.image_url || 'https://via.placeholder.com/300x200'}" alt="${app.name}">
         <h3>${app.name}</h3>
-        <p class="description">${app.description || ''}</p>
+        <p>${app.description || ''}</p>
         <p class="price">$${app.price || '70'}</p>
         <a href="https://wa.me/1234567890?text=${encodeURIComponent('أريد تفعيل ' + app.name)}" 
-           class="btn btn-primary" 
-           target="_blank" 
-           rel="noopener noreferrer">
-          <i class="fab fa-whatsapp"></i>
-          اشترِ الآن
-        </a>
+           target="_blank" class="btn">تفعيل الآن</a>
       </div>
     `).join('');
 
   } catch (err) {
-    console.error('Error:', err);
-    container.innerHTML = `
-      <div class="error-message" role="alert">
+    console.error('❌ خطأ:', err);
+    document.getElementById('apps-container').innerHTML = `
+      <div class="error">
         <i class="fas fa-exclamation-triangle"></i>
-        <p>حدث خطأ في تحميل التطبيقات. يرجى المحاولة لاحقاً.</p>
+        <p>فشل التحميل: ${err.message}</p>
+        <small>تأكد من: 1) config.js مُحمّل 2) روابط Supabase صحيحة</small>
       </div>
     `;
   }
 }
 
-// Load apps when page is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', loadApps);
-} else {
-  loadApps();
-}
+// ابدأ بعد تحميل DOM
+document.addEventListener('DOMContentLoaded', () => {
+  // انتظر قليلاً للتأكد من تحميل Supabase CDN
+  setTimeout(loadApps, 300);
+});
