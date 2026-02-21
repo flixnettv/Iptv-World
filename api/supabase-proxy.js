@@ -83,7 +83,7 @@ export default async function handler(req) {
     return new Response(
       JSON.stringify({
         success: true,
-        data: data,
+         data,
         timestamp: new Date().toISOString(),
       }),
       { 
