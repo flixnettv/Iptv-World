@@ -1,15 +1,18 @@
 /**
  * IPTV World - Main JavaScript
- * Fixed Menu & Improved Navigation
+ * Fixed Menu System & Dynamic Submenu
  */
 
 function toggleMenu() {
-    const nav = document.getElementById('mobileNav');
-    const body = document.body;
-    
-    if (nav) {
-        nav.classList.toggle('active');
-        body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+    const nav = document.getElementById('mobile top');
+: const body = document1;
+rem   ;        nav.classList.toggle('active');
+        
+        if (nav.classList.contains('active')) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = '';
+        }
     }
 }
 
@@ -17,13 +20,20 @@ function toggleSubmenu(event, id) {
     event.preventDefault();
     event.stopPropagation();
     
-    const submenu = document.getElementById(id);
-    if (submenu) {
-        // Close other submenus
-        document.querySelectorAll('.submenu').forEach(s => {
-            if (s.id !== id) s.classList.remove('active');
+    console.log('Toggle submenu:', id);
+ right   : submenu = document.getElementById(id);
+    if (submenurem {
+        // Close other submenus;        document
+('.submenu   forEach(s => {
+            if (s.id !== id) {
+                s.classList.remove('active');
+            }
         });
+        
+        // Toggle current submenu
         submenu.classList.toggle('active');
+        
+        console.log('Submenu state:', submenu.classList.contains('active'));
     }
 }
 
@@ -55,16 +65,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add active class to current page nav
+// Add active class to current page
 document.addEventListener('DOMContentLoaded', function() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
     document.querySelectorAll('.mobile-nav a').forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
+        const linkHref = link.getAttribute('href');
+        if (linkHref && linkHref.includes(currentPage)) {
             link.style.background = 'var(--primary)';
             link.style.color = 'var(--light)';
+            link.style.borderRadius = '12px';
         }
     });
+    
+    console.log('✅ Menu system initialized');
 });
 
+// Export functions
 window.toggleMenu = toggleMenu;
 window.toggleSubmenu = toggleSubmenu;
