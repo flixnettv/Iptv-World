@@ -3,23 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="IPTV World - Smart TV Apps & Activation">
-    <meta name="keywords" content="IPTV, Smart TV, Activation, Streaming">
     <title>IPTV World - Smart TV Apps</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📺%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
     <!-- Header -->
@@ -28,7 +22,7 @@
             <div class="logo">
                 <span>IpTv World</span>
             </div>
-            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -37,21 +31,14 @@
     <!-- Mobile Menu -->
     <nav class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-content">
-            <button class="close-menu" onclick="toggleMenu()" aria-label="Close">
+            <button class="close-menu" onclick="toggleMenu()">
                 <i class="fas fa-times"></i>
             </button>
             <ul>
-                <li>
-                    <a href="index.html" onclick="toggleMenu()">
-                        <i class="fas fa-home"></i> 
-                        HOME
-                    </a>
-                </li>
-                                <li class="has-submenu">
+                <li><a href="index.html" onclick="toggleMenu()">HOME</a></li>
+                <li class="has-submenu">
                     <a href="#" onclick="toggleSubmenu(event, 'smart-tv')">
-                        <i class="fas fa-tv"></i> 
-                        SMART TV ACTIVATION 
-                        <i class="fas fa-chevron-down"></i>
+                        SMART TV ACTIVATION <i class="fas fa-chevron-down"></i>
                     </a>
                     <ul class="submenu" id="smart-tv">
                         <li><a href="activate.html?app=flixiptv">Flixiptv Activation</a></li>
@@ -60,14 +47,10 @@
                         <li><a href="activate.html?app=elk">ELK Player</a></li>
                         <li><a href="activate.html?app=nanomid">nanomid</a></li>
                         <li><a href="activate.html?app=ssiptv">ssiptv Activation</a></li>
-                    </ul>
-                </li>
-                
+                    </ul>                </li>
                 <li class="has-submenu">
                     <a href="#" onclick="toggleSubmenu(event, 'apps')">
-                        <i class="fas fa-download"></i> 
-                        IPTV APPLICATION 
-                        <i class="fas fa-chevron-down"></i>
+                        IPTV APPLICATION <i class="fas fa-chevron-down"></i>
                     </a>
                     <ul class="submenu" id="apps">
                         <li><a href="app.html?name=aroma">Aroma iptv</a></li>
@@ -81,13 +64,7 @@
                         <li><a href="app.html?name=ipfox">Ipfox Tv</a></li>
                     </ul>
                 </li>
-                
-                <li>
-                    <a href="firestick.html">
-                        <i class="fas fa-fire"></i> 
-                        FIRESTICK
-                    </a>
-                </li>
+                <li><a href="firestick.html">FIRESTICK</a></li>
             </ul>
         </div>
     </nav>
@@ -96,13 +73,13 @@
     <section class="flix-hero" id="home">
         <div class="hero-overlay"></div>
         <div class="container">
-            <div class="hero-content">                <h1 class="hero-title">Smart Tv apps</h1>
+            <div class="hero-content">
+                <h1 class="hero-title">Smart Tv apps</h1>
                 <p class="hero-subtitle">
                     All your satellite world channels in one application android & 
                     smart Tv & apple Tv & windows & xtream & m3u
                 </p>
                 <a href="activate.html" class="flix-btn flix-btn-primary">
-                    <i class="fas fa-rocket"></i>
                     ACTIVATE APP + CHANNEL LIST ( LG / SAMSUNG / APPLE )
                 </a>
             </div>
@@ -118,21 +95,15 @@
                     <h3>Smart TV Activation</h3>
                     <p>Activate your Smart TV now</p>
                 </a>
-                <a href="app.html?name=flix" class="link-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>IPTV Applications</h3>
+                <a href="app.html" class="link-card">
+                    <i class="fas fa-mobile-alt"></i>                    <h3>IPTV Applications</h3>
                     <p>Download IPTV apps</p>
-                </a>
-                <a href="firestick.html" class="link-card">
-                    <i class="fas fa-fire"></i>
-                    <h3>Firestick Setup</h3>
-                    <p>Install on Firestick</p>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section class="flix-contact" id="contact">
         <div class="container">
             <div class="contact-box">
@@ -142,12 +113,11 @@
                     <a href="https://wa.me/201112246002" class="contact-link">+20 111 224 6002</a>
                 </div>
                 <div class="social-links">
-                    <a href="https://wa.me/201112246002" target="_blank" rel="noopener" class="social-btn whatsapp">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>WhatsApp</span>
-                    </a>                    <a href="https://t.me/FLlXX" target="_blank" rel="noopener" class="social-btn telegram">
-                        <i class="fab fa-telegram-plane"></i>
-                        <span>Telegram</span>
+                    <a href="https://wa.me/201112246002" target="_blank" class="social-btn whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="https://t.me/FLlXX" target="_blank" class="social-btn telegram">
+                        <i class="fab fa-telegram-plane"></i> Telegram
                     </a>
                 </div>
             </div>
@@ -157,26 +127,16 @@
     <!-- Footer -->
     <footer class="flix-footer">
         <div class="container">
-            <nav class="footer-nav">
-                <a href="#home">HOME</a>
-                <a href="activate.html">SMART TV APPLICATION ACTIVATION</a>
-                <a href="app.html">DOWNLOAD ALL IPTV SERVER</a>
-                <a href="firestick.html">INSTALL IPTV ON FIRESTICK</a>
-                <a href="#">CCCAM SERVER</a>
-                <a href="#">IPTV RESELLER</a>
-                <a href="#">AFFILIATE MARKETING</a>
-            </nav>
-            <p class="footer-text">©FlixFlash 2026/27</p>
+            <p>&copy;FlixFlash 2026/27</p>
         </div>
     </footer>
 
-    <!-- Floating Contact Button (WhatsApp Only - Left Side) -->
-    <a href="https://wa.me/201112246002" target="_blank" rel="noopener" class="floating-contact-btn" title="Contact Us on WhatsApp">
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/201112246002" target="_blank" class="floating-contact-btn">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- JavaScript Files -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/i18n.js"></script>
+    <!-- Scripts -->
+    <script src="./assets/js/main.js"></script>
 </body>
 </html>
