@@ -3,86 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="hero.title">IPTV World - أفضل خدمات IPTV</title>
+    <title>IPTV World - أفضل خدمات IPTV</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <!-- Header -->
+    <header class="main-header">
         <div class="container">
-            <div class="navbar-brand">
-                <a href="/">
-                    <i class="fas fa-tv"></i>
-                    <span>IPTV World</span>
-                </a>
+            <div class="logo">
+                <i class="fas fa-tv"></i>
+                <span>IPTV World</span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="/" class="active" data-i18n="nav.home">الرئيسية</a></li>
-                <li><a href="mac-lookup.html" data-i18n="nav.mac-lookup">فحص الجهاز</a></li>
-                <li><a href="#pricing" data-i18n="nav.pricing">الأسعار</a></li>
-                <li><a href="#payment" data-i18n="nav.payment">الدفع</a></li>
-            </ul>
-            
-            <!-- Language Switcher -->
-            <button class="lang-switcher-btn" onclick="toggleLanguage()" title="Change Language">
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home" data-i18n="nav.home">الرئيسية</a></li>
+                    <li><a href="#apps" data-i18n="nav.apps">التطبيقات</a></li>
+                    <li><a href="mac-lookup.html" data-i18n="nav.mac">فحص الجهاز</a></li>
+                    <li><a href="#pricing" data-i18n="nav.pricing">الأسعار</a></li>
+                    <li><a href="#contact" data-i18n="nav.contact">تواصل معنا</a></li>
+                </ul>
+            </nav>
+            <button class="lang-switcher-btn" onclick="toggleLanguage()">
                 <i class="fas fa-globe"></i>
-                <span class="lang-switcher">EN</span>
+                <span id="langText">EN</span>
             </button>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
-    <header class="hero">
+    <section class="hero" id="home">
         <div class="container">
-            <h1 data-i18n="hero.title">عالم من الترفيه بين يديك</h1>
-            <p data-i18n="hero.subtitle">أفضل خدمات IPTV العربية والعالمية بجودة HD/FHD/4K</p>
+            <h1 data-i18n="hero.title">عالم IPTV بين يديك</h1>
+            <p data-i18n="hero.subtitle">فعل تطبيقات IPTV والشاشات الذكية بأفضل الأسعار وجودة عالية</p>
             <div class="hero-buttons">
-                <a href="#payment" class="btn btn-primary" data-i18n="hero.subscribe">اشترك الآن</a>
-                <a href="mac-lookup.html" class="btn btn-secondary" data-i18n="hero.check-device">افحص جهازك</a>
+                <a href="#apps" class="btn btn-primary" data-i18n="hero.browse">
+                    <i class="fas fa-th"></i> تصفح التطبيقات
+                </a>
+                <a href="#contact" class="btn btn-outline" data-i18n="hero.contact">
+                    <i class="fas fa-comment"></i> تواصل معنا
+                </a>
+            </div>        </div>
+    </section>
+
+    <!-- Apps Section -->
+    <section class="apps-section" id="apps">
+        <div class="container">
+            <div class="section-title">
+                <i class="fas fa-th"></i>
+                <h2 data-i18n="apps.title">تطبيقاتنا المتاحة</h2>
+                <p data-i18n="apps.subtitle">اختر التطبيق المناسب لك وفعله الآن بسعر موحد</p>
+            </div>
+            
+            <div class="apps-grid">
+                <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3 data-i18n="app1.name">تطبيق IPTV Pro</h3>
+                    <p data-i18n="app1.desc">أفضل تطبيق لمشاهدة القنوات العربية والعالمية</p>
+                    <div class="app-price">
+                        <span class="price">70$</span>
+                        <span class="period" data-i18n="app.period">/ سنوياً</span>
+                    </div>
+                    <a href="#payment" class="btn btn-primary btn-sm" data-i18n="app.subscribe">اشترك الآن</a>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h3 data-i18n="app2.name">تطبيق Smart TV</h3>
+                    <p data-i18n="app2.desc">متوافق مع جميع أجهزة الشاشات الذكية</p>
+                    <div class="app-price">
+                        <span class="price">70$</span>
+                        <span class="period" data-i18n="app.period">/ سنوياً</span>
+                    </div>
+                    <a href="#payment" class="btn btn-primary btn-sm" data-i18n="app.subscribe">اشترك الآن</a>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 data-i18n="app3.name">تطبيق Mobile</h3>
+                    <p data-i18n="app3.desc">شاهد على هاتفك المحمول في أي مكان</p>
+                    <div class="app-price">
+                        <span class="price">70$</span>
+                        <span class="period" data-i18n="app.period">/ سنوياً</span>
+                    </div>
+                    <a href="#payment" class="btn btn-primary btn-sm" data-i18n="app.subscribe">اشترك الآن</a>                </div>
             </div>
         </div>
-    </header>
+    </section>
 
     <!-- Features -->
     <section class="features">
         <div class="container">
-            <h2 data-i18n="features.title">لماذا تختارنا؟</h2>            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-broadcast-tower"></i>
-                    <h3 data-i18n="features.quality.title">بث مباشر عالي الجودة</h3>
-                    <p data-i18n="features.quality.desc">قنوات بجودة HD/FHD/4K بدون تقطيع</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-globe"></i>
-                    <h3 data-i18n="features.channels.title">قنوات عربية وعالمية</h3>
-                    <p data-i18n="features.channels.desc">آلاف القنوات من جميع أنحاء العالم</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-headset"></i>
-                    <h3 data-i18n="features.support.title">دعم فني 24/7</h3>
-                    <p data-i18n="features.support.desc">فريق دعم جاهز لمساعدتك في أي وقت</p>
-                </div>
+            <div class="feature-card">
+                <i class="fas fa-broadcast-tower"></i>
+                <h3 data-i18n="feat1.title">بث مباشر عالي الجودة</h3>
+                <p data-i18n="feat1.desc">قنوات بجودة HD/FHD/4K بدون تقطيع</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-globe"></i>
+                <h3 data-i18n="feat2.title">قنوات عربية وعالمية</h3>
+                <p data-i18n="feat2.desc">آلاف القنوات من جميع أنحاء العالم</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-headset"></i>
+                <h3 data-i18n="feat3.title">دعم فني 24/7</h3>
+                <p data-i18n="feat3.desc">فريق دعم جاهز لمساعدتك في أي وقت</p>
             </div>
         </div>
     </section>
 
     <!-- Pricing -->
-    <section id="pricing" class="pricing">
+    <section class="pricing" id="pricing">
         <div class="container">
-            <h2 data-i18n="pricing.title">الأسعار</h2>
             <div class="pricing-card">
                 <h3 data-i18n="pricing.plan">اشتراك سنوي</h3>
-                <div class="price">
+                <div class="price-tag">
                     <span class="amount">70</span>
                     <span class="currency">$</span>
                     <span class="period" data-i18n="pricing.period">/ سنة</span>
                 </div>
                 <ul class="features-list">
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.features.all-channels">جميع القنوات</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.features.quality">جودة HD/FHD/4K</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.features.support">دعم فني 24/7</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.features.updates">تحديثات مستمرة</span></li>
+                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.f1">جميع القنوات</span></li>
+                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.f2">جودة HD/FHD/4K</span></li>
+                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.f3">دعم فني 24/7</span></li>
+                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.f4">تحديثات مستمرة</span></li>
                 </ul>
                 <a href="#payment" class="btn btn-primary btn-block" data-i18n="pricing.subscribe">اشترك الآن</a>
             </div>
@@ -90,29 +144,48 @@
     </section>
 
     <!-- Payment -->
-    <section id="payment" class="payment">
-        <div class="container">
-            <h2 data-i18n="payment.title">طرق الدفع</h2>
+    <section class="payment" id="payment">
+        <div class="container">            <h2 data-i18n="payment.title">طرق الدفع</h2>
             <div class="payment-methods">
                 <a href="https://buy.stripe.com/YOUR_LINK" class="payment-card" target="_blank">
                     <i class="fas fa-credit-card"></i>
-                    <h3 data-i18n="payment.credit-card">بطاقة ائتمان</h3>                    <p data-i18n="payment.credit-card.desc">ادفع بأمان عبر Stripe</p>
-                    <span class="price-tag">$70</span>
+                    <h4 data-i18n="payment.card">بطاقة ائتمان</h4>
+                    <p data-i18n="payment.cardDesc">ادفع بأمان عبر Stripe</p>
+                    <span class="price">70$</span>
                 </a>
-
                 <a href="https://paypal.me/YOUR_USERNAME/70USD" class="payment-card" target="_blank">
                     <i class="fab fa-paypal"></i>
-                    <h3 data-i18n="payment.paypal">PayPal</h3>
-                    <p data-i18n="payment.paypal.desc">دفع سريع عبر PayPal</p>
-                    <span class="price-tag">$70</span>
+                    <h4>PayPal</h4>
+                    <p data-i18n="payment.paypalDesc">دفع سريع عبر PayPal</p>
+                    <span class="price">70$</span>
                 </a>
-
                 <div class="payment-card">
                     <i class="fab fa-bitcoin"></i>
-                    <h3 data-i18n="payment.crypto">العملات الرقمية</h3>
-                    <p data-i18n="payment.crypto.desc">Bitcoin, USDT, Ethereum</p>
-                    <button class="btn btn-secondary" onclick="showCryptoInfo()" data-i18n="payment.show-details">عرض التفاصيل</button>
+                    <h4 data-i18n="payment.crypto">العملات الرقمية</h4>
+                    <p data-i18n="payment.cryptoDesc">Bitcoin, USDT, Ethereum</p>
+                    <button class="btn btn-sm" onclick="showCryptoInfo()" data-i18n="payment.details">عرض التفاصيل</button>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 data-i18n="contact.title">تواصل معنا</h2>
+            <div class="contact-info">
+                <a href="https://t.me/YOUR_USERNAME" target="_blank">
+                    <i class="fab fa-telegram"></i>
+                    <span>Telegram</span>
+                </a>
+                <a href="https://wa.me/YOUR_NUMBER" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="mailto:support@iptvworld.com">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
             </div>
         </div>
     </section>
@@ -121,18 +194,53 @@
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 IPTV World. <span data-i18n="footer.rights">جميع الحقوق محفوظة</span></p>
-        </div>
-    </footer>
+        </div>    </footer>
 
-    <!-- Scripts -->
+    <!-- Floating Contact Button -->
+    <div class="floating-contact">
+        <a href="https://t.me/YOUR_USERNAME" target="_blank" class="floating-btn telegram" title="Telegram">
+            <i class="fab fa-telegram"></i>
+        </a>
+        <a href="https://wa.me/YOUR_NUMBER" target="_blank" class="floating-btn whatsapp" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <button class="floating-btn-toggle" onclick="toggleFloatingMenu()" title="تواصل معنا">
+            <i class="fas fa-comments"></i>
+        </button>
+    </div>
+
     <script src="assets/js/i18n.js"></script>
     <script>
+        function toggleMenu() {
+            document.querySelector('.main-nav').classList.toggle('active');
+        }
+
+        function toggleFloatingMenu() {
+            document.querySelector('.floating-contact').classList.toggle('active');
+        }
+
         function showCryptoInfo() {
             const msg = I18N.currentLang === 'ar' 
                 ? 'Bitcoin: your_wallet_address\nUSDT (TRC20): your_wallet_address'
                 : 'Bitcoin: your_wallet_address\nUSDT (TRC20): your_wallet_address';
             alert(msg);
         }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            const floatingContact = document.querySelector('.floating-contact');
+            if (!floatingContact.contains(event.target) && floatingContact.classList.contains('active')) {
+                floatingContact.classList.remove('active');
+            }
+        });
     </script>
-</body>
-</html>
+</body></html>
