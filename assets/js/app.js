@@ -1,5 +1,5 @@
 // app.js
-// Wait for DOM and Supabase to be ready
+// Load applications from Supabase
 
 async function loadApps() {
   const container = document.getElementById('apps-container');
@@ -18,9 +18,9 @@ async function loadApps() {
       </div>
     `;
 
-    // Check if Supabase is available
+    // Check if Supabase client is available
     if (!window.supabaseClient) {
-      throw new Error('Supabase client not initialized');
+      throw new Error('Supabase client not initialized. Waiting...');
     }
 
     // Fetch from Supabase
