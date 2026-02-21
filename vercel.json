@@ -3,11 +3,11 @@
   "name": "iptv-world",
   "builds": [
     {
-      "src": "api/*.js",
+      "src": "api/**/*.js",
       "use": "@vercel/node"
     },
     {
-      "src": "**/*.{html,css,js,png,jpg,jpeg,svg,gif}",
+      "src": "**/*.{html,css,js,png,jpg,jpeg,svg,gif,ico,txt,md}",
       "use": "@vercel/static"
     }
   ],
