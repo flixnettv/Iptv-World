@@ -1,39 +1,116 @@
-// api/supabase-proxy.js (Vercel Edge Function)
-    import { createClient } from '@supabase/supabase-js';
+// api/supabase-proxy.js
+// IPTV World - Secure Supabase Proxy API
+// Environment: Vercel Edge Runtime
 
-    const supabase = createClient(
-      process.env.SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY // أو ANON_KEY إذا كانت RLS مفعلة
+export const config = {
+  runtime: 'edge',
+};
+
+export default async function handler(req) {
+  // CORS Headers
+  const corsHeaders = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  };
+
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+    return new Response(null, {
+      status: 200,
+      headers: corsHeaders,
+    });
+  }
+
+  // Only allow GET requests
+  if (req.method !== 'GET') {
+    return new Response(
+      JSON.stringify({ error: 'Method not allowed' }),
+      { 
+        status: 405, 
+        headers: { 
+          'Content-Type': 'application/json',
+          ...corsHeaders 
+        } 
+      }
+    );
+  }
+
+  try {
+    // Get environment variables
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_ANON_KEY;
+
+    if (!supabaseUrl || !supabaseKey) {
+      throw new Error('Missing Supabase configuration');
+    }
+
+    // Parse URL and get table name
+    const url = new URL(req.url);
+    const table = url.searchParams.get('table') || 'apps';    const id = url.searchParams.get('id');
+
+    // Validate table name (security)
+    const allowedTables = ['apps', 'orders', 'contacts'];
+    if (!allowedTables.includes(table)) {
+      throw new Error('Invalid table name');
+    }
+
+    // Build Supabase URL
+    let supabaseEndpoint = `${supabaseUrl}/rest/v1/${table}`;
+    
+    if (id) {
+      supabaseEndpoint += `?id=eq.${id}`;
+    }
+
+    // Make request to Supabase
+    const response = await fetch(supabaseEndpoint, {
+      method: 'GET',
+      headers: {
+        'apikey': supabaseKey,
+        'Authorization': `Bearer ${supabaseKey}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=representation',
+      },
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Supabase error: ${response.status} - ${errorText}`);
+    }
+
+    const data = await response.json();
+
+    return new Response(
+      JSON.stringify({
+        success: true,
+        data: data,
+        timestamp: new Date().toISOString(),
+      }),
+      { 
+        status: 200,
+        headers: { 
+          'Content-Type': 'application/json',
+          'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=120',
+          ...corsHeaders 
+        } 
+      }
     );
 
-    export default async function handler(req, res) {
-      // فقط GET مسموح
-      if (req.method !== 'GET') {
-        return res.status(405).json({ error: 'Method not allowed' });
+  } catch (error) {    console.error('API Proxy Error:', error);
+    
+    return new Response(
+      JSON.stringify({
+        success: false,
+        error: error.message,
+        timestamp: new Date().toISOString(),
+      }),
+      { 
+        status: 500,
+        headers: { 
+          'Content-Type': 'application/json',
+          ...corsHeaders 
+        } 
       }
-
-      const { table, select = '*', eq } = req.query;
-
-      if (!table) {
-        return res.status(400).json({ error: 'Table name is required' });
-      }
-
-      let query = supabase.from(table).select(select);
-
-      if (eq) {
-        const [column, value] = eq.split(':');
-        if (column && value) {
-          query = query.eq(column, value);
-        }
-      }
-
-      const { data, error } = await query;
-
-      if (error) {
-        console.error('Supabase Error:', error);
-        return res.status(500).json({ error: error.message });
-      }
-
-      res.setHeader('Content-Type', 'application/json');
-      res.status(200).json(data);
-    }
+    );
+  }
+}

@@ -1,6 +1,33 @@
-// assets/js/config.js
-// ⚠️ هذا الملف يجب أن يُحمّل قبل app.js في index.html
-window.SUPABASE_CONFIG = {
-  url: 'https://kiygsjsaxijwebqwmccb.supabase.co',
-  anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtpeWdzanNheGlqd2VicXdtY2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE0NDYxNTUsImV4cCI6MjA4NzAyMjE1NX0.-dB4Wk_q_pSRyra6Pk98ke9dG_6v3KL7j7rVDi1p31A'
+/**
+ * IPTV World - Configuration File
+ * إعدادات التطبيق العامة
+ */
+
+window.AppConfig = {
+    // التطبيق
+    appName: 'IPTV World',
+    appVersion: '2.0.0',
+    
+    // الإعدادات
+    settings: {
+        itemsPerPage: 12,
+        cacheDuration: 3600, // 1 hour
+        enableNotifications: true,
+    },
+    
+    // روابط مهمة
+    links: {
+        support: 'mailto:support@iptvworld.com',
+        telegram: 'https://t.me/iptvworld',
+        whatsapp: 'https://wa.me/1234567890',
+    },
+    
+    // النصوص
+    texts: {
+        loading: 'جاري التحميل...',
+        error: 'حدث خطأ',
+        success: 'تم بنجاح',
+    },
 };
+
+console.log('📋 AppConfig Loaded');
