@@ -1,6 +1,5 @@
 /* ===================================
-   IPTV World - Enhanced Alignment
-   Fixed Menu & Improved UX
+   IPTV World - Fixed Alignment & RTL
    =================================== */
 
 * {
@@ -41,14 +40,14 @@ body {
     padding: 0 20px;
 }
 
-/* Header - Fixed Position */
+/* Header - Fixed */
 .flix-header {
     background: var(--light);
     box-shadow: var(--shadow-md);
     padding: 1rem 0;
-    position: fixed;  /* ✅ Fixed position */
-    top: 0;    left: 0;
-    right: 0;
+    position: fixed;
+    top: 0;
+    left: 0;    right: 0;
     z-index: 1000;
     height: 70px;
 }
@@ -59,14 +58,17 @@ body {
     align-items: center;
 }
 
+.logo {
+    order: 2; /* ✅ Logo on right */
+}
+
 .logo span {
     font-size: 1.5rem;
     font-weight: 800;
     color: var(--dark);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Mobile Menu Button - Right Side */
+/* Menu Button - Left Side */
 .mobile-menu-btn {
     display: block;
     background: none;
@@ -75,15 +77,15 @@ body {
     cursor: pointer;
     color: var(--dark);
     padding: 0.5rem;
-    order: 2; /* ✅ Right side */
+    order: 1; /* ✅ Button on left */
 }
 
-/* Mobile Menu */
+/* Mobile Menu - From Right */
 .mobile-nav {
     display: none;
     position: fixed;
-    top: 70px;  /* Below header */
-    right: 0;   /* ✅ Right side always */
+    top: 70px;
+    right: 0;
     left: auto;
     width: 85%;
     max-width: 400px;
@@ -94,9 +96,9 @@ body {
 }
 
 @keyframes slideFromRight {
-    from { transform: translateX(100%); }
-    to { transform: translateX(0); }
+    from { transform: translateX(100%); }    to { transform: translateX(0); }
 }
+
 .mobile-nav.active {
     display: block;
 }
@@ -113,7 +115,7 @@ body {
 .close-menu {
     position: absolute;
     top: 1rem;
-    right: 1rem;  /* ✅ Right side */
+    right: 1rem;
     background: none;
     border: none;
     font-size: 1.5rem;
@@ -121,61 +123,21 @@ body {
     color: var(--dark);
 }
 
-.mobile-nav ul {
-    list-style: none;
-    margin-top: 3rem;
-}
-
-.mobile-nav li {
-    margin-bottom: 0.5rem;
-}
-
-.mobile-nav a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    color: var(--dark);
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 12px;
-    transition: all 0.3s;
-}
-
-.mobile-nav a:hover {
-    background: var(--primary);
-    color: var(--light);
-}
-.mobile-nav a i:first-child {
-    margin-left: 0.75rem;
-}
-
-.submenu {
-    display: none;
-    margin-top: 0.5rem;
-    padding-right: 2rem;
-}
-
-.submenu.active {
-    display: block;
-    animation: fadeIn 0.3s ease;
-}
-
-.submenu a {
-    padding: 0.75rem 1rem;
-    font-size: 0.9rem;
-}
-
-/* Hero Section - Add padding for fixed header */
+/* Hero Section with Background Image */
 .flix-hero {
     position: relative;
     min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%);
+    /* ✅ Correct path to background image */
+    background: linear-gradient(135deg, rgba(26,26,46,0.9) 0%, rgba(22,33,62,0.9) 100%),
+                url('assets/images/tv-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     padding: 6rem 0 4rem;
-    margin-top: 70px; /* ✅ Account for fixed header */
+    margin-top: 70px;
 }
 
 .hero-overlay {
@@ -183,8 +145,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    background: rgba(26, 26, 46, 0.85);
+    bottom: 0;    background: rgba(26, 26, 46, 0.7);
 }
 
 .hero-content {
@@ -194,6 +155,7 @@ body {
     max-width: 800px;
     padding: 2rem;
 }
+
 .hero-title {
     font-size: clamp(2.5rem, 6vw, 4rem);
     color: var(--light);
@@ -232,8 +194,7 @@ body {
 
 .flix-btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(233, 30, 99, 0.5);
-}
+    box-shadow: 0 12px 35px rgba(233, 30, 99, 0.5);}
 
 /* Quick Links */
 .quick-links {
@@ -243,7 +204,8 @@ body {
 
 .links-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
 }
 
 .link-card {
@@ -270,12 +232,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.link-card h3 {
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-}
-
-/* Contact Section */
+/* Contact */
 .flix-contact {
     background: var(--gray);
     padding: 4rem 0;
@@ -287,14 +244,10 @@ body {
     margin: 0 auto;
     text-align: center;
 }
-
 .contact-box h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
     font-weight: 800;
-}
-.contact-info {
-    margin-bottom: 2rem;
 }
 
 .contact-info strong {
@@ -313,6 +266,7 @@ body {
     gap: 1.5rem;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 2rem;
 }
 
 .social-btn {
@@ -338,10 +292,10 @@ body {
 
 .social-btn:hover {
     transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
-}
+    box-shadow: var(--shadow-lg);}
 
-/* Footer */.flix-footer {
+/* Footer */
+.flix-footer {
     background: var(--dark);
     color: var(--light);
     padding: 3rem 0 2rem;
@@ -362,22 +316,17 @@ body {
     font-weight: 600;
 }
 
-.footer-nav a:hover {
-    color: var(--primary-light);
-}
-
 .footer-text {
     text-align: center;
     color: rgba(255,255,255,0.6);
     font-size: 0.9rem;
 }
 
-/* Floating Contact Button - LEFT SIDE ALWAYS */
+/* Floating Contact Button - FIXED POSITION */
 .floating-contact-btn {
     position: fixed;
     bottom: 30px;
-    left: 30px;  /* ✅ Always left */
-    right: auto;
+    left: 30px;
     width: 65px;
     height: 65px;
     background: linear-gradient(135deg, #25D366 0%, #128c7e 100%);
@@ -389,10 +338,10 @@ body {
     font-size: 2rem;
     box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4), 0 4px 15px rgba(0,0,0,0.2);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 9999;
-    animation: float 3s ease-in-out infinite;    text-decoration: none;
+    z-index: 99999; /* ✅ Very high z-index */
+    animation: float 3s ease-in-out infinite;
+    text-decoration: none;
 }
-
 .floating-contact-btn:hover {
     transform: scale(1.15) translateY(-5px);
     box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5);
@@ -407,7 +356,7 @@ body {
 .activate-page {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     min-height: 100vh;
-    padding-top: 70px; /* ✅ Account for fixed header */
+    padding-top: 70px;
 }
 
 .activate-wrapper {
@@ -439,9 +388,9 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.step-icon {    width: 80px;
-    height: 80px;
-    margin: 0 auto 1.5rem;
+.step-icon {
+    width: 80px;
+    height: 80px;    margin: 0 auto 1.5rem;
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     border-radius: 50%;
     display: flex;
@@ -489,8 +438,8 @@ body {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
 }
-.v16-btn-blue {
-    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+
+.v16-btn-blue {    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
     color: var(--light) !important;
 }
 
@@ -500,9 +449,30 @@ body {
     border: 2px solid #e9ecef;
 }
 
+/* Action Buttons - Fixed Arrows */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 1.5rem;
+}
+
+.action-buttons .v16-btn {
+    flex: 1;
+}
+
+/* ✅ Fix arrow directions for RTL */
+html[dir="rtl"] .v16-btn .fa-arrow-right {
+    transform: rotate(180deg);
+}
+
+html[dir="rtl"] .v16-btn .fa-arrow-left {
+    transform: rotate(180deg);
+}
+
 /* Phone Input with Flag */
 .phone-wrapper {
     margin: 1rem 0;
+    text-align: left;
 }
 
 .phone-wrapper .iti {
@@ -514,30 +484,20 @@ body {
     height: 60px !important;
     border: 2px solid #e9ecef !important;
     border-radius: 18px !important;
-    padding: 0 20px 0 80px !important; /* ✅ Space for flag */
+    padding: 0 20px 0 80px !important;
     font-size: 17px !important;
 }
 
-.action-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 1.5rem;
-}
-
-.action-buttons .v16-btn {
-    flex: 1;
-}
-
-/* App Details */
-.app-details-wrapper {
-    padding: 7rem 0 4rem; /* ✅ Account for fixed header */
+/* App Details */.app-details-wrapper {
+    padding: 7rem 0 4rem;
     background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
     min-height: 80vh;
 }
 
 .app-header {
     text-align: center;
-    margin-bottom: 3rem;}
+    margin-bottom: 3rem;
+}
 
 .app-logo {
     width: 150px;
@@ -577,8 +537,7 @@ body {
 }
 
 .price-amount {
-    margin: 1.5rem 0;
-    text-align: center;
+    margin: 1.5rem 0;    text-align: center;
 }
 
 .price-amount .currency {
@@ -587,6 +546,7 @@ body {
     color: var(--primary);
     vertical-align: top;
 }
+
 .price-amount .amount {
     font-size: 4rem;
     font-weight: 900;
@@ -626,18 +586,9 @@ body {
 
     .floating-contact-btn {
         width: 60px;
-        height: 60px;
-        font-size: 1.75rem;
+        height: 60px;        font-size: 1.75rem;
         bottom: 20px;
         left: 20px;
-    }
-
-    .v16-btn {
-        font-size: 14px;
-        height: 50px;
-    }
-    .action-buttons {
-        flex-direction: column;
     }
 }
 
