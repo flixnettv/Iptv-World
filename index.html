@@ -3,28 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="IPTV World - أفضل خدمات IPTV العربية والعالمية. قنوات HD/FHD/4K بأسعار مميزة">
-    <meta name="keywords" content="IPTV, قنوات, بث مباشر, رياضة, أفلام, مسلسلات">
-    <meta name="author" content="Hany">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="IPTV World - عالم البث المباشر">
-    <meta property="og:description" content="أفضل خدمات IPTV العربية والعالمية">
-    <meta property="og:type" content="website">
-    
-    <title>IPTV World - أفضل خدمات IPTV العربية والعالمية</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <title data-i18n="hero.title">IPTV World - أفضل خدمات IPTV</title>
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
@@ -36,243 +17,122 @@
                     <span>IPTV World</span>
                 </a>
             </div>
-            
-            <button class="mobile-menu-btn" aria-label="القائمة">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            
             <ul class="nav-menu">
-                <li><a href="/" class="active">الرئيسية</a></li>
-                <li><a href="#apps">التطبيقات</a></li>
-                <li><a href="#features">المميزات</a></li>
-                <li><a href="#pricing">الأسعار</a></li>                <li><a href="#contact">تواصل معنا</a></li>
+                <li><a href="/" class="active" data-i18n="nav.home">الرئيسية</a></li>
+                <li><a href="mac-lookup.html" data-i18n="nav.mac-lookup">فحص الجهاز</a></li>
+                <li><a href="#pricing" data-i18n="nav.pricing">الأسعار</a></li>
+                <li><a href="#payment" data-i18n="nav.payment">الدفع</a></li>
             </ul>
+            
+            <!-- Language Switcher -->
+            <button class="lang-switcher-btn" onclick="toggleLanguage()" title="Change Language">
+                <i class="fas fa-globe"></i>
+                <span class="lang-switcher">EN</span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <header class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>عالم من الترفيه بين يديك</h1>
-                <p>أفضل خدمات IPTV العربية والعالمية بجودة HD/FHD/4K</p>
-                <div class="hero-buttons">
-                    <a href="#apps" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i>
-                        ابدأ الآن
-                    </a>
-                    <a href="#features" class="btn btn-secondary">
-                        <i class="fas fa-info-circle"></i>
-                        اعرف المزيد
-                    </a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number stats-count">0</span>
-                        <span class="stat-label">تطبيق متاح</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">10000+</span>
-                        <span class="stat-label">قناة</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-label">دعم فني</span>
-                    </div>
-                </div>
+            <h1 data-i18n="hero.title">عالم من الترفيه بين يديك</h1>
+            <p data-i18n="hero.subtitle">أفضل خدمات IPTV العربية والعالمية بجودة HD/FHD/4K</p>
+            <div class="hero-buttons">
+                <a href="#payment" class="btn btn-primary" data-i18n="hero.subscribe">اشترك الآن</a>
+                <a href="mac-lookup.html" class="btn btn-secondary" data-i18n="hero.check-device">افحص جهازك</a>
             </div>
         </div>
-        <div class="hero-bg"></div>
     </header>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
+    <!-- Features -->
+    <section class="features">
         <div class="container">
-            <div class="section-header">
-                <h2>لماذا تختارنا؟</h2>
-                <p>نقدم لك أفضل تجربة مشاهدة مع مميزات حصرية</p>
-            </div>
-            
-            <div class="features-grid">
-                <div class="feature-card">                    <div class="feature-icon">
-                        <i class="fas fa-broadcast-tower"></i>
-                    </div>
-                    <h3>بث مباشر عالي الجودة</h3>
-                    <p>قنوات بجودة HD/FHD/4K بدون تقطيع</p>
-                </div>
-                
+            <h2 data-i18n="features.title">لماذا تختارنا؟</h2>            <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>قنوات عربية وعالمية</h3>
-                    <p>آلاف القنوات من جميع أنحاء العالم</p>
+                    <i class="fas fa-broadcast-tower"></i>
+                    <h3 data-i18n="features.quality.title">بث مباشر عالي الجودة</h3>
+                    <p data-i18n="features.quality.desc">قنوات بجودة HD/FHD/4K بدون تقطيع</p>
                 </div>
-                
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>دعم فني 24/7</h3>
-                    <p>فريق دعم جاهز لمساعدتك في أي وقت</p>
+                    <i class="fas fa-globe"></i>
+                    <h3 data-i18n="features.channels.title">قنوات عربية وعالمية</h3>
+                    <p data-i18n="features.channels.desc">آلاف القنوات من جميع أنحاء العالم</p>
                 </div>
-                
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h3>تحديثات مستمرة</h3>
-                    <p>إضافة قنوات جديدة بشكل دوري</p>
+                    <i class="fas fa-headset"></i>
+                    <h3 data-i18n="features.support.title">دعم فني 24/7</h3>
+                    <p data-i18n="features.support.desc">فريق دعم جاهز لمساعدتك في أي وقت</p>
                 </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>خدمة آمنة ومستقرة</h3>
-                    <p>سيرفرات قوية لضمان استقرار الخدمة</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>توافق مع جميع الأجهزة</h3>
-                    <p>اعمل على Smart TV, هاتف, كمبيوتر</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Apps Section -->
-    <section id="apps" class="apps-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>تطبيقاتنا المتاحة</h2>
-                <p>اختر التطبيق المناسب لك وابدأ الرحلة</p>
-            </div>
-            
-            <div id="apps-container">
-                <!-- Apps will be loaded here by JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
+    <!-- Pricing -->
     <section id="pricing" class="pricing">
         <div class="container">
-            <div class="section-header">
-                <h2>الأسعار</h2>
-                <p>أسعار تنافسية مع أفضل جودة</p>
+            <h2 data-i18n="pricing.title">الأسعار</h2>
+            <div class="pricing-card">
+                <h3 data-i18n="pricing.plan">اشتراك سنوي</h3>
+                <div class="price">
+                    <span class="amount">70</span>
+                    <span class="currency">$</span>
+                    <span class="period" data-i18n="pricing.period">/ سنة</span>
+                </div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.features.all-channels">جميع القنوات</span></li>
+                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.features.quality">جودة HD/FHD/4K</span></li>
+                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.features.support">دعم فني 24/7</span></li>
+                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.features.updates">تحديثات مستمرة</span></li>
+                </ul>
+                <a href="#payment" class="btn btn-primary btn-block" data-i18n="pricing.subscribe">اشترك الآن</a>
             </div>
-            
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>اشتراك سنوي</h3>
-                        <div class="price">
-                            <span class="amount">70</span>
-                            <span class="currency">$</span>
-                            <span class="period">/ سنة</span>
-                        </div>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> جميع القنوات</li>
-                        <li><i class="fas fa-check"></i> جودة HD/FHD/4K</li>
-                        <li><i class="fas fa-check"></i> دعم فني 24/7</li>
-                        <li><i class="fas fa-check"></i> تحديثات مستمرة</li>
-                        <li><i class="fas fa-check"></i> جهاز واحد</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary btn-block">اشترك الآن</a>
+        </div>
+    </section>
+
+    <!-- Payment -->
+    <section id="payment" class="payment">
+        <div class="container">
+            <h2 data-i18n="payment.title">طرق الدفع</h2>
+            <div class="payment-methods">
+                <a href="https://buy.stripe.com/YOUR_LINK" class="payment-card" target="_blank">
+                    <i class="fas fa-credit-card"></i>
+                    <h3 data-i18n="payment.credit-card">بطاقة ائتمان</h3>                    <p data-i18n="payment.credit-card.desc">ادفع بأمان عبر Stripe</p>
+                    <span class="price-tag">$70</span>
+                </a>
+
+                <a href="https://paypal.me/YOUR_USERNAME/70USD" class="payment-card" target="_blank">
+                    <i class="fab fa-paypal"></i>
+                    <h3 data-i18n="payment.paypal">PayPal</h3>
+                    <p data-i18n="payment.paypal.desc">دفع سريع عبر PayPal</p>
+                    <span class="price-tag">$70</span>
+                </a>
+
+                <div class="payment-card">
+                    <i class="fab fa-bitcoin"></i>
+                    <h3 data-i18n="payment.crypto">العملات الرقمية</h3>
+                    <p data-i18n="payment.crypto.desc">Bitcoin, USDT, Ethereum</p>
+                    <button class="btn btn-secondary" onclick="showCryptoInfo()" data-i18n="payment.show-details">عرض التفاصيل</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <div class="section-header">
-                <h2>تواصل معنا</h2>                <p>نحن هنا لمساعدتك في أي وقت</p>
-            </div>
-            
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>البريد الإلكتروني</h4>
-                            <p>support@iptvworld.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fab fa-telegram"></i>
-                        <div>
-                            <h4>تيليجرام</h4>
-                            <p>@iptvworld</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <div>
-                            <h4>واتساب</h4>
-                            <p>+1 234 567 890</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <form class="contact-form" data-ajax>
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="الاسم" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="البريد الإلكتروني" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" rows="5" placeholder="رسالتك" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">
-                        <i class="fas fa-paper-plane"></i>
-                        إرسال الرسالة
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3><i class="fas fa-tv"></i> IPTV World</h3>
-                    <p>أفضل خدمات IPTV العربية والعالمية</p>
-                </div>
-                
-                <div class="footer-links">
-                    <a href="/">الرئيسية</a>
-                    <a href="#apps">التطبيقات</a>
-                    <a href="#pricing">الأسعار</a>
-                    <a href="#contact">تواصل معنا</a>
-                </div>
-                
-                <div class="footer-social">
-                    <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 IPTV World. جميع الحقوق محفوظة</p>
-            </div>
+            <p>&copy; 2026 IPTV World. <span data-i18n="footer.rights">جميع الحقوق محفوظة</span></p>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="/assets/js/config.js"></script>
-    <script type="module" src="/assets/js/app.js"></script>
+    <script src="assets/js/i18n.js"></script>
+    <script>
+        function showCryptoInfo() {
+            const msg = I18N.currentLang === 'ar' 
+                ? 'Bitcoin: your_wallet_address\nUSDT (TRC20): your_wallet_address'
+                : 'Bitcoin: your_wallet_address\nUSDT (TRC20): your_wallet_address';
+            alert(msg);
+        }
+    </script>
 </body>
 </html>
