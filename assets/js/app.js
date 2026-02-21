@@ -1,33 +1,44 @@
 // app.js
-// Load apps directly using window.supabase (after config.js loads)
-
-async function loadApps() {
+document.addEventListener('DOMContentLoaded', async () => {
   const container = document.getElementById('apps-container');
   if (!container) return;
 
-  try {
-    // Show loading
+  // 1. تحقق من وجود window.SUPABASE_CONFIG
+  if (typeof window.SUPABASE_CONFIG === 'undefined') {
     container.innerHTML = `
-      <div class="loading" role="status">
-        <i class="fas fa-spinner fa-spin"></i>
-        <p>جاري التحميل...</p>
+      <div class="error">
+        <i class="fas fa-exclamation-triangle"></i>
+        <p>⚠️ خطأ: ملف config.js لم يُحمّل بشكل صحيح</p>
+        <small>الرجاء التأكد من:</small>
+        <ul>
+          <li>الملف assets/js/config.js موجود</li>
+          <li>الترتيب في index.html: config.js قبل app.js</li>
+        </ul>
       </div>
     `;
+    console.error('SUPABASE_CONFIG not found');
+    return;
+  }
 
-    // ✅ تأكد من أن window.SUPABASE_CONFIG موجود
-    if (typeof window.SUPABASE_CONFIG === 'undefined') {
-      throw new Error('⚠️ window.SUPABASE_CONFIG غير مُعرّف! تحقق من config.js');
-    }
+  // 2. تحقق من وجود window.supabase (من CDN)
+  if (typeof window.supabase === 'undefined') {
+    container.innerHTML = `
+      <div class="error">
+        <i class="fas fa-exclamation-triangle"></i>
+        <p>⚠️ خطأ: مكتبة Supabase لم تُحمّل</p>
+        <small>الرجاء التأكد من وجود سكريبت Supabase في index.html</small>
+      </div>
+    `;
+    console.error('Supabase library not loaded');
+    return;
+  }
 
-    const { url, anonKey } = window.SUPABASE_CONFIG;
-    
-    // ✅ استخدم window.supabase مباشرة (اللي تم تحميله من CDN)
-    if (typeof window.supabase === 'undefined') {
-      throw new Error('⚠️ window.supabase غير متوفر! تحقق من تحميل Supabase CDN');
-    }
+  // 3. إنشاء العميل
+  const { url, anonKey } = window.SUPABASE_CONFIG;
+  const supabase = window.supabase.createClient(url, anonKey);
 
-    const supabase = window.supabase.createClient(url, anonKey);
-
+  // 4. جلب البيانات
+  try {
     const { data, error } = await supabase
       .from('apps')
       .select('*')
@@ -58,19 +69,12 @@ async function loadApps() {
     `).join('');
 
   } catch (err) {
-    console.error('❌ خطأ:', err);
-    document.getElementById('apps-container').innerHTML = `
+    console.error('❌ خطأ في جلب البيانات:', err);
+    container.innerHTML = `
       <div class="error">
         <i class="fas fa-exclamation-triangle"></i>
         <p>فشل التحميل: ${err.message}</p>
-        <small>تأكد من: 1) config.js مُحمّل 2) روابط Supabase صحيحة</small>
       </div>
     `;
   }
-}
-
-// ابدأ بعد تحميل DOM
-document.addEventListener('DOMContentLoaded', () => {
-  // انتظر قليلاً للتأكد من تحميل Supabase CDN
-  setTimeout(loadApps, 300);
 });
