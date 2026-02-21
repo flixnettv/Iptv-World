@@ -183,84 +183,85 @@
         </button>
     </div>
 
-    <!-- Scripts -->
-    <script type="module" src="assets/js/config.js"></script>
-    <script type="module" src="assets/js/supabase-client.js"></script>
-    <script type="module" src="assets/js/app.js"></script>
-    
-    <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const closeMenu = document.getElementById('close-menu');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        function openMenu() {
-            mobileMenu.classList.add('active');
-            menuToggle.setAttribute('aria-expanded', 'true');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeMenuFunc() {            mobileMenu.classList.remove('active');
-            menuToggle.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-        }
-        
-        if (menuToggle) {
-            menuToggle.addEventListener('click', openMenu);
-        }
-        
-        if (closeMenu) {
-            closeMenu.addEventListener('click', closeMenuFunc);
-        }
-        
-        // Close menu when clicking on a link
-        document.querySelectorAll('.mobile-menu a').forEach(link => {
-            link.addEventListener('click', closeMenuFunc);
-        });
+ <!-- Scripts -->
+<!-- Supabase Library from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-        // Floating Widget Toggle
-        function toggleWidget() {
-            const widgetOptions = document.getElementById('widget-options');
-            const widgetToggle = document.getElementById('widget-toggle');
-            const isExpanded = widgetToggle.getAttribute('aria-expanded') === 'true';
-            
-            widgetOptions.classList.toggle('active');
-            widgetToggle.setAttribute('aria-expanded', !isExpanded);
-        }
+<!-- Config File FIRST -->
+<script type="module" src="assets/js/config.js"></script>
 
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && href.length > 1) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
-            });
-        });
+<!-- Supabase Client -->
+<script type="module" src="assets/js/supabase-client.js"></script>
 
-        // Close widget when clicking outside
-        document.addEventListener('click', function(e) {
-            const widget = document.querySelector('.floating-widget');
-            const widgetOptions = document.getElementById('widget-options');
-            const widgetToggle = document.getElementById('widget-toggle');            
-            if (widget && !widget.contains(e.target) && widgetOptions.classList.contains('active')) {
-                widgetOptions.classList.remove('active');
-                widgetToggle.setAttribute('aria-expanded', 'false');
-            }
+<!-- App File -->
+<script type="module" src="assets/js/app.js"></script>
+
+<!-- Mobile Menu and Other Scripts -->
+<script>
+// Mobile Menu Toggle
+const menuToggle = document.getElementById('menu-toggle');
+const closeMenu = document.getElementById('close-menu');
+const mobileMenu = document.getElementById('mobile-menu');
+
+function openMenu() {
+  mobileMenu.classList.add('active');
+  menuToggle.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMenuFunc() {
+  mobileMenu.classList.remove('active');
+  menuToggle.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+if (menuToggle) {
+  menuToggle.addEventListener('click', openMenu);
+}
+
+if (closeMenu) {
+  closeMenu.addEventListener('click', closeMenuFunc);
+}
+
+// Close menu when clicking on a link
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+  link.addEventListener('click', closeMenuFunc);
+});
+
+// Floating Widget Toggle
+function toggleWidget() {
+  const widgetOptions = document.getElementById('widget-options');
+  const widgetToggle = document.getElementById('widget-toggle');
+  const isExpanded = widgetToggle.getAttribute('aria-expanded') === 'true';
+  widgetOptions.classList.toggle('active');
+  widgetToggle.setAttribute('aria-expanded', !isExpanded);
+}
+
+// Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href !== '#' && href.length > 1) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
         });
-    </script>
-    
-    <!-- Vercel Speed Insights -->
-    <script>
-      window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
-</body>
-</html>
+      }
+    }
+  });
+});
+
+// Close widget when clicking outside
+document.addEventListener('click', function(e) {
+  const widget = document.querySelector('.floating-widget');
+  const widgetOptions = document.getElementById('widget-options');
+  const widgetToggle = document.getElementById('widget-toggle');
+  if (widget && !widget.contains(e.target) && widgetOptions.classList.contains('active')) {
+    widgetOptions.classList.remove('active');
+    widgetToggle.setAttribute('aria-expanded', 'false');
+  }
+});
+</script>

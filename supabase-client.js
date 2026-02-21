@@ -1,28 +1,16 @@
 // supabase-client.js
+// Initialize Supabase client for browser
 
-const { createClient } = require('@supabase/supabase-js');
-
-// Utility function to validate environment variables
-function validateEnvVars() {
-    const requiredVars = ['SUPABASE_URL', 'SUPABASE_ANON_KEY'];
-    for (const variable of requiredVars) {
-        if (!process.env[variable]) {
-            throw new Error(`Missing environment variable: ${variable}`);
-        }
-    }
+// Wait for config to be loaded
+if (typeof SUPABASE_CONFIG === 'undefined') {
+  console.error('SUPABASE_CONFIG is not defined. Make sure config.js is loaded first.');
 }
 
-// Validate environment variables
-try {
-    validateEnvVars();
-} catch (error) {
-    console.error(error.message);
-    process.exit(1);
-}
+const supabaseUrl = SUPABASE_CONFIG.url;
+const supabaseKey = SUPABASE_CONFIG.anonKey;
 
-// Create Supabase client
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Create Supabase client using the global window.supabase
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-module.exports = supabase;
+// Export to window for other scripts to use
+window.supabaseClient = supabase;
