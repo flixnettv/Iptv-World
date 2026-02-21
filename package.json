@@ -1,0 +1,15 @@
+{
+  "name": "iptv-world",
+  "version": "1.0.0",
+  "description": "IPTV subscription service",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static build'"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0"
+  },
+  "keywords": ["iptv", "subscription"],
+  "author": "flixnettv",
+  "license": "MIT"
+}
