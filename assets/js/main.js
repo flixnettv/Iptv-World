@@ -1,5 +1,5 @@
 const CONFIG = {
-    DATA_URL: '/data/apps.json',
+    DATA_URL: 'https://raw.githubusercontent.com/flixnettv/Iptv-World/main/data/apps.json',
     CONTAINER: 'apps-container',
     LOADING: 'loading-msg',
     ERROR: 'error-msg'
