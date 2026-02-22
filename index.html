@@ -3,100 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="IPTV World - Premium IPTV Service with 10,000+ FHD/4K Channels. Instant activation, 24/7 support, money-back guarantee.">
-    <meta name="keywords" content="iptv, iptv subscription, live tv, streaming, sports channels, movies, series, arabic channels">
-    <title>IPTV World | Premium IPTV Service - 10,000+ FHD/4K Channels</title>
+    <meta name="description" content="IPTV World - Premium IPTV Service with 10,000+ FHD/4K Channels">
+    <title>IPTV World | Premium IPTV Service</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Header -->
     <header class="flix-header">
         <div class="container">
             <div class="logo">
                 <span><i class="fas fa-tv"></i> IPTV World</span>
             </div>
-            <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu">
+            <button class="mobile-menu-btn" id="menuBtn">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </header>
 
-    <!-- Mobile Menu -->
     <nav class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-content">
-            <button class="close-menu" id="closeMenu" aria-label="Close menu">
-                <i class="fas fa-times"></i>
-            </button>
+            <button class="close-menu" id="closeMenu"><i class="fas fa-times"></i></button>
             <ul>
                 <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
                 <li><a href="#apps"><i class="fas fa-th-large"></i> Applications</a></li>
-                <li><a href="#activation"><i class="fas fa-credit-card"></i> Activation</a></li>
+                <li><a href="activate.html"><i class="fas fa-credit-card"></i> Activation</a></li>
                 <li><a href="#contact"><i class="fas fa-headset"></i> Support</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="flix-hero" id="home">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title">The Best IPTV Experience in the Middle East</h1>
+            <h1 class="hero-title">The Best IPTV Experience</h1>
             <p class="hero-subtitle">
-                Enjoy 10,000+ Live TV Channels in FHD & 4K Quality<br>
-                Movies - Series - Sports Channels - Live Streaming Without Buffering<br>
-                24/7 Support • Instant Activation • Money-Back Guarantee            </p>
+                10,000+ Live TV Channels in FHD & 4K Quality<br>
+                Movies - Series - Sports - 24/7 Support
+            </p>
             <a href="#apps" class="flix-btn flix-btn-primary">
-                <i class="fas fa-rocket"></i> Start Your Trial Now
+                <i class="fas fa-rocket"></i> Start Now
             </a>
         </div>
     </section>
-
-    <!-- Features Section -->
     <section class="quick-links" id="features">
         <div class="container">
-            <h2 class="text-center" style="font-size:2rem; margin-bottom:3rem; color:var(--dark); font-weight:800;">Why Choose IPTV World?</h2>
+            <h2 class="text-center" style="font-size:2rem; margin-bottom:3rem; color:var(--dark); font-weight:800;">Why Choose Us?</h2>
             <div class="links-grid">
                 <div class="link-card">
                     <i class="fas fa-broadcast-tower"></i>
                     <h3>10,000+ Channels</h3>
-                    <p>Arabic & International channels with regular updates</p>
+                    <p>Arabic & International channels</p>
                 </div>
                 <div class="link-card">
                     <i class="fas fa-film"></i>
                     <h3>Huge Library</h3>
-                    <p>Latest movies & series with high quality</p>
+                    <p>Latest movies & series</p>
                 </div>
                 <div class="link-card">
                     <i class="fas fa-tachometer-alt"></i>
                     <h3>Ultra Fast</h3>
-                    <p>Powerful servers without buffering or freezing</p>
+                    <p>No buffering or freezing</p>
                 </div>
                 <div class="link-card">
                     <i class="fas fa-headset"></i>
                     <h3>24/7 Support</h3>
-                    <p>Technical support team available around the clock</p>
-                </div>
-                <div class="link-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>Multi-Device</h3>
-                    <p>Smart TV - Mobile - PC - Firestick - All Devices</p>
-                </div>
-                <div class="link-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>100% Guarantee</h3>
-                    <p>Money-back guarantee within 7 days</p>
+                    <p>Always here to help</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Apps Section -->
     <section class="apps-section" id="apps">
         <div class="container">
-            <h2>🎯 Our Available Applications</h2>            
+            <h2>🎯 Our Available Applications</h2>
+            
             <div id="loading-msg" class="loading">
                 <i class="fas fa-spinner fa-spin fa-2x"></i>
                 <p>Loading applications...</p>
@@ -107,68 +89,46 @@
                 <p>Error loading. <a href="#" onclick="location.reload()">Try again</a></p>
             </div>
             
-            <div id="apps-container" class="apps-grid">
-                <!-- Applications will appear here automatically -->
-            </div>
+            <div id="apps-container" class="apps-grid"></div>
         </div>
     </section>
 
-    <!-- Activation Section -->
-    <section class="flix-contact" id="activation">
+    <section class="flix-contact" id="contact">
         <div class="container">
-            <h2>🔓 Activate Subscription</h2>
-            <p style="margin-bottom:2rem;">Choose your application and start watching immediately</p>
-            <a href="activate.html" class="flix-btn flix-btn-primary">
-                <i class="fas fa-credit-card"></i> Subscribe Now
-            </a>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="flix-contact" id="contact" style="background:var(--light); color:var(--text);">
-        <div class="container">
-            <h2 style="color:var(--dark);">💬 Contact Us</h2>
-            <p style="margin-bottom:2rem;">Technical support available 24/7 to answer your questions</p>
-            <div class="social-links">
-                <a href="https://wa.me/201112246002" class="social-btn whatsapp" target="_blank" rel="noopener">
+            <h2>💬 Contact Us</h2>
+            <p style="margin-bottom:2rem;">24/7 Technical Support</p>            <div class="social-links">
+                <a href="https://wa.me/201112246002" class="social-btn whatsapp" target="_blank">
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
-                <a href="https://t.me/FLlXX" class="social-btn telegram" target="_blank" rel="noopener">
+                <a href="https://t.me/FLlXX" class="social-btn telegram" target="_blank">
                     <i class="fab fa-telegram"></i> Telegram
                 </a>
-                <a href="https://m.me/Hany.Yousseff" class="social-btn messenger" target="_blank" rel="noopener">
+                <a href="https://m.me/Hany.Yousseff" class="social-btn messenger" target="_blank">
                     <i class="fab fa-facebook-messenger"></i> Messenger
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="flix-footer">
-        <div class="container">            <p class="footer-text">© 2026 IPTV World. All Rights Reserved</p>
-            <p style="margin-top:10px; font-size:0.85rem;">
-                <i class="fas fa-heart" style="color:var(--primary);"></i> 
-                Made with effort and love to serve you
-            </p>
+        <div class="container">
+            <p class="footer-text">© 2026 IPTV World. All Rights Reserved</p>
         </div>
     </footer>
 
-    <!-- Floating Contact Button -->
-    <a href="https://wa.me/201112246002" class="floating-contact-btn" target="_blank" rel="noopener" aria-label="Contact via WhatsApp">
+    <a href="https://wa.me/201112246002" class="floating-contact-btn" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
     <script>
-        // Mobile Menu Toggle
         const menuBtn = document.getElementById('menuBtn');
         const closeMenu = document.getElementById('closeMenu');
         const mobileNav = document.getElementById('mobileNav');
         
-        if(menuBtn) menuBtn.addEventListener('click', () => mobileNav.classList.add('active'));
-        if(closeMenu) closeMenu.addEventListener('click', () => mobileNav.classList.remove('active'));
-        if(mobileNav) mobileNav.addEventListener('click', (e) => {
+        menuBtn?.addEventListener('click', () => mobileNav.classList.add('active'));
+        closeMenu?.addEventListener('click', () => mobileNav.classList.remove('active'));
+        mobileNav?.addEventListener('click', (e) => {
             if(e.target === mobileNav) mobileNav.classList.remove('active');
         });
     </script>

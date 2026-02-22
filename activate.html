@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Activate your IPTV subscription - Quick and secure payment process">
     <title>Activate Subscription - IPTV World</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,72 +16,46 @@
             align-items: center;
             justify-content: center;
         }
-        
         .v16-container {
             max-width: 480px;
             width: 100%;
             margin: 0 auto;
             padding: 40px 30px;
             background: var(--light);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-xl);
+            border-radius: 35px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
             text-align: center;
             border: 1px solid #f1f3f5;
-            animation: fadeInUp 0.6s ease;
         }
-        
         .v16-step { display: none; }
         .v16-step.active { display: block; animation: v16Fade 0.5s ease; }
-        
         @keyframes v16Fade {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-        .v16-title {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-        
-        .v16-subtitle {
-            color: var(--text-muted);            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-        
+        .v16-title { font-size: 1.8rem; font-weight: 800; color: var(--dark); margin-bottom: 0.5rem; }
+        .v16-subtitle { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
         .v16-input {
             width: 100% !important;
             height: 60px;
             border: 2px solid #e9ecef;
-            border-radius: var(--radius-lg);
+            border-radius: 18px;
             padding: 0 20px;
-            font-size: 1rem;
-            font-family: 'Cairo', sans-serif;
+            font-size: 17px;
             text-align: center;
-            margin-bottom: 10px;
-            transition: all 0.3s;
+            margin-bottom: 5px;
+            font-family: 'Cairo', sans-serif;
         }
-        
         .v16-input:focus {
-            outline: none;
-            border-color: var(--primary);
+            outline: none;            border-color: var(--primary);
             box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.1);
         }
-        
         .v16-input.text-left { text-align: left !important; }
-        
-        .v16-notice {
-            font-size: 0.8rem;
-            color: #adb5bd;
-            display: block;
-            margin-top: 8px;
-        }
-        
+        .v16-notice { font-size: 12px; color: #adb5bd; margin-top: 10px; display: block; }
         .v16-btn {
             width: 100%;
             height: 58px;
-            border-radius: var(--radius-lg);
+            border-radius: 18px;
             border: none;
             font-weight: 700;
             cursor: pointer;
@@ -91,147 +64,69 @@
             justify-content: center;
             gap: 10px;
             margin-bottom: 12px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 1rem;
+            transition: 0.3s;
+            font-size: 15px;
             text-decoration: none !important;
             font-family: 'Cairo', sans-serif;
         }
-                .v16-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .v16-btn-blue {
-            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-            color: white !important;
-        }
-        
-        .v16-btn-dark {
-            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-            color: white !important;
-        }
-        
-        .v16-btn-green {
-            background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
-            color: white !important;
-        }
-        
-        .v16-btn-outline {
-            background: #f8f9fa;
-            color: #495057 !important;
-            border: 2px solid #e9ecef;
-        }
-        
+        .v16-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+        .v16-btn-blue { background: #007bff; color: #fff !important; }
+        .v16-btn-dark { background: #1a202c; color: #fff !important; }
+        .v16-btn-green { background: #28a745; color: #fff !important; }
+        .v16-btn-outline { background: #f8f9fa; color: #495057 !important; border: 1px solid #e9ecef; }
         .v16-price-box {
             background: #fcfcfc;
             border: 1px solid #f1f3f5;
-            border-radius: var(--radius-lg);
+            border-radius: 25px;
             padding: 25px;
             margin: 20px 0;
         }
-        
         .v16-mac-pill {
             background: #e7f1ff;
             color: #007bff;
-            padding: 8px 20px;
-            border-radius: var(--radius-sm);
-            font-size: 0.9rem;
+            padding: 6px 15px;
+            border-radius: 10px;
+            font-size: 13px;
             font-weight: 700;
             display: inline-block;
             margin-bottom: 15px;
-            direction: ltr;
         }
-        
-        .v16-amount {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--success);            line-height: 1;
-        }
-        
-        .v16-amount span {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--text-muted);
-        }
-        
-        .v16-social-nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        
+        .v16-amount { font-size: 52px; font-weight: 900; color: #28a745; line-height: 1; }
+        .v16-social-nav { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; }
         .v16-social-item {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;            display: flex;
             align-items: center;
             justify-content: center;
-            color: white !important;
-            font-size: 1.5rem;
+            color: #fff !important;
+            font-size: 22px;
             text-decoration: none;
             transition: all 0.3s;
         }
-        
-        .v16-social-item:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: var(--shadow-lg);
-        }
-        
+        .v16-social-item:hover { transform: translateY(-5px) scale(1.1); }
         .v16-social-item.whatsapp { background: #25D366; }
         .v16-social-item.telegram { background: #0088cc; }
         .v16-social-item.messenger { background: #0084FF; }
-        
-        .v16-pay-area {
-            margin-top: 25px;
-            border-top: 1px solid #eee;
-            padding-top: 25px;
-        }
-        
+        .v16-pay-area { margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; }
         .v16-secure-info {
-            border: 2px dashed #e9ecef;
-            border-radius: var(--radius-md);
-            padding: 15px;
+            border: 2px dashed #eee;
+            border-radius: 20px;
+            padding: 20px;
             margin-top: 10px;
-            background: #fff;            display: none;
+            background: #fff;
+            display: none;
         }
-        
-        .v16-secure-info p {
-            font-size: 0.85rem;
-            color: #6c757d;
-            margin-bottom: 10px;
-        }
-        
-        .v16-dev-logo {
-            height: 45px;
-            margin-bottom: 15px;
-            object-fit: contain;
-        }
-        
-        .v16-row {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .v16-row .v16-btn {
-            flex: 1;
-            margin-bottom: 0;
-        }
-        
+        .v16-dev-logo { height: 45px; margin-bottom: 15px; }
         .iti { width: 100% !important; }
-        
         @media (max-width: 480px) {
             .v16-container { padding: 30px 20px; }
-            .v16-amount { font-size: 3rem; }
-            .v16-btn { height: 55px; font-size: 0.95rem; }
+            .v16-amount { font-size: 40px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header class="flix-header">
         <div class="container">
             <div class="logo">
@@ -240,36 +135,31 @@
         </div>
     </header>
 
-    <!-- Activate Wrapper -->
     <div class="activate-wrapper">
         <div class="v16-container">
-                        <!-- Step 1: MAC Address -->
+            
+            <!-- Step 1: MAC Address -->
             <div id="v16-step1" class="v16-step active">
                 <h2 class="v16-title">Device Activation</h2>
                 <p class="v16-subtitle">Enter your device MAC Address</p>
-                
                 <input type="text" id="v16-mac-input" class="v16-input" placeholder="00:1A:2B:3C:4D:5E" maxlength="17">
                 <span class="v16-notice">Please double check your mac address before proceeding</span>
-                
-                <button class="v16-btn v16-btn-blue" style="margin-top:25px;" onclick="v16_action_step1()">
-                    NEXT STEP <i class="fas fa-arrow-left"></i>
-                </button>
+                <button class="v16-btn v16-btn-blue" style="margin-top:20px;" onclick="v16_action_step1()">
+                    NEXT STEP <i class="fas fa-arrow-left"></i>                </button>
             </div>
 
-            <!-- Step 2: Device Confirmation -->
+            <!-- Step 2: Confirmation -->
             <div id="v16-step2" class="v16-step">
                 <img id="v16-dev-logo" class="v16-dev-logo" src="" alt="Device">
-                
                 <div class="v16-price-box">
                     <div id="v16-mac-display" class="v16-mac-pill">--:--:--:--:--:--</div>
-                    <div class="v16-amount">70<span>/year</span></div>
+                    <div class="v16-amount">70<span style="font-size:24px;">$/year</span></div>
                 </div>
-                
-                <div class="v16-row">
-                    <button class="v16-btn v16-btn-outline" onclick="v16_go(1)">
+                <div style="display:flex; gap:10px;">
+                    <button class="v16-btn v16-btn-outline" style="flex:1;" onclick="v16_go(1)">
                         <i class="fas fa-arrow-right"></i> BACK
                     </button>
-                    <button class="v16-btn v16-btn-blue" onclick="v16_go(3)">
+                    <button class="v16-btn v16-btn-blue" style="flex:2;" onclick="v16_go(3)">
                         CONFIRM <i class="fas fa-arrow-left"></i>
                     </button>
                 </div>
@@ -279,10 +169,8 @@
             <div id="v16-step3" class="v16-step">
                 <h3 class="v16-title">Contact Info</h3>
                 <p class="v16-subtitle">Enter your details for activation</p>
-                
-                <input type="text" id="v16-name" class="v16-input text-left" placeholder="Full Name" style="text-align:left;">
-                <input type="tel" id="v16-phone" class="v16-input">
-                
+                <input type="text" id="v16-name" class="v16-input text-left" placeholder="Full Name" style="text-align:left; margin-bottom:15px;">
+                <div style="text-align:left;"><input type="tel" id="v16-phone" class="v16-input"></div>
                 <button class="v16-btn v16-btn-blue" style="margin-top:25px;" onclick="v16_action_step3()">
                     CONTINUE <i class="fas fa-arrow-left"></i>
                 </button>
@@ -292,46 +180,41 @@
             </div>
 
             <!-- Step 4: Payment -->
-            <div id="v16-step4" class="v16-step">                <h3 class="v16-title">Choose Payment</h3>
+            <div id="v16-step4" class="v16-step">
+                <h3 class="v16-title">Choose Payment</h3>
                 <p class="v16-subtitle">Select your preferred payment method</p>
                 
-                <!-- Social Contact -->
                 <div class="v16-social-nav">
-                    <a href="#" id="v16-wa" target="_blank" rel="noopener" class="v16-social-item whatsapp">
+                    <a href="#" id="v16-wa" target="_blank" class="v16-social-item whatsapp">
                         <i class="fab fa-whatsapp"></i>
                     </a>
-                    <a href="#" id="v16-tg" target="_blank" rel="noopener" class="v16-social-item telegram">
+                    <a href="#" id="v16-tg" target="_blank" class="v16-social-item telegram">
                         <i class="fab fa-telegram-plane"></i>
                     </a>
-                    <a href="#" id="v16-fb" target="_blank" rel="noopener" class="v16-social-item messenger">
+                    <a href="#" id="v16-fb" target="_blank" class="v16-social-item messenger">
                         <i class="fab fa-facebook-messenger"></i>
                     </a>
-                </div>
-                
-                <!-- Payment Options -->
+                </div>                
                 <div class="v16-pay-area">
-                    <!-- Paymob (Local) -->
-                    <a href="https://accept.paymob.com/api/acceptance/iframes/YOUR_ID" target="_blank" rel="noopener" class="v16-btn v16-btn-blue">
+                    <a href="https://accept.paymob.com/api/acceptance/iframes/YOUR_ID" target="_blank" class="v16-btn v16-btn-blue">
                         <i class="fas fa-wallet"></i> PAY WITH PAYMOB (LOCAL)
                     </a>
                     
-                    <!-- Paybis / Card (Global) -->
                     <button class="v16-btn v16-btn-dark" onclick="document.getElementById('v16-paybis-info').style.display = document.getElementById('v16-paybis-info').style.display === 'none' ? 'block' : 'none'">
                         <i class="fas fa-credit-card"></i> PAY WITH CARD (GLOBAL)
                     </button>
                     <div id="v16-paybis-info" class="v16-secure-info">
-                        <p><i class="fas fa-lock"></i> Secure payment via Paybis Gateway</p>
-                        <a href="https://paybis.com/buy-tether-trc20/?fiat_amount=70&address=TPoZKbvUE82CPnPwwwkXv4HaxgD4F5Y68i" target="_blank" rel="noopener" class="v16-btn v16-btn-blue">
+                        <p style="font-size:12px; color:#6c757d;"><i class="fas fa-lock"></i> Secure payment via Paybis Gateway</p>
+                        <a href="https://paybis.com/buy-tether-trc20/?fiat_amount=70&address=TPoZKbvUE82CPnPwwwkXv4HaxgD4F5Y68i" target="_blank" class="v16-btn v16-btn-blue">
                             Open Paybis →
                         </a>
                     </div>
                     
-                    <!-- USDT (Crypto) -->
                     <button class="v16-btn v16-btn-green" onclick="document.getElementById('v16-usdt-info').style.display = document.getElementById('v16-usdt-info').style.display === 'none' ? 'block' : 'none'">
                         <i class="fab fa-ethereum"></i> PAY WITH USDT
                     </button>
                     <div id="v16-usdt-info" class="v16-secure-info" style="padding:0; overflow:hidden;">
-                        <iframe src="https://nowpayments.io/embeds/payment-widget?iid=4331670336" width="100%" height="450" frameborder="0" style="border-radius: 0 0 18px 18px;"></iframe>
+                        <iframe src="https://nowpayments.io/embeds/payment-widget?iid=4331670336" width="100%" height="450" frameborder="0" style="border-radius: 0 0 20px 20px;"></iframe>
                     </div>
                 </div>
             </div>
@@ -339,9 +222,9 @@
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>    <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
+    <script>
         let v16_iti;
         
         document.addEventListener('DOMContentLoaded', function() {
@@ -360,8 +243,7 @@
             }
             
             const macInput = document.getElementById('v16-mac-input');
-            macInput?.addEventListener('input', function(e) {
-                let value = e.target.value.toUpperCase().replace(/[^0-9A-F]/g, '');
+            macInput?.addEventListener('input', function(e) {                let value = e.target.value.toUpperCase().replace(/[^0-9A-F]/g, '');
                 let formatted = '';
                 for (let i = 0; i < value.length && i < 12; i++) {
                     if (i > 0 && i % 2 === 0) formatted += ':';
@@ -390,7 +272,8 @@
             
             fetch(`https://api.macvendors.com/${encodeURIComponent(mac)}`)
                 .then(res => res.ok ? res.text() : Promise.reject())
-                .then(vendor => {                    document.getElementById('v16-dev-logo').src = 'https://flixiptv.unaux.com/wp-content/uploads/2022/10/sumsung.png';
+                .then(vendor => {
+                    document.getElementById('v16-dev-logo').src = 'https://flixiptv.unaux.com/wp-content/uploads/2022/10/sumsung.png';
                     v16_go(2);
                 })
                 .catch(() => {
@@ -409,8 +292,7 @@
             }
             
             if (!phone || phone.length < 10) {
-                alert('⚠️ Please enter a valid phone number');
-                return;
+                alert('⚠️ Please enter a valid phone number');                return;
             }
             
             const msg = encodeURIComponent(`📺 Order IPTV World:

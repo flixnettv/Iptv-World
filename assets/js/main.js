@@ -1,8 +1,3 @@
-/**
- * IPTV World - Static JSON Loader
- * Compatible with apps.json structure
- */
-
 const CONFIG = {
     DATA_URL: '/data/apps.json',
     CONTAINER: 'apps-container',
@@ -30,16 +25,14 @@ async function loadApps() {
         loading?.classList.add('hidden');
         
         if (apps.length === 0) {
-            container.innerHTML = '<p class="no-apps">No applications available at the moment.</p>';
+            container.innerHTML = '<p class="no-apps">No applications available.</p>';
             return;
         }
         
-        // Display applications
         container.innerHTML = apps.map((app, index) => `
             <article class="app-card" style="animation: fadeInUp 0.5s ease ${index * 0.1}s both">
                 <div class="app-image">
-                    <img src="${app.image_url}" 
-                         alt="${escapeHtml(app.name)}"
+                    <img src="${app.image_url}" alt="${escapeHtml(app.name)}"
                          onerror="this.src='https://via.placeholder.com/400x200/e91e63/ffffff?text=IPTV'">
                 </div>
                 <div class="app-info">
@@ -70,7 +63,6 @@ function escapeHtml(text) {
     return text.replace(/[&<>"']/g, m => map[m]);
 }
 
-// Load on DOM ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', loadApps);
 } else {
