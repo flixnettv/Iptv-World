@@ -3,19 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPTV World - أفضل خدمات البث المباشر</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>IPTV World - Smart TV Apps</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📺%3C/text%3E%3C/svg%3E">
 </head>
 <body>
-
     <!-- Header -->
     <header class="flix-header">
         <div class="container">
             <div class="logo">
-                <span><i class="fas fa-tv"></i> IPTV World</span>
+                <span>IpTv World</span>
             </div>
-            <button class="mobile-menu-btn" id="menuBtn" aria-label="القائمة">
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -24,90 +34,85 @@
     <!-- Mobile Menu -->
     <nav class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-content">
-            <button class="close-menu" id="closeMenu"><i class="fas fa-times"></i></button>
+            <button class="close-menu" onclick="toggleMenu()">
+                <i class="fas fa-times"></i>
+            </button>
             <ul>
-                <li><a href="#home"><i class="fas fa-home"></i> الرئيسية <i class="fas fa-chevron-left"></i></a></li>
-                <li><a href="#apps"><i class="fas fa-th-large"></i> التطبيقات <i class="fas fa-chevron-left"></i></a></li>
-                <li><a href="#contact"><i class="fas fa-headset"></i> الدعم الفني <i class="fas fa-chevron-left"></i></a></li>
+                <li><a href="#home" onclick="toggleMenu()">HOME</a></li>
+                <li><a href="activate.html" onclick="toggleMenu()">SMART TV ACTIVATION</a></li>
+                <li><a href="app.html" onclick="toggleMenu()">IPTV APPLICATION</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="flix-hero" id="home">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">أفضل تجربة IPTV في العالم العربي</h1>
-            <p class="hero-subtitle">باقات مميزة • جودة عالية • دعم فني 24/7 • اشتراك فوري</p>
-            <a href="#apps" class="flix-btn flix-btn-primary">
-                <i class="fas fa-rocket"></i> ابدأ الآن
-            </a>
-        </div>
-    </section>
-
-    <!-- Apps Section -->
-    <section class="apps-section" id="apps">
-        <div class="container">            <h2>📺 تطبيقاتنا المتاحة</h2>
-            
-            <div id="loading-msg" class="loading">
-                <i class="fas fa-spinner fa-spin fa-2x"></i>
-                <p>جاري تحميل التطبيقات...</p>
-            </div>
-            
-            <div id="error-msg" class="error hidden">
-                <i class="fas fa-exclamation-triangle fa-2x"></i>
-                <p>حدث خطأ أثناء التحميل. <a href="#" onclick="location.reload()">حاول مرة أخرى</a></p>
-            </div>
-            
-            <div id="apps-container" class="apps-grid">
-                <!-- التطبيقات هتظهر هنا أوتوماتيك -->
+        <div class="hero-overlay"></div>        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Smart Tv apps</h1>
+                <p class="hero-subtitle">
+                    All your satellite world channels in one application android & 
+                    smart Tv & apple Tv & windows & xtream & m3u
+                </p>
+                <a href="activate.html" class="flix-btn flix-btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    ACTIVATE APP + CHANNEL LIST ( LG / SAMSUNG / APPLE )
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="container">
+            <div class="links-grid">
+                <a href="activate.html" class="link-card">
+                    <i class="fas fa-tv"></i>
+                    <h3>Smart TV Activation</h3>
+                    <p>Activate your Smart TV now</p>
+                </a>
+                <a href="app.html" class="link-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>IPTV Applications</h3>
+                    <p>Download IPTV apps</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
     <section class="flix-contact" id="contact">
         <div class="container">
-            <h2>💬 تواصل معنا</h2>
-            <div class="contact-info">
-                <p>الدعم الفني متاح على مدار الساعة</p>
-                <p><strong>واتساب:</strong> <a href="https://wa.me/201xxxxxxxxx" class="contact-link">+20 1XX XXX XXXX</a></p>
-            </div>
-            <div class="social-links">
-                <a href="https://wa.me/201xxxxxxxxx" class="social-btn whatsapp" target="_blank">
-                    <i class="fab fa-whatsapp"></i> واتساب
-                </a>
-                <a href="https://t.me/yourusername" class="social-btn telegram" target="_blank">
-                    <i class="fab fa-telegram"></i> تيليجرام
-                </a>
-            </div>
+            <div class="contact-box">
+                <h2>Call us</h2>
+                <div class="contact-info">
+                    <p><strong>whatsapp & Telegram</strong></p>
+                    <a href="https://wa.me/201112246002" class="contact-link">+20 111 224 6002</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://wa.me/201112246002" target="_blank" class="social-btn whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="https://t.me/FLlXX" target="_blank" class="social-btn telegram">
+                        <i class="fab fa-telegram-plane"></i> Telegram
+                    </a>
+                </div>            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="flix-footer">
         <div class="container">
-            <p class="footer-text">© 2026 IPTV World. جميع الحقوق محفوظة</p>
+            <p>&copy;FlixFlash 2026/27</p>
         </div>
     </footer>
 
-    <!-- Floating Contact Button -->
-    <a href="https://wa.me/201xxxxxxxxx" class="floating-contact-btn" target="_blank" aria-label="تواصل عبر واتساب">
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/201112246002" target="_blank" class="floating-contact-btn">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- JavaScript -->    <script src="assets/js/main.js"></script>
-    <script>
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('menuBtn');
-        const closeMenu = document.getElementById('closeMenu');
-        const mobileNav = document.getElementById('mobileNav');
-        
-        menuBtn?.addEventListener('click', () => mobileNav.classList.add('active'));
-        closeMenu?.addEventListener('click', () => mobileNav.classList.remove('active'));
-        mobileNav?.addEventListener('click', (e) => {
-            if(e.target === mobileNav) mobileNav.classList.remove('active');
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="./assets/js/main.js"></script>
 </body>
 </html>

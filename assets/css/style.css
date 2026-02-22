@@ -1,30 +1,18 @@
-/* ===================================
-   IPTV World - Enhanced Design
-   Modern Fonts & Shadows - By Hany
-   =================================== */
+/* IPTV World - Main Stylesheet */
 
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 :root {
     --primary: #e91e63;
     --primary-dark: #c2185b;
-    --primary-light: #f48fb1;
     --dark: #1a1a2e;
     --light: #ffffff;
     --gray: #2d2d2d;
     --text: #333333;
-    --text-muted: #666;
-    --success: #10b981;
-    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-    --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
-    --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
-    --shadow-xl: 0 20px 60px rgba(0,0,0,0.2);
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 18px;
-    --radius-xl: 35px;
 }
 
 body {
@@ -33,21 +21,27 @@ body {
     color: var(--text);
     background: var(--light);
     overflow-x: hidden;
-    direction: rtl;
 }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-.text-center { text-align: center; }
-.hidden { display: none !important; }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-/* ===== Header ===== */
+/* Header */
 .flix-header {
     background: var(--light);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     padding: 1rem 0;
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 1000;}
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 70px;
+}
+
 .flix-header .container {
     display: flex;
     justify-content: space-between;
@@ -57,294 +51,261 @@ body {
     font-size: 1.5rem;
     font-weight: 800;
     color: var(--dark);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
-.logo span i { color: var(--primary); margin-left: 5px; }
 
-/* ===== Mobile Menu ===== */
 .mobile-menu-btn {
-    display: none;
+    display: block;
     background: none;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--dark);
-    padding: 0.5rem;
 }
+
+/* Mobile Menu */
 .mobile-nav {
     display: none;
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.9);
+    top: 70px;
+    right: 0;
+    width: 85%;
+    max-width: 400px;
+    bottom: 0;
+    background: rgba(0,0,0,0.95);
     z-index: 9999;
-    animation: fadeIn 0.3s ease;
 }
-.mobile-nav.active { display: block; }
+
+.mobile-nav.active {
+    display: block;
+}
+
 .mobile-nav-content {
     background: var(--light);
     height: 100%;
-    width: 85%;
-    max-width: 400px;
-    margin-right: auto;
     padding: 2rem;
     overflow-y: auto;
-    animation: slideIn 0.3s ease;
+    position: relative;
 }
+
 .close-menu {
     position: absolute;
-    top: 1rem; left: 1rem;
-    background: none; border: none;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--dark);}
-.mobile-nav ul { list-style: none; margin-top: 3rem; }
-.mobile-nav li { margin-bottom: 0.5rem; }
+    color: var(--dark);
+}
+.mobile-nav ul {
+    list-style: none;
+    margin-top: 3rem;
+}
+
 .mobile-nav a {
-    display: flex; align-items: center; justify-content: space-between;
+    display: block;
     padding: 1rem;
     color: var(--dark);
     text-decoration: none;
     font-weight: 700;
-    border-radius: var(--radius-md);
+    border-radius: 8px;
     transition: all 0.3s;
 }
-.mobile-nav a:hover { background: var(--primary); color: var(--light); }
-.mobile-nav a i:first-child { margin-left: 0.75rem; }
 
-/* ===== Hero Section ===== */
+.mobile-nav a:hover {
+    background: var(--primary);
+    color: var(--light);
+}
+
+/* Hero */
 .flix-hero {
-    position: relative;
-    min-height: 70vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%);
-    padding: 4rem 0;
-    text-align: center;
+    padding: 6rem 0 4rem;
+    margin-top: 70px;
+    position: relative;
 }
+
 .hero-overlay {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: rgba(26, 26, 46, 0.85);
 }
+
 .hero-content {
-    position: relative; z-index: 1;
-    max-width: 800px; padding: 2rem;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+    padding: 2rem;
 }
 .hero-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(2.5rem, 6vw, 4rem);
     color: var(--light);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-weight: 800;
-    text-shadow: 3px 3px 12px rgba(0,0,0,0.6);
-    animation: fadeInUp 0.8s ease;
 }
+
 .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     color: rgba(255,255,255,0.95);
-    margin-bottom: 2rem;
-    animation: fadeInUp 0.8s ease 0.2s both;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
 }
-/* ===== Buttons ===== */
+
 .flix-btn {
-    display: inline-flex; align-items: center; gap: 0.75rem;
-    padding: 1rem 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 2.5rem;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: none; cursor: pointer;
-    font-size: 1rem;
+    transition: all 0.3s;
 }
+
 .flix-btn-primary {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: var(--light) !important;
     box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
 }
+
 .flix-btn-primary:hover {
-    transform: translateY(-3px) scale(1.02);
+    transform: translateY(-3px);
     box-shadow: 0 12px 35px rgba(233, 30, 99, 0.5);
 }
 
-/* ===== Apps Section ===== */
-.apps-section { padding: 4rem 0; background: #f8f9fa; }
-.apps-section h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 3rem;
-    color: var(--dark);
-    font-weight: 800;
+/* Quick Links */
+.quick-links {
+    padding: 4rem 0;
 }
 
-/* Loading & Error */
-.loading, .error, .no-apps {
-    text-align: center; padding: 3rem;
-    font-size: 1.1rem;
-}
-.loading { color: var(--primary); }
-.error {
-    color: #dc3545;
-    background: rgba(220, 53, 69, 0.1);
-    border-radius: var(--radius-md);
-    border: 1px solid #dc3545;
-}
-
-/* Apps Grid */
-.apps-grid {
+.links-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
 }
-/* App Card */
-.app-card {
+
+.link-card {
     background: var(--light);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 2px solid transparent;
-}
-.app-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--primary);
-}
-.app-image {
-    width: 100%; height: 180px;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden;
-}
-.app-image img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s;
-}
-.app-card:hover .app-image img { transform: scale(1.05); }
-.app-info { padding: 1.5rem; }
-.app-info h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    color: var(--dark);
-    font-weight: 700;
-}
-.app-desc {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-    line-height: 1.6;
-}
-.app-features {
-    list-style: none;
-    margin: 1rem 0;
-    padding: 0;
-}
-.app-features li {
-    color: var(--success);
-    padding: 0.3rem 0;
-    font-size: 0.9rem;
-}.app-features li::before {
-    content: "✓ ";
-    font-weight: bold;
-    margin-left: 5px;
-}
-.app-price {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--primary);
+    padding: 2.5rem 2rem;    border-radius: 18px;
     text-align: center;
-    margin: 1rem 0;
-}
-.app-card .flix-btn {
-    width: 100%;
-    justify-content: center;
+    text-decoration: none;
+    color: var(--text);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.16);
+    transition: all 0.3s;
 }
 
-/* ===== Contact Section ===== */
+.link-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.link-card i {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+/* Contact */
 .flix-contact {
     background: var(--gray);
     padding: 4rem 0;
     color: var(--light);
+}
+
+.contact-box {
+    max-width: 600px;
+    margin: 0 auto;
     text-align: center;
 }
-.flix-contact h2 {
+
+.contact-box h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
-    font-weight: 800;
 }
-.contact-info { margin-bottom: 2rem; }
-.contact-info p { margin-bottom: 0.5rem; }
+
 .contact-link {
-    color: var(--primary-light);
-    font-size: 1.3rem;
+    color: var(--primary);
+    font-size: 1.5rem;
     text-decoration: none;
     font-weight: 700;
 }
-.contact-link:hover { color: var(--primary); }
+
 .social-links {
-    display: flex; gap: 1rem;
-    justify-content: center; flex-wrap: wrap;
-}
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;}
+
 .social-btn {
-    display: flex; align-items: center; gap: 0.5rem;
-    padding: 0.8rem 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
     border-radius: 50px;
     text-decoration: none;
     color: var(--light);
     font-weight: 700;
-    transition: all 0.3s;}
-.social-btn.whatsapp { background: linear-gradient(135deg, #25D366, #128c7e); }
-.social-btn.telegram { background: linear-gradient(135deg, #0088cc, #00a8e8); }
-.social-btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+}
 
-/* ===== Footer ===== */
+.social-btn.whatsapp {
+    background: #25D366;
+}
+
+.social-btn.telegram {
+    background: #0088cc;
+}
+
+/* Footer */
 .flix-footer {
     background: var(--dark);
     color: var(--light);
     padding: 2rem 0;
     text-align: center;
 }
-.footer-text { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
 
-/* ===== Floating Contact Button ===== */
+/* Floating Button */
 .floating-contact-btn {
     position: fixed;
-    bottom: 25px; left: 25px;
-    width: 60px; height: 60px;
-    background: linear-gradient(135deg, #25D366, #128c7e);
+    bottom: 30px;
+    left: 30px;
+    width: 65px;
+    height: 65px;
+    background: linear-gradient(135deg, #25D366 0%, #128c7e 100%);
     border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    color: white; font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
     box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
-    transition: all 0.3s;
-    z-index: 9999;
     text-decoration: none;
+    z-index: 99999;
     animation: float 3s ease-in-out infinite;
 }
-.floating-contact-btn:hover {
-    transform: scale(1.1) translateY(-5px);
-    box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6);
-}
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
+
+@keyframes float {    0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
 
-/* ===== Animations ===== */
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes slideIn { from { transform: translateX(-100%); } to { transform: translateX(0); } }
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ===== Responsive ===== */
+/* Responsive */
 @media (max-width: 768px) {
-    .mobile-menu-btn { display: block; }
-    .apps-grid { grid-template-columns: 1fr; }    .hero-title { font-size: 2rem; }
+    .hero-title {
+        font-size: 2rem;
+    }
+    
     .floating-contact-btn {
-        width: 55px; height: 55px;
-        font-size: 1.5rem;
-        bottom: 20px; left: 20px;
+        width: 60px;
+        height: 60px;
+        bottom: 20px;
+        left: 20px;
     }
 }
