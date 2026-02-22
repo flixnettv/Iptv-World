@@ -3,210 +3,560 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart TV Activation - IPTV World</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- International Telephone Input CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.min.css">
-    
-    <!-- Main CSS -->
+    <title>تفعيل الاشتراك - IPTV World</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .activate-wrapper {
+            min-height: calc(100vh - 80px);
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+        }
+        
+        .activate-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--light);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .step-header {
+            margin-bottom: 2rem;
+        }
+        
+        .step-title {
+            font-size: 2rem;
+            color: var(--dark);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+        
+        .step-content {
+            display: none;
+        }
+        
+        .step-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+                .form-group {
+            margin-bottom: 1.5rem;
+            text-align: right;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .form-input {
+            width: 100%;
+            height: 55px;
+            border: 2px solid #e9ecef;
+            border-radius: var(--radius-md);
+            padding: 0 1rem;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            transition: all 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.1);
+        }
+        
+        .mac-input {
+            text-align: center;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .phone-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .country-code {
+            width: 120px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: var(--radius-md);
+            background: var(--light);            font-weight: 700;
+        }
+        
+        .payment-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .payment-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1.2rem;
+            border: none;
+            border-radius: var(--radius-lg);
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: 'Cairo', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .payment-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .paymob-btn {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+        }
+        
+        .card-btn {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+        }
+        
+        .usdt-btn {
+            background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+            color: white;
+        }
+        
+        .social-contact {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;            margin-bottom: 2rem;
+        }
+        
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icon.whatsapp { background: #25D366; }
+        .social-icon.telegram { background: #0088cc; }
+        .social-icon.messenger { background: #0084FF; }
+        
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            width: 100%;
+            height: 55px;
+            border: none;
+            border-radius: var(--radius-lg);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(233, 30, 99, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #f8f9fa;
+            color: var(--text);
+            width: 100%;
+            height: 50px;
+            border: 2px solid #e9ecef;            border-radius: var(--radius-lg);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .btn-secondary:hover {
+            background: #e9ecef;
+        }
+        
+        .progress-steps {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .step-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--text-muted);
+            transition: all 0.3s;
+        }
+        
+        .step-dot.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+        }
+        
+        .step-dot.completed {
+            background: var(--success);
+            color: white;
+        }
+        
+        .app-info-summary {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 2rem;
+            text-align: right;        }
+        
+        .app-info-summary h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .activate-container {
+                padding: 2rem 1.5rem;
+            }
+            .phone-group {
+                flex-direction: column;
+            }
+            .country-code {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
-<body class="activate-page">
+<body>
+
     <!-- Header -->
     <header class="flix-header">
         <div class="container">
             <div class="logo">
-                <a href="index.html" style="text-decoration: none; color: inherit;">
-                    <span>IpTv World</span>
-                </a>
+                <span><i class="fas fa-tv"></i> IPTV World</span>
             </div>
-            <button class="mobile-menu-btn" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i>
-            </button>
         </div>
     </header>
-
-    <!-- Mobile Menu -->
-    <nav class="mobile-nav" id="mobileNav">
-        <div class="mobile-nav-content">
-            <button class="close-menu" onclick="toggleMenu()">
-                <i class="fas fa-times"></i>
-            </button>
-            <ul>
-                <li><a href="index.html" onclick="toggleMenu()"><i class="fas fa-home"></i> HOME</a></li>
-                <li><a href="activate.html" class="active"><i class="fas fa-tv"></i> SMART TV ACTIVATION</a></li>
-                <li><a href="app.html" onclick="toggleMenu()"><i class="fas fa-download"></i> IPTV APPLICATION</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Activation Flow -->    <div class="activate-wrapper">
-        <div class="v16-container">
-            <!-- Step 1: MAC Input -->
-            <div id="v16-step1" class="v16-step active">
-                <div class="step-icon">
-                    <i class="fas fa-microchip"></i>
-                </div>
-                <h2 class="step-title">Device Activation</h2>
-                <p class="step-desc">Enter your device MAC Address</p>
-                
-                <div class="mac-input-wrapper">
-                    <input type="text" id="v16-mac-input" class="v16-input" placeholder="00:1A:2B:3C:4D:5E" maxlength="17">
-                    <div class="mac-format-hint">
-                        <i class="fas fa-info-circle"></i>
-                        <span>Format: XX:XX:XX:XX:XX:XX</span>
-                    </div>
-                </div>
-                
-                <span class="v16-notice">Please double check your mac address before proceeding</span>
-                
-                <button class="v16-btn v16-btn-blue" onclick="v16_action_step1()" id="step1Btn">
-                    <span>NEXT STEP</span>
-                    <i class="fas fa-arrow-left"></i>
-                </button>
-
-                <div class="quick-examples">
-                    <p>Quick Examples:</p>
-                    <div class="examples-list">
-                        <button onclick="setMAC('00:1A:2B:3C:4D:5E')" class="example-chip">
-                            <i class="fab fa-apple"></i> Apple TV
-                        </button>
-                        <button onclick="setMAC('B8:27:EB:12:34:56')" class="example-chip">
-                            <i class="fas fa-microchip"></i> Raspberry Pi
-                        </button>
-                        <button onclick="setMAC('74:c1:7d:b3:78:bc')" class="example-chip">
-                            <i class="fas fa-tv"></i> Samsung
-                        </button>
-                    </div>
-                </div>
+    <!-- Activate Wrapper -->
+    <div class="activate-wrapper">
+        <div class="activate-container">
+            
+            <!-- Progress Steps -->
+            <div class="progress-steps">
+                <div class="step-dot active" data-step="1">1</div>
+                <div class="step-dot" data-step="2">2</div>
+                <div class="step-dot" data-step="3">3</div>
             </div>
 
-            <!-- Step 2: Device Info & Price -->
-            <div id="v16-step2" class="v16-step">
-                <div class="device-info">
-                    <img id="v16-dev-logo" src="" alt="Device" class="device-logo">
-                    <div class="v16-price-box">
-                        <div id="v16-mac-display" class="v16-mac-pill">--:--</div>
-                        <div class="vendor-name" id="v16-vendor">--</div>
-                        <div class="v16-amount">70$</div>
-                        <div class="price-period">/ Year</div>                    </div>
-                </div>
-
-                <div class="action-buttons">
-                    <button class="v16-btn v16-btn-outline" onclick="v16_go(1)">
-                        <i class="fas fa-arrow-right"></i>
-                        <span>BACK</span>
-                    </button>
-                    <button class="v16-btn v16-btn-blue" onclick="v16_go(3)">
-                        <span>CONFIRM</span>
-                        <i class="fas fa-arrow-left"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Step 3: Contact Info -->
-            <div id="v16-step3" class="v16-step">
-                <div class="step-icon">
-                    <i class="fas fa-user"></i>
-                </div>
-                <h3 class="step-title">Contact Info</h3>
-                
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" id="v16-name" class="v16-input" placeholder="John Doe">
+            <!-- Step 1: Device Activation -->
+            <div class="step-content active" id="step1">
+                <div class="step-header">
+                    <h1 class="step-title">تفعيل الجهاز</h1>
+                    <p class="step-subtitle">أدخل MAC Address الخاص بجهازك</p>
                 </div>
                 
                 <div class="form-group">
-                    <label>Phone Number</label>
-                    <div class="phone-wrapper">
-                        <input type="tel" id="v16-phone" class="v16-input">
-                    </div>
-                </div>
-
-                <div class="info-notice">
-                    <i class="fas fa-info-circle"></i>
-                    <span>We will contact you on this number</span>
+                    <input type="text" 
+                           class="form-input mac-input" 
+                           id="macAddress" 
+                           placeholder="00:1A:2B:3C:4D:5E"
+                           maxlength="17">
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">
+                        <i class="fas fa-info-circle"></i> 
+                        يرجى التأكد من صحة الـ MAC Address قبل المتابعة
+                    </p>
                 </div>
                 
-                <button class="v16-btn v16-btn-blue" onclick="v16_action_step3()" id="step3Btn">
-                    <span>CONTINUE</span>
-                    <i class="fas fa-arrow-left"></i>
+                <button class="btn-primary" onclick="nextStep(2)">
+                    الخطوة التالية <i class="fas fa-arrow-left"></i>
                 </button>
             </div>
 
-            <!-- Step 4: Payment & Contact -->
-            <div id="v16-step4" class="v16-step">
-                <div class="success-header">
-                    <div class="success-icon">
-                        <i class="fas fa-check-circle"></i>                    </div>
-                    <h3 class="step-title">Ready to Activate!</h3>
+            <!-- Step 2: Contact Info -->
+            <div class="step-content" id="step2">
+                <div class="step-header">
+                    <h1 class="step-title">بيانات التواصل</h1>
+                    <p class="step-subtitle">أدخل معلوماتك للتواصل معك</p>
                 </div>
+                
+                <div class="form-group">
+                    <label class="form-label">الاسم الكامل</label>
+                    <input type="text" 
+                           class="form-input" 
+                           id="fullName" 
+                           placeholder="محمد أحمد محمد">
+                </div>
+                                <div class="form-group">
+                    <label class="form-label">رقم الهاتف</label>
+                    <div class="phone-group">
+                        <div class="country-code">
+                            <span>🇪🇬</span>
+                            <span>+20</span>
+                        </div>
+                        <input type="tel" 
+                               class="form-input" 
+                               id="phoneNumber" 
+                               placeholder="0100 123 4567"
+                               style="flex: 1;">
+                    </div>
+                </div>
+                
+                <button class="btn-primary" onclick="nextStep(3)">
+                    المتابعة <i class="fas fa-arrow-left"></i>
+                </button>
+                <button class="btn-secondary" onclick="nextStep(1)">
+                    <i class="fas fa-arrow-right"></i> السابق
+                </button>
+            </div>
 
-                <div class="v16-social-nav">
-                    <a href="#" id="v16-wa" target="_blank" class="v16-social-item whatsapp">
+            <!-- Step 3: Payment -->
+            <div class="step-content" id="step3">
+                <div class="step-header">
+                    <h1 class="step-title">طريقة الدفع</h1>
+                    <p class="step-subtitle">اختر طريقة الدفع المناسبة لك</p>
+                </div>
+                
+                <!-- App Summary -->
+                <div class="app-info-summary" id="appSummary">
+                    <h3><i class="fas fa-tv"></i> ملخص الاشتراك</h3>
+                    <div class="info-row">
+                        <span>التطبيق:</span>
+                        <span id="summaryAppName">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span>المدة:</span>
+                        <span>سنة واحدة</span>
+                    </div>
+                    <div class="info-row">
+                        <span>السعر:</span>
+                        <span id="summaryPrice">-</span>
+                    </div>
+                </div>
+                
+                <!-- Social Contact -->
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">أو تواصل معنا مباشرة:</p>
+                <div class="social-contact">                    <a href="https://wa.me/201xxxxxxxxx" class="social-icon whatsapp" target="_blank">
                         <i class="fab fa-whatsapp"></i>
                     </a>
-                    <a href="#" id="v16-tg" target="_blank" class="v16-social-item telegram">
-                        <i class="fab fa-telegram-plane"></i>
+                    <a href="https://t.me/yourusername" class="social-icon telegram" target="_blank">
+                        <i class="fab fa-telegram"></i>
                     </a>
-                    <a href="#" id="v16-fb" target="_blank" class="v16-social-item messenger">
+                    <a href="#" class="social-icon messenger" target="_blank">
                         <i class="fab fa-facebook-messenger"></i>
                     </a>
                 </div>
-                <p class="social-text">Contact support to complete activation</p>
-
-                <div class="v16-pay-area">
-                    <h4>Choose Payment Method:</h4>
-                    
-                    <a href="https://accept.paymob.com/api/acceptance/iframes/YOUR_ID" target="_blank" class="v16-btn v16-btn-blue">
-                        <i class="fas fa-wallet"></i> 
-                        <span>PAY WITH PAYMOB (LOCAL)</span>
-                    </a>
-                    
-                    <button class="v16-btn v16-btn-dark" onclick="jQuery('#v16-paybis-info').slideToggle();">
-                        <i class="fas fa-credit-card"></i> 
-                        <span>PAY WITH CARD (GLOBAL)</span>
+                
+                <!-- Payment Options -->
+                <div class="payment-options">
+                    <button class="payment-btn paymob-btn" onclick="selectPayment('paymob')">
+                        <i class="fas fa-wallet"></i>
+                        Pay with Paymob (Local)
                     </button>
-                    <div id="v16-paybis-info" class="v16-secure-info">
-                        <p><i class="fas fa-shield-alt"></i> <span>Secure payment via Paybis Gateway</span></p>
-                        <a href="https://paybis.com/buy-tether-trc20/?fiat_amount=70&address=TPoZKbvUE82CPnPwwwkXv4HaxgD4F5Y68i" target="_blank" class="v16-btn v16-btn-blue">
-                            <i class="fas fa-external-link-alt"></i> <span>Open Paybis</span>
-                        </a>
-                    </div>
                     
-                    <button class="v16-btn v16-btn-green" onclick="jQuery('#v16-usdt-info').slideToggle();">
-                        <i class="fab fa-ethereum"></i> 
-                        <span>PAY WITH USDT</span>
+                    <button class="payment-btn card-btn" onclick="selectPayment('card')">
+                        <i class="fas fa-credit-card"></i>
+                        Pay with Card (Global)
                     </button>
-                    <div id="v16-usdt-info" class="v16-secure-info">
-                        <iframe src="https://nowpayments.io/embeds/payment-widget?iid=4331670336" width="100%" height="450" frameborder="0"></iframe>
-                    </div>
+                    
+                    <button class="payment-btn usdt-btn" onclick="selectPayment('usdt')">
+                        <i class="fab fa-ethereum"></i>
+                        Pay with USDT
+                    </button>
                 </div>
-
-                <button class="v16-btn v16-btn-outline" onclick="v16_go(1)" style="margin-top: 15px;">
-                    <i class="fas fa-redo"></i>
-                    <span>NEW ORDER</span>
+                
+                <button class="btn-secondary" onclick="nextStep(2)">
+                    <i class="fas fa-arrow-right"></i> السابق
                 </button>
-            </div>        </div>
+            </div>
+
+        </div>
     </div>
 
-    <!-- Floating Contact Button -->
-    <a href="https://wa.me/201112246002" target="_blank" class="floating-contact-btn" title="Contact Us">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/activate.js"></script>
+    <!-- JavaScript -->
+    <script>
+        // Get app info from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const appId = urlParams.get('app');
+        
+        // Load app details
+        let appData = null;
+        
+        fetch('data/apps.json')
+            .then(res => res.json())
+            .then(data => {
+                appData = data.apps.find(a => a.id === appId);                if (appData) {
+                    document.getElementById('summaryAppName').textContent = appData.name;
+                    document.getElementById('summaryPrice').textContent = `${appData.price} ${appData.currency}/year`;
+                }
+            })
+            .catch(err => console.error('Error loading app:', err));
+        
+        // Step Navigation
+        function nextStep(stepNumber) {
+            // Validate current step
+            if (stepNumber === 2 && !validateStep1()) return;
+            if (stepNumber === 3 && !validateStep2()) return;
+            
+            // Hide all steps
+            document.querySelectorAll('.step-content').forEach(step => {
+                step.classList.remove('active');
+            });
+            
+            // Show target step
+            document.getElementById(`step${stepNumber}`).classList.add('active');
+            
+            // Update progress dots
+            document.querySelectorAll('.step-dot').forEach((dot, index) => {
+                const stepNum = index + 1;
+                dot.classList.remove('active', 'completed');
+                if (stepNum === stepNumber) {
+                    dot.classList.add('active');
+                } else if (stepNum < stepNumber) {
+                    dot.classList.add('completed');
+                    dot.innerHTML = '<i class="fas fa-check"></i>';
+                } else {
+                    dot.textContent = stepNum;
+                }
+            });
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Validation
+        function validateStep1() {
+            const mac = document.getElementById('macAddress').value.trim();
+            const macPattern = /^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/;
+            
+            if (!macPattern.test(mac)) {
+                alert('الرجاء إدخال MAC Address صحيح (مثال: 00:1A:2B:3C:4D:5E)');
+                return false;
+            }
+            return true;
+        }        
+        function validateStep2() {
+            const name = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phoneNumber').value.trim();
+            
+            if (!name) {
+                alert('الرجاء إدخال الاسم الكامل');
+                return false;
+            }
+            
+            if (!phone || phone.length < 10) {
+                alert('الرجاء إدخال رقم هاتف صحيح');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        // Payment Selection
+        function selectPayment(method) {
+            const mac = document.getElementById('macAddress').value;
+            const name = document.getElementById('fullName').value;
+            const phone = document.getElementById('phoneNumber').value;
+            
+            // Save order data (later we'll send to backend)
+            const orderData = {
+                app: appData,
+                mac: mac,
+                name: name,
+                phone: phone,
+                payment: method,
+                date: new Date().toISOString()
+            };
+            
+            console.log('Order Data:', orderData);
+            
+            // Handle payment methods
+            switch(method) {
+                case 'paymob':
+                    alert('سيتم توجيهك لصفحة الدفع عبر Paymob\n(في التطبيق الحقيقي سيتم التوجيه لبوابة الدفع)');
+                    // window.location.href = 'paymob-payment-url';
+                    break;
+                case 'card':
+                    alert('سيتم توجيهك لصفحة الدفع بالبطاقة\n(في التطبيق الحقيقي سيتم التوجيه لبوابة الدفع)');
+                    // window.location.href = 'card-payment-url';
+                    break;
+                case 'usdt':
+                    alert('سيتم عرض معلومات محفظة USDT للتحويل\n(في التطبيق الحقيقي سيتم عرض العنوان)');
+                    // Show USDT wallet address
+                    break;            }
+        }
+        
+        // Format MAC Address input
+        document.getElementById('macAddress')?.addEventListener('input', function(e) {
+            let value = e.target.value.toUpperCase().replace(/[^0-9A-F]/g, '');
+            let formatted = '';
+            for (let i = 0; i < value.length; i++) {
+                if (i > 0 && i % 2 === 0) formatted += ':';
+                formatted += value[i];
+            }
+            e.target.value = formatted.substring(0, 17);
+        });
+        
+        // Format Phone input
+        document.getElementById('phoneNumber')?.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 10) value = value.substring(0, 10);
+            e.target.value = value;
+        });
+    </script>
 </body>
 </html>

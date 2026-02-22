@@ -6,7 +6,7 @@
       "description": "أفضل تجربة مشاهدة بجودة FHD و 4K مع دعم كامل لجميع الأجهزة",
       "price": 70,
       "currency": "USD",
-      "image_url": "https://via.placeholder.com/400x200/6366f1/ffffff?text=FlixIPTV",
+      "image_url": "https://via.placeholder.com/400x200/e91e63/ffffff?text=FlixIPTV",
       "features": ["+10000 قناة", "بدون تقطيع", "دعم 24/7", "جودة 4K"],
       "is_active": true
     },
@@ -16,7 +16,7 @@
       "description": "باقات متنوعة تناسب جميع الأذواق بأسعار تنافسية",
       "price": 70,
       "currency": "USD",
-      "image_url": "https://via.placeholder.com/400x200/8b5cf6/ffffff?text=Aroma+TV",
+      "image_url": "https://via.placeholder.com/400x200/c2185b/ffffff?text=Aroma+TV",
       "features": ["قنوات عربية وعالمية", "تحديث أسبوعي", "ضمان استرجاع"],
       "is_active": true
     }
