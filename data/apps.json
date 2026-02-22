@@ -1,25 +1,255 @@
 {
   "apps": [
     {
-      "id": "flix-iptv",
-      "name": "FlixIPTV",
-      "description": "أفضل تجربة مشاهدة بجودة FHD و 4K مع دعم كامل لجميع الأجهزة",
+      "id": "aroma-iptv",
+      "name": "Aroma IPTV",
+      "description": "Aroma IPTV Application - Best viewing experience with user-friendly interface and high streaming quality",
       "price": 70,
       "currency": "USD",
-      "image_url": "https://via.placeholder.com/400x200/e91e63/ffffff?text=FlixIPTV",
-      "features": ["+10000 قناة", "بدون تقطيع", "دعم 24/7", "جودة 4K"],
+      "image_url": "https://via.placeholder.com/400x200/e91e63/ffffff?text=Aroma+IPTV",
+      "features": [
+        "10,000+ Arabic & International Channels",
+        "FHD & 4K Quality",
+        "Movies & Series Library",
+        "All Devices Support",
+        "Regular Content Updates"
+      ],
+      "category": "iptv-application",
       "is_active": true
     },
     {
-      "id": "aroma-tv",
-      "name": "Aroma TV",
-      "description": "باقات متنوعة تناسب جميع الأذواق بأسعار تنافسية",
+      "id": "elaf-iptv",
+      "name": "Elaf IPTV",
+      "description": "Elaf IPTV Application - Comprehensive entertainment portal with diverse channels and exclusive content",
       "price": 70,
       "currency": "USD",
-      "image_url": "https://via.placeholder.com/400x200/c2185b/ffffff?text=Aroma+TV",
-      "features": ["قنوات عربية وعالمية", "تحديث أسبوعي", "ضمان استرجاع"],
+      "image_url": "https://via.placeholder.com/400x200/c2185b/ffffff?text=Elaf+IPTV",
+      "features": [
+        "Exclusive Sports Channels",
+        "Arabic & Foreign Movies",
+        "High Quality Without Buffering",
+        "24/7 Technical Support",
+        "Instant Activation"
+      ],
+      "category": "iptv-application",
+      "is_active": true
+    },
+    {
+      "id": "nova-iptv",
+      "name": "Nova IPTV",
+      "description": "Nova IPTV Application - Exceptional viewing experience with thousands of channels and diverse content",
+      "price": 70,
+      "currency": "USD",
+      "image_url": "https://via.placeholder.com/400x200/673ab7/ffffff?text=Nova+IPTV",
+      "features": [
+        "15,000+ Channels",
+        "Live Sports Content",
+        "Latest VOD Movies",
+        "Smart TV Support",
+        "Powerful Servers"
+      ],      "category": "iptv-application",
+      "is_active": true
+    },
+    {
+      "id": "flixip-tv",
+      "name": "FlixIP TV",
+      "description": "FlixIP TV Application - Your perfect entertainment companion with modern interface and huge content",
+      "price": 70,
+      "currency": "USD",
+      "image_url": "https://via.placeholder.com/400x200/3f51b5/ffffff?text=FlixIP+TV",
+      "features": [
+        "Easy User Interface",
+        "Kids Channels",
+        "Live Series & Shows",
+        "4K Ultra HD Quality",
+        "3 Device Support"
+      ],
+      "category": "iptv-application",
+      "is_active": true
+    },
+    {
+      "id": "maven-iptv",
+      "name": "Maven IPTV",
+      "description": "Maven IPTV Application - The ultimate solution for sports and entertainment lovers with professional quality",
+      "price": 70,
+      "currency": "USD",
+      "image_url": "https://via.placeholder.com/400x200/009688/ffffff?text=Maven+IPTV",
+      "features": [
+        "Premium Sports Channels",
+        "Live Event Streaming",
+        "Huge Movie Library",
+        "No Buffering",
+        "All Systems Support"
+      ],
+      "category": "iptv-application",
+      "is_active": true
+    },
+    {
+      "id": "cobra-iptv",
+      "name": "Cobra IPTV",
+      "description": "Cobra IPTV Application - Performance power with diverse content and excellent streaming quality",
+      "price": 70,
+      "currency": "USD",
+      "image_url": "https://via.placeholder.com/400x200/ff5722/ffffff?text=Cobra+IPTV",
+      "features": [
+        "Fast Servers",
+        "News Channels",
+        "Educational Content",
+        "Arabic & International Support",
+        "Weekly Updates"      ],
+      "category": "iptv-application",
+      "is_active": true
+    },
+    {
+      "id": "dita-iptv",
+      "name": "Dita IPTV",
+      "description": "Dita IPTV Application - Smooth viewing experience with diverse channels and premium content",
+      "price": 70,
+      "currency": "USD",
+      "image_url": "https://via.placeholder.com/400x200/795548/ffffff?text=Dita+IPTV",
+      "features": [
+        "Variety Channels",
+        "Subtitled Movies",
+        "Exclusive Series",
+        "HD/FHD Quality",
+        "Fast Activation"
+      ],
+      "category": "iptv-application",
+      "is_active": true
+    },
+    {
+      "id": "ceme-iptv",
+      "name": "Ceme IPTV",
+      "description": "Ceme IPTV Application - Your gateway to continuous entertainment with thousands of channels and exclusive content",
+      "price": 70,
+      "currency": "USD",
+      "image_url": "https://via.placeholder.com/400x200/607d8b/ffffff?text=Ceme+IPTV",
+      "features": [
+        "12,000+ Channels",
+        "Asian & Arabic Content",
+        "Bollywood Movies",
+        "EPG Support",
+        "High Stability"
+      ],
+      "category": "iptv-application",
+      "is_active": true
+    },
+    {
+      "id": "ipfox-tv",
+      "name": "Ipfox TV",
+      "description": "Ipfox TV Application - Complete live streaming solution with professional and easy interface",
+      "price": 70,
+      "currency": "USD",
+      "image_url": "https://via.placeholder.com/400x200/00bcd4/ffffff?text=Ipfox+TV",
+      "features": [
+        "Modern Interface",
+        "Documentary Channels",
+        "Kids Content",
+        "Excellent Audio & Video Quality",        "Continuous Technical Support"
+      ],
+      "category": "iptv-application",
+      "is_active": true
+    },
+    {
+      "id": "flixiptv-activation",
+      "name": "FlixIPTV Activation",
+      "description": "FlixIPTV Subscription Activation - The most popular live streaming application for Smart TV",
+      "price": 70,
+      "currency": "USD",
+      "image_url": "https://via.placeholder.com/400x200/e91e63/ffffff?text=FlixIPTV+Activation",
+      "features": [
+        "Smart TV Activation",
+        "LG & Samsung & Android",
+        "Apple TV Support",
+        "Live Channels",
+        "MAC Address Support"
+      ],
+      "category": "smart-tv-activation",
+      "is_active": true
+    },
+    {
+      "id": "ibo-player",
+      "name": "iBO Player IPTV",
+      "description": "iBO Player Application - Professional IPTV player for Smart TV with full playlist support",
+      "price": 70,
+      "currency": "USD",
+      "image_url": "https://via.placeholder.com/400x200/9c27b0/ffffff?text=iBO+Player",
+      "features": [
+        "All Smart Devices Support",
+        "Simple Interface",
+        "Playlist Support",
+        "High Quality",
+        "Instant Activation"
+      ],
+      "category": "smart-tv-activation",
+      "is_active": true
+    },
+    {
+      "id": "duplex-iptv",
+      "name": "Duplex IPTV Activation",
+      "description": "Duplex IPTV Activation - Advanced live streaming application with professional features",
+      "price": 70,
+      "currency": "USD",
+      "image_url": "https://via.placeholder.com/400x200/3f51b5/ffffff?text=Duplex+IPTV",
+      "features": [
+        "Android TV Support",
+        "M3U Playlists",
+        "EPG Guide",        "Stream Recording",
+        "Multi-Screen Support"
+      ],
+      "category": "smart-tv-activation",
+      "is_active": true
+    },
+    {
+      "id": "elk-player",
+      "name": "ELK Player",
+      "description": "ELK Player Application - Lightweight and fast IPTV player with excellent performance",
+      "price": 70,
+      "currency": "USD",
+      "image_url": "https://via.placeholder.com/400x200/009688/ffffff?text=ELK+Player",
+      "features": [
+        "Lightweight on Device",
+        "Fast Loading",
+        "Firestick Support",
+        "Clean Interface",
+        "Low Resource Usage"
+      ],
+      "category": "smart-tv-activation",
+      "is_active": true
+    },
+    {
+      "id": "nanomid",
+      "name": "Nanomid",
+      "description": "Nanomid Application - Complete IPTV solution with advanced features and ease of use",
+      "price": 70,
+      "currency": "USD",
+      "image_url": "https://via.placeholder.com/400x200/ff9800/ffffff?text=Nanomid",
+      "features": [
+        "Xtream Codes Support",
+        "Various Playlists",
+        "Catch-up Support",
+        "Variable Quality",
+        "Continuous Updates"
+      ],
+      "category": "smart-tv-activation",
+      "is_active": true
+    },
+    {
+      "id": "ssiptv-activation",
+      "name": "SSIPTV Activation",
+      "description": "SSIPTV Activation - Popular live streaming application with wide device support",
+      "price": 70,
+      "currency": "USD",
+      "image_url": "https://via.placeholder.com/400x200/4caf50/ffffff?text=SSIPTV",
+      "features": [
+        "Old & New Smart TV Support",
+        "MAC Address Activation",        "International Channels",
+        "Stable Streaming",
+        "Technical Support"
+      ],
+      "category": "smart-tv-activation",
       "is_active": true
     }
   ],
-  "last_updated": "2026-02-22"
+  "last_updated": "2026-02-23"
 }
