@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Activate your IPTV subscription - Quick and secure payment process">
     <title>Activate Subscription - IPTV World</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -46,8 +47,8 @@
         }
         
         .v16-subtitle {
-            color: var(--text-muted);
-            font-size: 0.95rem;            margin-bottom: 1.5rem;
+            color: var(--text-muted);            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
         }
         
         .v16-input {
@@ -95,8 +96,8 @@
             text-decoration: none !important;
             font-family: 'Cairo', sans-serif;
         }
-        
-        .v16-btn:hover {            transform: translateY(-3px);
+                .v16-btn:hover {
+            transform: translateY(-3px);
             box-shadow: var(--shadow-lg);
         }
         
@@ -144,8 +145,8 @@
         .v16-amount {
             font-size: 3.5rem;
             font-weight: 900;
-            color: var(--success);
-            line-height: 1;        }
+            color: var(--success);            line-height: 1;
+        }
         
         .v16-amount span {
             font-size: 1.2rem;
@@ -193,8 +194,8 @@
             border-radius: var(--radius-md);
             padding: 15px;
             margin-top: 10px;
-            background: #fff;
-            display: none;        }
+            background: #fff;            display: none;
+        }
         
         .v16-secure-info p {
             font-size: 0.85rem;
@@ -242,8 +243,8 @@
     <!-- Activate Wrapper -->
     <div class="activate-wrapper">
         <div class="v16-container">
-            
-            <!-- Step 1: MAC Address -->            <div id="v16-step1" class="v16-step active">
+                        <!-- Step 1: MAC Address -->
+            <div id="v16-step1" class="v16-step active">
                 <h2 class="v16-title">Device Activation</h2>
                 <p class="v16-subtitle">Enter your device MAC Address</p>
                 
@@ -291,18 +292,18 @@
             </div>
 
             <!-- Step 4: Payment -->
-            <div id="v16-step4" class="v16-step">
-                <h3 class="v16-title">Choose Payment</h3>                <p class="v16-subtitle">Select your preferred payment method</p>
+            <div id="v16-step4" class="v16-step">                <h3 class="v16-title">Choose Payment</h3>
+                <p class="v16-subtitle">Select your preferred payment method</p>
                 
                 <!-- Social Contact -->
                 <div class="v16-social-nav">
-                    <a href="#" id="v16-wa" target="_blank" class="v16-social-item whatsapp">
+                    <a href="#" id="v16-wa" target="_blank" rel="noopener" class="v16-social-item whatsapp">
                         <i class="fab fa-whatsapp"></i>
                     </a>
-                    <a href="#" id="v16-tg" target="_blank" class="v16-social-item telegram">
+                    <a href="#" id="v16-tg" target="_blank" rel="noopener" class="v16-social-item telegram">
                         <i class="fab fa-telegram-plane"></i>
                     </a>
-                    <a href="#" id="v16-fb" target="_blank" class="v16-social-item messenger">
+                    <a href="#" id="v16-fb" target="_blank" rel="noopener" class="v16-social-item messenger">
                         <i class="fab fa-facebook-messenger"></i>
                     </a>
                 </div>
@@ -310,7 +311,7 @@
                 <!-- Payment Options -->
                 <div class="v16-pay-area">
                     <!-- Paymob (Local) -->
-                    <a href="https://accept.paymob.com/api/acceptance/iframes/YOUR_ID" target="_blank" class="v16-btn v16-btn-blue">
+                    <a href="https://accept.paymob.com/api/acceptance/iframes/YOUR_ID" target="_blank" rel="noopener" class="v16-btn v16-btn-blue">
                         <i class="fas fa-wallet"></i> PAY WITH PAYMOB (LOCAL)
                     </a>
                     
@@ -320,7 +321,7 @@
                     </button>
                     <div id="v16-paybis-info" class="v16-secure-info">
                         <p><i class="fas fa-lock"></i> Secure payment via Paybis Gateway</p>
-                        <a href="https://paybis.com/buy-tether-trc20/?fiat_amount=70&address=TPoZKbvUE82CPnPwwwkXv4HaxgD4F5Y68i" target="_blank" class="v16-btn v16-btn-blue">
+                        <a href="https://paybis.com/buy-tether-trc20/?fiat_amount=70&address=TPoZKbvUE82CPnPwwwkXv4HaxgD4F5Y68i" target="_blank" rel="noopener" class="v16-btn v16-btn-blue">
                             Open Paybis →
                         </a>
                     </div>
@@ -340,8 +341,8 @@
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
-    <script>        let v16_iti;
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>    <script>
+        let v16_iti;
         
         document.addEventListener('DOMContentLoaded', function() {
             const phoneInput = document.querySelector("#v16-phone");
@@ -389,8 +390,8 @@
             
             fetch(`https://api.macvendors.com/${encodeURIComponent(mac)}`)
                 .then(res => res.ok ? res.text() : Promise.reject())
-                .then(vendor => {
-                    document.getElementById('v16-dev-logo').src = 'https://flixiptv.unaux.com/wp-content/uploads/2022/10/sumsung.png';                    v16_go(2);
+                .then(vendor => {                    document.getElementById('v16-dev-logo').src = 'https://flixiptv.unaux.com/wp-content/uploads/2022/10/sumsung.png';
+                    v16_go(2);
                 })
                 .catch(() => {
                     document.getElementById('v16-dev-logo').src = 'https://flixiptv.unaux.com/wp-content/uploads/2020/07/images-32.jpeg';

@@ -34,7 +34,7 @@ async function loadApps() {
             return;
         }
         
-        // عرض التطبيقات
+        // Display applications
         container.innerHTML = apps.map((app, index) => `
             <article class="app-card" style="animation: fadeInUp 0.5s ease ${index * 0.1}s both">
                 <div class="app-image">
@@ -47,7 +47,7 @@ async function loadApps() {
                     <p class="app-desc">${escapeHtml(app.description)}</p>
                     ${app.features?.length ? `
                     <ul class="app-features">
-                        ${app.features.slice(0, 3).map(f => `<li>✓ ${escapeHtml(f)}</li>`).join('')}
+                        ${app.features.slice(0, 3).map(f => `<li>${escapeHtml(f)}</li>`).join('')}
                     </ul>` : ''}
                     <div class="app-price">${app.price} ${app.currency}/year</div>
                     <a href="activate.html?app=${encodeURIComponent(app.id)}" class="flix-btn flix-btn-primary">
