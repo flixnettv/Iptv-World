@@ -17,13 +17,14 @@
             justify-content: center;
         }
         .v16-container {
-            max-width: 480px;
+            max-width: 450px;
             width: 100%;
             margin: 0 auto;
-            padding: 40px 30px;
-            background: var(--light);
+            padding: 35px;
+            background: #fff;
             border-radius: 35px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+            font-family: 'Segoe UI', Roboto, sans-serif;
             text-align: center;
             border: 1px solid #f1f3f5;
         }
@@ -33,25 +34,8 @@
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .v16-title { font-size: 1.8rem; font-weight: 800; color: var(--dark); margin-bottom: 0.5rem; }
-        .v16-subtitle { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
-        .v16-input {
-            width: 100% !important;
-            height: 60px;
-            border: 2px solid #e9ecef;
-            border-radius: 18px;
-            padding: 0 20px;
-            font-size: 17px;
-            text-align: center;
-            margin-bottom: 5px;
-            font-family: 'Cairo', sans-serif;
-        }
-        .v16-input:focus {
-            outline: none;            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.1);
-        }
-        .v16-input.text-left { text-align: left !important; }
-        .v16-notice { font-size: 12px; color: #adb5bd; margin-top: 10px; display: block; }
+        .v16-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .v16-subtitle { color: #6c757d; margin-bottom: 1.5rem; }
         .v16-btn {
             width: 100%;
             height: 58px;
@@ -63,17 +47,33 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 12px;
-            transition: 0.3s;
+            margin-bottom: 12px;            transition: 0.3s;
             font-size: 15px;
             text-decoration: none !important;
-            font-family: 'Cairo', sans-serif;
         }
         .v16-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
         .v16-btn-blue { background: #007bff; color: #fff !important; }
         .v16-btn-dark { background: #1a202c; color: #fff !important; }
         .v16-btn-green { background: #28a745; color: #fff !important; }
         .v16-btn-outline { background: #f8f9fa; color: #495057 !important; border: 1px solid #e9ecef; }
+        .v16-input {
+            width: 100% !important;
+            height: 60px;
+            border: 2px solid #e9ecef;
+            border-radius: 18px;
+            padding: 0 20px;
+            font-size: 17px;
+            text-align: center;
+            margin-bottom: 5px;
+            font-family: inherit;
+        }
+        .v16-input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 4px rgba(0,123,255,0.1);
+        }
+        .v16-input.text-left { text-align: left !important; }
+        .v16-notice { font-size: 12px; color: #adb5bd; margin-top: 10px; display: block; }
         .v16-price-box {
             background: #fcfcfc;
             border: 1px solid #f1f3f5;
@@ -117,10 +117,10 @@
             background: #fff;
             display: none;
         }
-        .v16-dev-logo { height: 45px; margin-bottom: 15px; }
+        .v16-dev-logo { height: 40px; margin-bottom: 15px; }
         .iti { width: 100% !important; }
         @media (max-width: 480px) {
-            .v16-container { padding: 30px 20px; }
+            .v16-container { padding: 25px 20px; }
             .v16-amount { font-size: 40px; }
         }
     </style>
@@ -153,7 +153,7 @@
                 <img id="v16-dev-logo" class="v16-dev-logo" src="" alt="Device">
                 <div class="v16-price-box">
                     <div id="v16-mac-display" class="v16-mac-pill">--:--:--:--:--:--</div>
-                    <div class="v16-amount">70<span style="font-size:24px;">$/year</span></div>
+                    <div class="v16-amount">70$</div>
                 </div>
                 <div style="display:flex; gap:10px;">
                     <button class="v16-btn v16-btn-outline" style="flex:1;" onclick="v16_go(1)">
