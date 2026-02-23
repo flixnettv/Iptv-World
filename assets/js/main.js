@@ -12,15 +12,15 @@ const CONFIG = {
 
 // Auto-Scroll Configuration
 const AUTO_SCROLL = {
-    interval: 2000,      // 2 seconds
-    distance: 80,        // pixels per scroll
-    direction: 1         // 1 = right, -1 = left
+    interval: 2000,
+    distance: 80,
+    direction: 1
 };
 
 let autoScrollTimer;
 
 /**
- * Auto-scroll function for apps container
+ * Auto-scroll function
  */
 function startAutoScroll() {
     if (autoScrollTimer) clearInterval(autoScrollTimer);
@@ -32,14 +32,12 @@ function startAutoScroll() {
         const maxScroll = container.scrollWidth - container.clientWidth;
         const currentScroll = container.scrollLeft;
         
-        // Reverse direction at edges
         if (currentScroll >= maxScroll - 10) {
             AUTO_SCROLL.direction = -1;
         } else if (currentScroll <= 10) {
             AUTO_SCROLL.direction = 1;
         }
         
-        // Smooth scroll
         container.scrollBy({
             left: AUTO_SCROLL.distance * AUTO_SCROLL.direction,
             behavior: 'smooth'
@@ -47,9 +45,9 @@ function startAutoScroll() {
     }, AUTO_SCROLL.interval);
 }
 
-/** * Load and display applications from JSON
- */
-async function loadApps() {
+/**
+ * Load applications
+ */async function loadApps() {
     const container = document.getElementById(CONFIG.CONTAINER);
     const loading = document.getElementById(CONFIG.LOADING);
     const error = document.getElementById(CONFIG.ERROR);
@@ -57,27 +55,22 @@ async function loadApps() {
     if (!container) return;
     
     try {
-        // Show loading, hide error
         loading?.classList.remove('hidden');
         error?.classList.add('hidden');
         
-        // Fetch data from GitHub-hosted JSON
         const response = await fetch(CONFIG.DATA_URL, { cache: 'no-store' });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         
         const json = await response.json();
         const apps = (json.apps || []).filter(app => app.is_active !== false);
         
-        // Hide loading
         loading?.classList.add('hidden');
         
-        // Handle empty state
         if (apps.length === 0) {
             container.innerHTML = '<p class="no-apps">No applications available.</p>';
             return;
         }
         
-        // Render square cards
         container.innerHTML = apps.map((app, index) => `
             <article class="app-card-square" style="animation-delay: ${index * 0.05}s">
                 <a href="activate.html?app=${encodeURIComponent(app.id)}" style="display:block; height:100%;">
@@ -96,18 +89,87 @@ async function loadApps() {
                 </a>
             </article>
         `).join('');
-                // Start auto-scroll after render
+        
         setTimeout(startAutoScroll, 1000);
         
     } catch (err) {
         console.error('❌ Error loading apps:', err);
         loading?.classList.add('hidden');
         error?.classList.remove('hidden');
+    }}
+
+/**
+ * Load Mobile Menu Apps
+ */
+async function loadMobileMenuApps() {
+    try {
+        const response = await fetch(CONFIG.DATA_URL, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        
+        const json = await response.json();
+        const apps = (json.apps || []).filter(app => app.is_active !== false);
+        
+        const submenu = document.getElementById('apps-submenu');
+        if (!submenu) return;
+        
+        submenu.innerHTML = apps.map(app => `
+            <li>
+                <a href="#" onclick="selectApp(event, '${app.id}')">
+                    ${escapeHtml(app.name)}
+                </a>
+            </li>
+        `).join('');
+        
+    } catch (err) {
+        console.error('Error loading mobile menu apps:', err);
     }
 }
 
 /**
- * Escape HTML to prevent XSS attacks
+ * Toggle Submenu
+ */
+function toggleSubmenu(event) {
+    event.preventDefault();
+    const toggle = event.currentTarget;
+    const submenu = document.getElementById('apps-submenu');
+    
+    toggle.classList.toggle('active');
+    
+    if (submenu.classList.contains('show')) {
+        submenu.classList.remove('show');
+    } else {
+        submenu.classList.add('show');
+    }
+}
+
+/**
+ * Select App and Navigate
+ */
+function selectApp(event, appId) {    event.preventDefault();
+    closeMobileMenu();
+    
+    setTimeout(() => {
+        window.location.href = `activate.html?app=${appId}`;
+    }, 300);
+}
+
+/**
+ * Close Mobile Menu
+ */
+function closeMobileMenu() {
+    const mobileNav = document.getElementById('mobileNav');
+    if (mobileNav) {
+        mobileNav.classList.remove('active');
+    }
+    
+    const submenu = document.getElementById('apps-submenu');
+    const toggle = document.querySelector('.submenu-toggle');
+    if (submenu) submenu.classList.remove('show');
+    if (toggle) toggle.classList.remove('active');
+}
+
+/**
+ * Escape HTML
  */
 function escapeHtml(text) {
     if (!text) return '';
@@ -122,17 +184,35 @@ function escapeHtml(text) {
 }
 
 /**
- * Initialize on DOM ready
+ * Initialize
  */
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', loadApps);
+    document.addEventListener('DOMContentLoaded', () => {
+        loadApps();
+        loadMobileMenuApps();
+    });
 } else {
     loadApps();
+    loadMobileMenuApps();
 }
-
 /**
- * Cleanup on page unload
+ * Cleanup
  */
 window.addEventListener('beforeunload', () => {
     if (autoScrollTimer) clearInterval(autoScrollTimer);
+});
+
+/**
+ * Close menu on outside click
+ */
+document.addEventListener('click', function(event) {
+    const mobileNav = document.getElementById('mobileNav');
+    const menuBtn = document.getElementById('menuBtn');
+    
+    if (mobileNav && menuBtn && 
+        !mobileNav.contains(event.target) && 
+        !menuBtn.contains(event.target) && 
+        mobileNav.classList.contains('active')) {
+        closeMobileMenu();
+    }
 });

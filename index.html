@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="IPTV World - Premium IPTV Service with 10,000+ FHD/4K Channels. Instant activation, 24/7 support.">
-    <meta name="keywords" content="iptv, iptv subscription, live tv, streaming, sports, movies, series">
-    <title>IPTV World | Premium IPTV Service - 10,000+ Channels</title>
+    <meta name="description" content="IPTV World - Premium IPTV Service with 10,000+ FHD/4K Channels">
+    <title>IPTV World | Premium IPTV Service</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +14,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css">
 </head>
 <body>
 
@@ -36,18 +36,57 @@
             <button class="close-menu" id="closeMenu" aria-label="Close">
                 <i class="fas fa-times"></i>
             </button>
-            <ul>
-                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
-                <li><a href="#apps"><i class="fas fa-th-large"></i> Apps</a></li>
-                <li><a href="activate.html"><i class="fas fa-credit-card"></i> Activate</a></li>
-                <li><a href="#contact"><i class="fas fa-headset"></i> Support</a></li>
+            <ul class="mobile-menu-list">
+                <li>
+                    <a href="#home" class="mobile-link" onclick="closeMobileMenu()">
+                        <span class="link-content">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#features" class="mobile-link" onclick="closeMobileMenu()">
+                        <span class="link-content">                            <i class="fas fa-star"></i>
+                            <span>Features</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="has-submenu">
+                    <a href="#" class="mobile-link submenu-toggle" onclick="toggleSubmenu(event)">
+                        <span class="link-content">
+                            <i class="fas fa-th-large"></i>
+                            <span>Apps</span>
+                        </span>
+                        <i class="fas fa-chevron-down submenu-icon"></i>
+                    </a>
+                    <ul class="submenu" id="apps-submenu">
+                        <!-- Apps load dynamically -->
+                    </ul>
+                </li>
+                <li>
+                    <a href="activate.html" class="mobile-link" onclick="closeMobileMenu()">
+                        <span class="link-content">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Activate</span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact" class="mobile-link" onclick="closeMobileMenu()">
+                        <span class="link-content">
+                            <i class="fas fa-headset"></i>
+                            <span>Support</span>
+                        </span>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="flix-hero" id="home">        <div class="hero-overlay"></div>
+    <section class="flix-hero" id="home">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title">The Best IPTV Experience</h1>
             <p class="hero-subtitle">
@@ -57,8 +96,7 @@
             <a href="#apps" class="flix-btn flix-btn-primary">
                 <i class="fas fa-rocket"></i> Start Now
             </a>
-        </div>
-    </section>
+        </div>    </section>
 
     <!-- Features Section -->
     <section class="quick-links" id="features">
@@ -89,14 +127,15 @@
         </div>
     </section>
 
-    <!-- Apps Section - Horizontal Auto-Scroll -->
+    <!-- Apps Section -->
     <section class="apps-section" id="apps">
         <div class="container">
             <h2 class="section-title">🎯 Our Applications</h2>
             
             <div id="loading-msg" class="loading">
                 <i class="fas fa-spinner fa-spin fa-2x"></i>
-                <p>Loading applications...</p>            </div>
+                <p>Loading applications...</p>
+            </div>
             
             <div id="error-msg" class="error hidden">
                 <i class="fas fa-exclamation-triangle fa-2x"></i>
@@ -106,8 +145,7 @@
             <div class="apps-scroll-container" id="apps-scroll-container">
                 <div class="apps-horizontal-list" id="apps-container">
                     <!-- Apps load here dynamically -->
-                </div>
-            </div>
+                </div>            </div>
         </div>
     </section>
 
@@ -143,17 +181,8 @@
     </a>
 
     <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
     <script src="assets/js/main.js"></script>
-    <script>
-        // Mobile Menu        const menuBtn = document.getElementById('menuBtn');
-        const closeMenu = document.getElementById('closeMenu');
-        const mobileNav = document.getElementById('mobileNav');
-        
-        menuBtn?.addEventListener('click', () => mobileNav.classList.add('active'));
-        closeMenu?.addEventListener('click', () => mobileNav.classList.remove('active'));
-        mobileNav?.addEventListener('click', (e) => {
-            if(e.target === mobileNav) mobileNav.classList.remove('active');
-        });
-    </script>
 </body>
 </html>
