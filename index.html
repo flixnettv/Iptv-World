@@ -89,19 +89,22 @@
             <p>Error loading. <a href="#" onclick="location.reload()">Try again</a></p>
         </div>
         
-        <!-- Horizontal Scroll Container -->
         <div class="apps-scroll-container" id="apps-scroll-container">
-            <div class="scroll-indicator left" onclick="scrollApps(-320)">
+            <button class="scroll-btn left" onclick="scrollApps(-280)">
                 <i class="fas fa-chevron-left"></i>
-            </div>
+            </button>
             
             <div class="apps-horizontal-list" id="apps-container">
-                <!-- Applications will appear here -->
+                <!-- Apps will load here -->
             </div>
             
-            <div class="scroll-indicator right" onclick="scrollApps(320)">
+            <button class="scroll-btn right" onclick="scrollApps(280)">
                 <i class="fas fa-chevron-right"></i>
-            </div>
+            </button>
+            
+            <button class="scroll-pause-btn" id="pause-btn" onclick="toggleAutoScroll()">
+                <i class="fas fa-pause"></i> <span>Pause Auto-Scroll</span>
+            </button>
         </div>
     </div>
 </section>

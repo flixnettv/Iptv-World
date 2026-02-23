@@ -166,21 +166,237 @@ body {
     box-shadow: 0 12px 35px rgba(233, 30, 99, 0.5);
 }
 
-/* Apps Section - Horizontal Scroll */
+/* Apps Section - Compact Horizontal Scroll */
 .apps-section {
-    padding: 3rem 0;
+    padding: 2rem 0;
     background: #f8f9fa;
     overflow: hidden;
 }
 
 .apps-section h2 {
     text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
     color: var(--dark);
     font-weight: 800;
 }
 
+/* Compact Scroll Container */
+.apps-scroll-container {
+    position: relative;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 15px 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) #e9ecef;
+    cursor: grab;
+}
+
+.apps-scroll-container:active {
+    cursor: grabbing;
+}
+
+/* Always Visible Scrollbar */
+.apps-scroll-container::-webkit-scrollbar {
+    height: 10px;
+}
+
+.apps-scroll-container::-webkit-scrollbar-track {
+    background: #e9ecef;
+    border-radius: 10px;
+    margin: 0 80px;
+}
+
+.apps-scroll-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.apps-scroll-container::-webkit-scrollbar-thumb:hover {    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    height: 12px;
+}
+
+/* Compact Horizontal List */
+.apps-horizontal-list {
+    display: flex;
+    gap: 20px;
+    padding: 0 20px;
+    width: max-content;
+}
+
+/* Compact App Card - Half Height */
+.app-card-compact {
+    flex: 0 0 280px;
+    background: var(--light);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s;
+    border: 2px solid transparent;
+    animation: fadeIn 0.5s ease;
+}
+
+.app-card-compact:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
+}
+
+.app-card-compact .app-image {
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.app-card-compact .app-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.app-card-compact:hover .app-image img {
+    transform: scale(1.1);
+}
+.app-card-compact .app-info {
+    padding: 1rem;
+}
+
+.app-card-compact .app-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: var(--dark);
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.app-card-compact .app-desc {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.app-card-compact .app-features {
+    list-style: none;
+    margin: 0.5rem 0;
+    padding: 0;
+}
+
+.app-card-compact .app-features li {
+    color: var(--success);
+    padding: 0.2rem 0;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.app-card-compact .app-features li::before {
+    content: "✓";
+    font-weight: bold;
+    color: var(--primary);
+    flex-shrink: 0;
+}
+.app-card-compact .app-price {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--primary);
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.app-card-compact .flix-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.6rem;
+    font-size: 0.9rem;
+}
+
+/* Scroll Buttons */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(233, 30, 99, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.scroll-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-btn.left {
+    left: 10px;
+}
+
+.scroll-btn.right {
+    right: 10px;
+}
+/* Pause button */
+.scroll-pause-btn {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    z-index: 10;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.scroll-pause-btn:hover {
+    background: var(--primary);
+    transform: translateX(-50%) translateY(-3px);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .app-card-compact {
+        flex: 0 0 240px;
+    }
+    
+    .apps-scroll-container::-webkit-scrollbar-track {
+        margin: 0 50px;
+    }
+}
 /* Horizontal Scroll Container */
 .apps-scroll-container {
     position: relative;
