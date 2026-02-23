@@ -4,72 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Activate your IPTV subscription - Quick and secure payment">
-    <title>Activate Subscription - IPTV World</title>
+    <title>Activate - IPTV World</title>
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Styles -->
-    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css">
     
     <style>
-        .activate-wrapper {
-            min-height: calc(100vh - 80px);
-            padding: 3rem 1rem;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #e91e63;
+            --primary-dark: #c2185b;
+            --dark: #1a1a2e;
+            --light: #ffffff;
+            --text: #1f2937;
+            --text-muted: #6b7280;
+            --success: #10b981;
+            --radius-lg: 18px;
+            --radius-xl: 35px;
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 20px;
+            color: var(--text);
         }
+        
         .v16-container {
             max-width: 450px;
             width: 100%;
             margin: 0 auto;
             padding: 35px;
-            background: #fff;
-            border-radius: 35px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
-            font-family: 'Inter', 'Segoe UI', sans-serif;
-            text-align: center;
+            background: var(--light);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);            text-align: center;
             border: 1px solid #f1f3f5;
         }
+        
+        /* App Header */
+        .v16-app-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 25px;
+            margin: -35px -35px 25px -35px;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+        }
+        
+        .v16-app-header h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 0;
+            line-height: 1.3;
+        }
+        
+        .v16-app-header p {
+            margin: 5px 0 0 0;
+            opacity: 0.95;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        /* Steps */
         .v16-step { display: none; }
         .v16-step.active { display: block; animation: v16Fade 0.5s ease; }
+        
         @keyframes v16Fade {
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .v16-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; color: #1a1a2e; }
-        .v16-subtitle { color: #6c757d; margin-bottom: 1.5rem; font-size: 0.95rem; }
+        
+        /* Buttons */
         .v16-btn {
             width: 100%;
             height: 58px;
-            border-radius: 18px;
-            border: none;            font-weight: 700;
+            border-radius: var(--radius-lg);
+            border: none;
+            font-weight: 700;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 12px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 12px;            transition: transform 0.2s, box-shadow 0.2s;
             font-size: 15px;
             text-decoration: none !important;
             font-family: inherit;
         }
+        
         .v16-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
         .v16-btn:active { transform: translateY(0); }
+        
         .v16-btn-blue { background: #007bff; color: #fff !important; }
         .v16-btn-dark { background: #1a202c; color: #fff !important; }
         .v16-btn-green { background: #28a745; color: #fff !important; }
         .v16-btn-outline { background: #f8f9fa; color: #495057 !important; border: 1px solid #e9ecef; }
+        
+        /* Inputs */
         .v16-input {
             width: 100% !important;
             height: 60px;
             border: 2px solid #e9ecef;
-            border-radius: 18px;
+            border-radius: var(--radius-lg);
             padding: 0 20px;
             font-size: 17px;
             text-align: center;
@@ -77,13 +123,17 @@
             font-family: inherit;
             transition: border-color 0.2s, box-shadow 0.2s;
         }
+        
         .v16-input:focus {
             outline: none;
             border-color: #007bff;
             box-shadow: 0 0 0 4px rgba(0,123,255,0.1);
         }
+        
         .v16-input.text-left { text-align: left !important; }
         .v16-notice { font-size: 12px; color: #adb5bd; margin-top: 10px; display: block; }
+        
+        /* Price Box */
         .v16-price-box {
             background: #fcfcfc;
             border: 1px solid #f1f3f5;
@@ -91,18 +141,23 @@
             padding: 25px;
             margin: 20px 0;
         }
+        
         .v16-mac-pill {
             background: #e7f1ff;
             color: #007bff;
-            padding: 6px 15px;
-            border-radius: 10px;
-            font-size: 13px;            font-weight: 700;
+            padding: 6px 15px;            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
             display: inline-block;
             margin-bottom: 15px;
             letter-spacing: 1px;
         }
-        .v16-amount { font-size: 52px; font-weight: 900; color: #28a745; line-height: 1; }
+        
+        .v16-amount { font-size: 52px; font-weight: 900; color: var(--success); line-height: 1; }
+        
+        /* Social Nav */
         .v16-social-nav { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; }
+        
         .v16-social-item {
             width: 50px; height: 50px;
             border-radius: 50%;
@@ -111,11 +166,15 @@
             text-decoration: none;
             transition: transform 0.2s;
         }
+        
         .v16-social-item:hover { transform: translateY(-5px) scale(1.1); }
         .v16-social-item.whatsapp { background: #25D366; }
         .v16-social-item.telegram { background: #0088cc; }
         .v16-social-item.messenger { background: #0084FF; }
+        
+        /* Payment Area */
         .v16-pay-area { margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; }
+        
         .v16-secure-info {
             border: 2px dashed #eee;
             border-radius: 20px;
@@ -124,126 +183,154 @@
             background: #fff;
             display: none;
         }
+        
         .v16-dev-logo { height: 40px; margin-bottom: 15px; object-fit: contain; }
-        .iti { width: 100% !important; }
+        
+        /* Responsive */
         @media (max-width: 480px) {
             .v16-container { padding: 25px 20px; }
             .v16-amount { font-size: 40px; }
+            .v16-app-header h2 { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
-
-    <header class="flix-header">
-        <div class="container">
-            <div class="logo">
-                <span><i class="fas fa-tv"></i> IPTV World</span>
-            </div>
+    <div class="v16-container">
+        
+        <!-- App Header (Dynamic) -->
+        <div class="v16-app-header">
+            <h2 id="app-name">Loading...</h2>
+            <p id="form-type">Activating...</p>
         </div>
-    </header>
+        
+        <!-- Step 1: MAC Address (Smart TV Only) -->
+        <div id="v16-step1" class="v16-step active">
+            <h3 style="font-weight:800; margin-bottom:10px;">Device Activation</h3>
+            <p style="color:var(--text-muted); margin-bottom:20px;">Enter your device MAC Address</p>
+            <input type="text" id="v16-mac-input" class="v16-input" placeholder="00:1A:2B:3C:4D:5E" maxlength="17">
+            <span class="v16-notice">Please double check your MAC address before proceeding</span>
+            <button class="v16-btn v16-btn-blue" style="margin-top:20px;" onclick="handleStep1()">
+                NEXT STEP <i class="fas fa-arrow-left"></i>
+            </button>
+        </div>
 
-    <div class="activate-wrapper">
-        <div class="v16-container">
-            
-            <!-- Step 1: MAC Address -->            <div id="v16-step1" class="v16-step active">
-                <h2 class="v16-title">Device Activation</h2>
-                <p class="v16-subtitle">Enter your device MAC Address</p>
-                <input type="text" id="v16-mac-input" class="v16-input" placeholder="00:1A:2B:3C:4D:5E" maxlength="17" inputmode="text">
-                <span class="v16-notice">Please double check your MAC address before proceeding</span>
-                <button class="v16-btn v16-btn-blue" style="margin-top:20px;" onclick="v16_action_step1()">
-                    NEXT STEP <i class="fas fa-arrow-left"></i>
-                </button>
+        <!-- Step 2: Confirmation (Smart TV Only) -->
+        <div id="v16-step2" class="v16-step">
+            <img id="v16-dev-logo" class="v16-dev-logo" src="" alt="Device">
+            <div class="v16-price-box">
+                <div id="v16-mac-display" class="v16-mac-pill">--:--:--:--:--:--</div>
+                <div class="v16-amount">$70</div>
             </div>
-
-            <!-- Step 2: Confirmation -->
-            <div id="v16-step2" class="v16-step">
-                <img id="v16-dev-logo" class="v16-dev-logo" src="" alt="Device">
-                <div class="v16-price-box">
-                    <div id="v16-mac-display" class="v16-mac-pill">--:--:--:--:--:--</div>
-                    <div class="v16-amount">$70</div>
-                </div>
-                <div style="display:flex; gap:10px;">
-                    <button class="v16-btn v16-btn-outline" style="flex:1;" onclick="v16_go(1)">
-                        <i class="fas fa-arrow-right"></i> BACK
-                    </button>
-                    <button class="v16-btn v16-btn-blue" style="flex:2;" onclick="v16_go(3)">
-                        CONFIRM <i class="fas fa-arrow-left"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Step 3: Contact Info -->
-            <div id="v16-step3" class="v16-step">
-                <h3 class="v16-title">Contact Info</h3>
-                <p class="v16-subtitle">Enter your details for activation</p>
-                <input type="text" id="v16-name" class="v16-input text-left" placeholder="Full Name" style="text-align:left; margin-bottom:15px;">
-                <div style="text-align:left;"><input type="tel" id="v16-phone" class="v16-input"></div>
-                <button class="v16-btn v16-btn-blue" style="margin-top:25px;" onclick="v16_action_step3()">
-                    CONTINUE <i class="fas fa-arrow-left"></i>
-                </button>
-                <button class="v16-btn v16-btn-outline" onclick="v16_go(2)">
+            <div style="display:flex; gap:10px;">
+                <button class="v16-btn v16-btn-outline" style="flex:1;" onclick="goToStep(1)">
                     <i class="fas fa-arrow-right"></i> BACK
                 </button>
+                <button class="v16-btn v16-btn-blue" style="flex:2;" onclick="goToStep(3)">
+                    CONFIRM <i class="fas fa-arrow-left"></i>
+                </button>
             </div>
-
-            <!-- Step 4: Payment -->
-            <div id="v16-step4" class="v16-step">
-                <h3 class="v16-title">Choose Payment</h3>
-                <p class="v16-subtitle">Select your preferred payment method</p>
-                
-                <div class="v16-social-nav">
-                    <a href="#" id="v16-wa" target="_blank" rel="noopener" class="v16-social-item whatsapp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>                    <a href="#" id="v16-tg" target="_blank" rel="noopener" class="v16-social-item telegram">
-                        <i class="fab fa-telegram-plane"></i>
-                    </a>
-                    <a href="#" id="v16-fb" target="_blank" rel="noopener" class="v16-social-item messenger">
-                        <i class="fab fa-facebook-messenger"></i>
-                    </a>
-                </div>
-                
-                <div class="v16-pay-area">
-                    <!-- Paymob (Local) -->
-                    <a href="https://accept.paymob.com/api/acceptance/iframes/YOUR_ID" target="_blank" rel="noopener" class="v16-btn v16-btn-blue">
-                        <i class="fas fa-wallet"></i> PAY WITH PAYMOB (LOCAL)
-                    </a>
-                    
-                    <!-- Paybis / Card (Global) -->
-                    <button class="v16-btn v16-btn-dark" onclick="document.getElementById('v16-paybis-info').style.display = document.getElementById('v16-paybis-info').style.display === 'none' ? 'block' : 'none'">
-                        <i class="fas fa-credit-card"></i> PAY WITH CARD (GLOBAL)
-                    </button>
-                    <div id="v16-paybis-info" class="v16-secure-info">
-                        <p style="font-size:12px; color:#6c757d;"><i class="fas fa-lock"></i> Secure payment via Paybis Gateway</p>
-                        <a href="https://paybis.com/buy-tether-trc20/?fiat_amount=70&address=TPoZKbvUE82CPnPwwwkXv4HaxgD4F5Y68i" target="_blank" rel="noopener" class="v16-btn v16-btn-blue">
-                            Open Paybis →
-                        </a>
-                    </div>
-                    
-                    <!-- USDT (Crypto) -->
-                    <button class="v16-btn v16-btn-green" onclick="document.getElementById('v16-usdt-info').style.display = document.getElementById('v16-usdt-info').style.display === 'none' ? 'block' : 'none'">
-                        <i class="fab fa-ethereum"></i> PAY WITH USDT
-                    </button>
-                    <div id="v16-usdt-info" class="v16-secure-info" style="padding:0; overflow:hidden;">
-                        <iframe src="https://nowpayments.io/embeds/payment-widget?iid=4331670336" width="100%" height="450" frameborder="0" style="border-radius: 0 0 20px 20px;"></iframe>
-                    </div>
-                </div>
-            </div>
-
         </div>
+
+        <!-- Step 3: Contact Info (Shared) -->
+        <div id="v16-step3" class="v16-step">
+            <h3 style="font-weight:800; margin-bottom:15px;">Contact Info</h3>
+            <p style="color:var(--text-muted); margin-bottom:20px;">Enter your details for activation</p>
+            <input type="text" id="v16-name" class="v16-input text-left" placeholder="Full Name" style="text-align:left; margin-bottom:15px;">
+            <div style="text-align:left;"><input type="tel" id="v16-phone" class="v16-input"></div>
+            <button class="v16-btn v16-btn-blue" style="margin-top:25px;" onclick="handleStep3()">
+                CONTINUE <i class="fas fa-arrow-left"></i>
+            </button>
+            <button class="v16-btn v16-btn-outline" id="back-btn" onclick="goToStep(2)" style="display:none;">
+                <i class="fas fa-arrow-right"></i> BACK
+            </button>
+        </div>
+        <!-- Step 4: Payment (Shared) -->
+        <div id="v16-step4" class="v16-step">
+            <h3 style="font-weight:800; margin-bottom:15px;">Choose Payment</h3>
+            <p style="color:var(--text-muted); margin-bottom:20px;">Select your preferred payment method</p>
+            
+            <div class="v16-social-nav">
+                <a href="#" id="v16-wa" target="_blank" rel="noopener" class="v16-social-item whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" id="v16-tg" target="_blank" rel="noopener" class="v16-social-item telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+                <a href="#" id="v16-fb" target="_blank" rel="noopener" class="v16-social-item messenger">
+                    <i class="fab fa-facebook-messenger"></i>
+                </a>
+            </div>
+            
+            <div class="v16-pay-area">
+                <!-- Paymob (Local) -->
+                <a href="https://accept.paymob.com/api/acceptance/iframes/YOUR_ID" target="_blank" rel="noopener" class="v16-btn v16-btn-blue">
+                    <i class="fas fa-wallet"></i> PAY WITH PAYMOB (LOCAL)
+                </a>
+                
+                <!-- Paybis / Card (Global) -->
+                <button class="v16-btn v16-btn-dark" onclick="toggleInfo('v16-paybis-info')">
+                    <i class="fas fa-credit-card"></i> PAY WITH CARD (GLOBAL)
+                </button>
+                <div id="v16-paybis-info" class="v16-secure-info">
+                    <p style="font-size:12px; color:var(--text-muted);"><i class="fas fa-lock"></i> Secure payment via Paybis Gateway</p>
+                    <a href="https://paybis.com/buy-tether-trc20/?fiat_amount=70&address=TPoZKbvUE82CPnPwwwkXv4HaxgD4F5Y68i" target="_blank" rel="noopener" class="v16-btn v16-btn-blue">
+                        Open Paybis →
+                    </a>
+                </div>
+                
+                <!-- USDT (Crypto) -->
+                <button class="v16-btn v16-btn-green" onclick="toggleInfo('v16-usdt-info')">
+                    <i class="fab fa-ethereum"></i> PAY WITH USDT
+                </button>
+                <div id="v16-usdt-info" class="v16-secure-info" style="padding:0; overflow:hidden;">
+                    <iframe src="https://nowpayments.io/embeds/payment-widget?iid=4331670336" width="100%" height="450" frameborder="0" style="border-radius: 0 0 20px 20px;"></iframe>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
-    <script>
-        let v16_iti;
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>    <script>
+        // ===== Configuration =====
+        const CONFIG = {
+            // Get app info from URL: activate.html?type=smart_tv&app=Flix+IPTV
+            // or: activate.html?type=iptv_app&app=Aroma+IPTV
+            type: new URLSearchParams(window.location.search).get('type') || 'smart_tv',
+            appName: decodeURIComponent(new URLSearchParams(window.location.search).get('app') || 'IPTV Application'),
+            
+            // GitHub-hosted device logos (no external dependencies)
+            logos: {
+                default: 'https://raw.githubusercontent.com/flixnettv/Iptv-World/main/assets/images/default-device.png',
+                samsung: 'https://raw.githubusercontent.com/flixnettv/Iptv-World/main/assets/images/samsung-logo.png',
+                lg: 'https://raw.githubusercontent.com/flixnettv/Iptv-World/main/assets/images/lg-logo.png',
+                android: 'https://raw.githubusercontent.com/flixnettv/Iptv-World/main/assets/images/android-logo.png'
+            }
+        };
         
+        let phoneInput;
+        
+        // ===== Initialize =====
         document.addEventListener('DOMContentLoaded', function() {
-            const phoneInput = document.querySelector("#v16-phone");
-            if (phoneInput && window.intlTelInput) {
-                v16_iti = window.intlTelInput(phoneInput, {
+            // Set app name and form type
+            document.getElementById('app-name').textContent = CONFIG.appName;
+            document.getElementById('form-type').textContent = 
+                CONFIG.type === 'smart_tv' ? 'Smart TV Activation' : 'IPTV App Activation';
+            
+            // Show/hide back button based on form type
+            const backBtn = document.getElementById('back-btn');
+            if (CONFIG.type === 'iptv_app') {
+                backBtn.style.display = 'none';
+            }
+            
+            // Initialize phone input
+            const phoneEl = document.querySelector("#v16-phone");
+            if (phoneEl && window.intlTelInput) {
+                phoneInput = window.intlTelInput(phoneEl, {
                     initialCountry: "auto",
-                    geoIpLookup: function(callback) {                        fetch("https://ipapi.co/json/")
+                    geoIpLookup: function(callback) {
+                        fetch("https://ipapi.co/json/")
                             .then(res => res.json())
                             .then(data => callback(data.country))
                             .catch(() => callback("eg"));
@@ -252,25 +339,41 @@
                 });
             }
             
+            // MAC input formatter
             const macInput = document.getElementById('v16-mac-input');
-            macInput?.addEventListener('input', function(e) {
-                let value = e.target.value.toUpperCase().replace(/[^0-9A-F]/g, '');
-                let formatted = '';
-                for (let i = 0; i < value.length && i < 12; i++) {
-                    if (i > 0 && i % 2 === 0) formatted += ':';
-                    formatted += value[i];
-                }
-                e.target.value = formatted;
-            });
+            if (macInput) {                macInput.addEventListener('input', function(e) {
+                    let value = e.target.value.toUpperCase().replace(/[^0-9A-F]/g, '');
+                    let formatted = '';
+                    for (let i = 0; i < value.length && i < 12; i++) {
+                        if (i > 0 && i % 2 === 0) formatted += ':';
+                        formatted += value[i];
+                    }
+                    e.target.value = formatted;
+                });
+            }
+            
+            // Auto-start for IPTV App type (skip MAC step)
+            if (CONFIG.type === 'iptv_app') {
+                goToStep(3);
+            }
         });
         
-        function v16_go(stepNum) {
+        // ===== Navigation =====
+        function goToStep(stepNum) {
             document.querySelectorAll('.v16-step').forEach(s => s.classList.remove('active'));
             document.getElementById('v16-step' + stepNum).classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         
-        function v16_action_step1() {
+        function toggleInfo(elementId) {
+            const el = document.getElementById(elementId);
+            if (el) {
+                el.style.display = el.style.display === 'none' ? 'block' : 'none';
+            }
+        }
+        
+        // ===== Step 1: MAC Validation (Smart TV Only) =====
+        async function handleStep1() {
             const mac = document.getElementById('v16-mac-input').value.trim();
             const macPattern = /^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/;
             
@@ -281,20 +384,35 @@
             
             document.getElementById('v16-mac-display').textContent = mac;
             
-            fetch(`https://api.macvendors.com/${encodeURIComponent(mac)}`)
-                .then(res => res.ok ? res.text() : Promise.reject())
-                .then(vendor => {
-                    document.getElementById('v16-dev-logo').src = 'https://flixiptv.unaux.com/wp-content/uploads/2022/10/sumsung.png';
-                    v16_go(2);
-                })
-                .catch(() => {
-                    document.getElementById('v16-dev-logo').src = 'https://flixiptv.unaux.com/wp-content/uploads/2020/07/images-32.jpeg';
-                    v16_go(2);
-                });
+            // Fetch MAC vendor from GitHub-hosted mock API (or use fallback)
+            try {
+                // Try to get vendor (optional - can be removed for pure static)
+                const response = await fetch(`https://api.macvendors.com/${encodeURIComponent(mac)}`);
+                const vendor = response.ok ? await response.text() : null;
+                
+                // Set appropriate logo based on vendor                let logo = CONFIG.logos.default;
+                if (vendor) {
+                    const v = vendor.toLowerCase();
+                    if (v.includes('samsung')) logo = CONFIG.logos.samsung;
+                    else if (v.includes('lg')) logo = CONFIG.logos.lg;
+                    else if (v.includes('google') || v.includes('android')) logo = CONFIG.logos.android;
+                }
+                document.getElementById('v16-dev-logo').src = logo;
+                
+            } catch (err) {
+                // Fallback to default logo if API fails
+                document.getElementById('v16-dev-logo').src = CONFIG.logos.default;
+                console.log('Using default logo (API optional)');
+            }
+            
+            goToStep(2);
         }
-                function v16_action_step3() {
+        
+        // ===== Step 3: Contact Validation & Social Links =====
+        function handleStep3() {
             const name = document.getElementById('v16-name').value.trim();
-            const phone = v16_iti?.getNumber() || document.getElementById('v16-phone').value.trim();
+            const phone = phoneInput?.getNumber() || document.getElementById('v16-phone').value.trim();
+            const mac = document.getElementById('v16-mac-input')?.value.trim() || '';
             
             if (!name || name.length < 3) {
                 alert('⚠️ Please enter your full name');
@@ -306,17 +424,23 @@
                 return;
             }
             
-            const msg = encodeURIComponent(`📺 Order IPTV World:
-🔹 MAC: ${document.getElementById('v16-mac-input').value}
-🔹 Name: ${name}
-🔹 Phone: ${phone}
-🔹 Price: $70/year`);
+            // Build order message
+            let msg = `📺 Order ${CONFIG.appName}:\n`;
+            msg += `🔹 App: ${CONFIG.appName}\n`;
+            if (CONFIG.type === 'smart_tv' && mac) {
+                msg += `🔹 MAC: ${mac}\n`;
+            }
+            msg += `🔹 Name: ${name}\n`;
+            msg += `🔹 Phone: ${phone}\n`;
+            msg += `🔹 Price: $70/year`;
             
-            document.getElementById('v16-wa').href = `https://wa.me/201112246002?text=${msg}`;
-            document.getElementById('v16-tg').href = `https://t.me/FLlXX?text=${msg}`;
-            document.getElementById('v16-fb').href = `https://m.me/Hany.Yousseff?text=${msg}`;
+            const encodedMsg = encodeURIComponent(msg);
             
-            v16_go(4);
+            // Set social links
+            document.getElementById('v16-wa').href = `https://wa.me/201112246002?text=${encodedMsg}`;
+            document.getElementById('v16-tg').href = `https://t.me/FLlXX?text=${encodedMsg}`;
+            document.getElementById('v16-fb').href = `https://m.me/Hany.Yousseff?text=${encodedMsg}`;            
+            goToStep(4);
         }
     </script>
 </body>
