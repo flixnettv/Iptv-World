@@ -239,12 +239,11 @@
         let v16_iti;
         
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize phone input
             const phoneInput = document.querySelector("#v16-phone");
             if (phoneInput && window.intlTelInput) {
                 v16_iti = window.intlTelInput(phoneInput, {
-                    initialCountry: "auto",                    geoIpLookup: function(callback) {
-                        fetch("https://ipapi.co/json/")
+                    initialCountry: "auto",
+                    geoIpLookup: function(callback) {                        fetch("https://ipapi.co/json/")
                             .then(res => res.json())
                             .then(data => callback(data.country))
                             .catch(() => callback("eg"));
@@ -253,7 +252,6 @@
                 });
             }
             
-            // MAC input formatter
             const macInput = document.getElementById('v16-mac-input');
             macInput?.addEventListener('input', function(e) {
                 let value = e.target.value.toUpperCase().replace(/[^0-9A-F]/g, '');
@@ -283,7 +281,6 @@
             
             document.getElementById('v16-mac-display').textContent = mac;
             
-            // Fetch MAC vendor (with fallback)
             fetch(`https://api.macvendors.com/${encodeURIComponent(mac)}`)
                 .then(res => res.ok ? res.text() : Promise.reject())
                 .then(vendor => {
@@ -292,10 +289,10 @@
                 })
                 .catch(() => {
                     document.getElementById('v16-dev-logo').src = 'https://flixiptv.unaux.com/wp-content/uploads/2020/07/images-32.jpeg';
-                    v16_go(2);                });
+                    v16_go(2);
+                });
         }
-        
-        function v16_action_step3() {
+                function v16_action_step3() {
             const name = document.getElementById('v16-name').value.trim();
             const phone = v16_iti?.getNumber() || document.getElementById('v16-phone').value.trim();
             

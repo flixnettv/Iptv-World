@@ -10,7 +10,6 @@ const CONFIG = {
     ERROR: 'error-msg'
 };
 
-// Auto-Scroll Configuration
 const AUTO_SCROLL = {
     interval: 2000,
     distance: 80,
@@ -47,8 +46,8 @@ function startAutoScroll() {
 
 /**
  * Load applications
- */async function loadApps() {
-    const container = document.getElementById(CONFIG.CONTAINER);
+ */
+async function loadApps() {    const container = document.getElementById(CONFIG.CONTAINER);
     const loading = document.getElementById(CONFIG.LOADING);
     const error = document.getElementById(CONFIG.ERROR);
     
@@ -96,8 +95,8 @@ function startAutoScroll() {
         console.error('❌ Error loading apps:', err);
         loading?.classList.add('hidden');
         error?.classList.remove('hidden');
-    }}
-
+    }
+}
 /**
  * Load Mobile Menu Apps
  */
@@ -145,8 +144,8 @@ function toggleSubmenu(event) {
 /**
  * Select App and Navigate
  */
-function selectApp(event, appId) {    event.preventDefault();
-    closeMobileMenu();
+function selectApp(event, appId) {
+    event.preventDefault();    closeMobileMenu();
     
     setTimeout(() => {
         window.location.href = `activate.html?app=${appId}`;
@@ -160,6 +159,7 @@ function closeMobileMenu() {
     const mobileNav = document.getElementById('mobileNav');
     if (mobileNav) {
         mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
     }
     
     const submenu = document.getElementById('apps-submenu');
@@ -186,15 +186,44 @@ function escapeHtml(text) {
 /**
  * Initialize
  */
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        loadApps();
-        loadMobileMenuApps();
-    });
-} else {
+document.addEventListener('DOMContentLoaded', function() {
+    // Load apps
     loadApps();
     loadMobileMenuApps();
-}
+    
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileNav = document.getElementById('mobileNav');    
+    if (menuBtn) {
+        menuBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (mobileNav) {
+                mobileNav.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    }
+    
+    if (closeMenu) {
+        closeMenu.addEventListener('click', function() {
+            if (mobileNav) {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+    
+    if (mobileNav) {
+        mobileNav.addEventListener('click', function(e) {
+            if (e.target === mobileNav) {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+});
+
 /**
  * Cleanup
  */
@@ -214,5 +243,4 @@ document.addEventListener('click', function(event) {
         !menuBtn.contains(event.target) && 
         mobileNav.classList.contains('active')) {
         closeMobileMenu();
-    }
-});
+    }});
