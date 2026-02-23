@@ -76,22 +76,35 @@
     </section>
 
     <section class="apps-section" id="apps">
-        <div class="container">
-            <h2>🎯 Our Available Applications</h2>
-            
-            <div id="loading-msg" class="loading">
-                <i class="fas fa-spinner fa-spin fa-2x"></i>
-                <p>Loading applications...</p>
-            </div>
-            
-            <div id="error-msg" class="error hidden">
-                <i class="fas fa-exclamation-triangle fa-2x"></i>
-                <p>Error loading. <a href="#" onclick="location.reload()">Try again</a></p>
-            </div>
-            
-            <div id="apps-container" class="apps-grid"></div>
+    <div class="container">
+        <h2>🎯 Our Available Applications</h2>
+        
+        <div id="loading-msg" class="loading">
+            <i class="fas fa-spinner fa-spin fa-2x"></i>
+            <p>Loading applications...</p>
         </div>
-    </section>
+        
+        <div id="error-msg" class="error hidden">
+            <i class="fas fa-exclamation-triangle fa-2x"></i>
+            <p>Error loading. <a href="#" onclick="location.reload()">Try again</a></p>
+        </div>
+        
+        <!-- Horizontal Scroll Container -->
+        <div class="apps-scroll-container" id="apps-scroll-container">
+            <div class="scroll-indicator left" onclick="scrollApps(-320)">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            
+            <div class="apps-horizontal-list" id="apps-container">
+                <!-- Applications will appear here -->
+            </div>
+            
+            <div class="scroll-indicator right" onclick="scrollApps(320)">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+    </div>
+</section>
 
     <section class="flix-contact" id="contact">
         <div class="container">
