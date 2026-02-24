@@ -430,30 +430,101 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
     <script>
-        // ===== Configuration =====
-        const CONFIG = {
-            appId: new URLSearchParams(window.location.search).get('app') || '',
-            type: 'auto'
-        };
+    // ===== Configuration =====
+    const CONFIG = {
+        appId: new URLSearchParams(window.location.search).get('app') || '',
+        type: 'auto'
+    };
+    
+    let phoneInput;
+    let appData = null;
+    
+    // ===== Initialize =====
+    document.addEventListener('DOMContentLoaded', async function() {
+        console.log('🔍 Loading app:', CONFIG.appId);
         
-        let phoneInput;
-        let appData = null;
-        
-        // ===== Initialize =====        document.addEventListener('DOMContentLoaded', async function() {
-            // Fetch app data from JSON
-            try {
-                const res = await fetch('/data/apps.json');
-                const json = await res.json();
-                appData = json.apps.find(a => a.id === CONFIG.appId);
+        // Fetch app data from JSON
+        try {
+            const res = await fetch('/data/apps.json');
+            console.log('📡 Response status:', res.status);
+            
+            if (!res.ok) {
+                throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+            }
+            
+            const json = await res.json();
+            console.log('📦 Loaded apps:', json.apps.map(a => a.id));
+            
+            appData = json.apps.find(a => a.id === CONFIG.appId);
+            console.log('✅ Found app:', appData);
+            
+            if (!appData) {
+                // Try to find by partial match
+                appData = json.apps.find(a => CONFIG.appId.includes(a.id) || a.id.includes(CONFIG.appId));
+                console.log('🔄 Partial match:', appData);
                 
                 if (!appData) {
-                    alert('Application not found!');
+                    alert(`Application "${CONFIG.appId}" not found!\n\nAvailable apps:\n${json.apps.map(a => '- ' + a.id).join('\n')}`);
                     return;
                 }
-                
-                // Determine form type from category
-                const isSmartTV = appData.category === 'smart-tv-activation';
-                CONFIG.type = isSmartTV ? 'smart_tv' : 'iptv_app';
+            }
+            
+            // Determine form type from category
+            const isSmartTV = appData.category === 'smart-tv-activation';
+            CONFIG.type = isSmartTV ? 'smart_tv' : 'iptv_app';
+            
+            console.log('📋 Form type:', CONFIG.type, '| Category:', appData.category);
+            
+            // Set app name and form type
+            document.getElementById('app-name').textContent = appData.name;
+            document.getElementById('form-type').textContent = 
+                isSmartTV ? 'Smart TV Activation' : 'IPTV App Activation';
+            
+            // Show/hide back button based on form type
+            const backBtn = document.getElementById('back-btn');
+            if (!isSmartTV) {
+                backBtn.style.display = 'none';
+                // Skip to contact info for IPTV apps
+                goToStep(3);
+            }
+            
+            // Initialize phone input
+            const phoneEl = document.querySelector("#v16-phone");
+            if (phoneEl && window.intlTelInput) {
+                phoneInput = window.intlTelInput(phoneEl, {
+                    initialCountry: "auto",
+                    geoIpLookup: function(callback) {
+                        fetch("https://ipapi.co/json/")
+                            .then(res => res.json())
+                            .then(data => callback(data.country))
+                            .catch(() => callback("eg"));
+                    },
+                    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
+                });
+            }
+            
+            // MAC input formatter
+            const macInput = document.getElementById('v16-mac-input');
+            if (macInput) {
+                macInput.addEventListener('input', function(e) {
+                    let value = e.target.value.toUpperCase().replace(/[^0-9A-F]/g, '');
+                    let formatted = '';
+                    for (let i = 0; i < value.length && i < 12; i++) {
+                        if (i > 0 && i % 2 === 0) formatted += ':';
+                        formatted += value[i];
+                    }
+                    e.target.value = formatted;
+                });
+            }
+            
+        } catch (err) {
+            console.error('❌ Failed to load app data:', err);
+            alert('Error loading application data:\n' + err.message + '\n\nPlease check Console (F12) for details.');
+        }
+    });
+    
+    // ... باقي الكود كما هو ...
+</script>
                 
                 // Set app name and form type
                 document.getElementById('app-name').textContent = appData.name;
