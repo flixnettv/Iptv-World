@@ -1,8 +1,3 @@
-/**
- * IPTV World - Main JavaScript
- * GitHub + Vercel Static Site
- */
-
 const CONFIG = {
     DATA_URL: '/data/apps.json',
     CONTAINER: 'apps-container',
@@ -17,6 +12,19 @@ const AUTO_SCROLL = {
 };
 
 let autoScrollTimer;
+let appsDataCache = null;
+
+/**
+ * Get Apps Data (Cached)
+ */
+async function getAppsData() {
+    if (!appsDataCache) {
+        const res = await fetch(CONFIG.DATA_URL, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        appsDataCache = await res.json();
+    }
+    return appsDataCache;
+}
 
 /**
  * Auto-scroll function
@@ -39,15 +47,15 @@ function startAutoScroll() {
         
         container.scrollBy({
             left: AUTO_SCROLL.distance * AUTO_SCROLL.direction,
-            behavior: 'smooth'
-        });
+            behavior: 'smooth'        });
     }, AUTO_SCROLL.interval);
 }
 
 /**
  * Load applications
  */
-async function loadApps() {    const container = document.getElementById(CONFIG.CONTAINER);
+async function loadApps() {
+    const container = document.getElementById(CONFIG.CONTAINER);
     const loading = document.getElementById(CONFIG.LOADING);
     const error = document.getElementById(CONFIG.ERROR);
     
@@ -57,10 +65,7 @@ async function loadApps() {    const container = document.getElementById(CONFIG.
         loading?.classList.remove('hidden');
         error?.classList.add('hidden');
         
-        const response = await fetch(CONFIG.DATA_URL, { cache: 'no-store' });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        
-        const json = await response.json();
+        const json = await getAppsData();
         const apps = (json.apps || []).filter(app => app.is_active !== false);
         
         loading?.classList.add('hidden');
@@ -70,9 +75,15 @@ async function loadApps() {    const container = document.getElementById(CONFIG.
             return;
         }
         
-        container.innerHTML = apps.map((app, index) => `
+        container.innerHTML = apps.map((app, index) => {
+            // Determine activation page based on category
+            const activatePage = app.category === 'smart-tv-activation' 
+                ? 'activate-smart-tv.html' 
+                : 'activate-app.html';
+            
+            return `
             <article class="app-card-square" style="animation-delay: ${index * 0.05}s">
-                <a href="activate.html?app=${encodeURIComponent(app.id)}" style="display:block; height:100%;">
+                <a href="${activatePage}?app=${encodeURIComponent(app.id)}" style="display:block; height:100%;">
                     <div class="app-image">
                         <img src="${app.image_url}" 
                              alt="${escapeHtml(app.name)}"
@@ -85,9 +96,8 @@ async function loadApps() {    const container = document.getElementById(CONFIG.
                             <i class="fas fa-shopping-cart"></i> Subscribe
                         </span>
                     </div>
-                </a>
-            </article>
-        `).join('');
+                </a>            </article>
+        `}).join('');
         
         setTimeout(startAutoScroll, 1000);
         
@@ -97,27 +107,31 @@ async function loadApps() {    const container = document.getElementById(CONFIG.
         error?.classList.remove('hidden');
     }
 }
+
 /**
  * Load Mobile Menu Apps
  */
 async function loadMobileMenuApps() {
     try {
-        const response = await fetch(CONFIG.DATA_URL, { cache: 'no-store' });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        
-        const json = await response.json();
+        const json = await getAppsData();
         const apps = (json.apps || []).filter(app => app.is_active !== false);
         
         const submenu = document.getElementById('apps-submenu');
         if (!submenu) return;
         
-        submenu.innerHTML = apps.map(app => `
+        submenu.innerHTML = apps.map(app => {
+            // Determine activation page based on category
+            const activatePage = app.category === 'smart-tv-activation' 
+                ? 'activate-smart-tv.html' 
+                : 'activate-app.html';
+            
+            return `
             <li>
-                <a href="#" onclick="selectApp(event, '${app.id}')">
+                <a href="${activatePage}?app=${encodeURIComponent(app.id)}" onclick="closeMobileMenu()">
                     ${escapeHtml(app.name)}
                 </a>
             </li>
-        `).join('');
+        `}).join('');
         
     } catch (err) {
         console.error('Error loading mobile menu apps:', err);
@@ -131,25 +145,13 @@ function toggleSubmenu(event) {
     event.preventDefault();
     const toggle = event.currentTarget;
     const submenu = document.getElementById('apps-submenu');
-    
-    toggle.classList.toggle('active');
+        toggle.classList.toggle('active');
     
     if (submenu.classList.contains('show')) {
         submenu.classList.remove('show');
     } else {
         submenu.classList.add('show');
     }
-}
-
-/**
- * Select App and Navigate
- */
-function selectApp(event, appId) {
-    event.preventDefault();    closeMobileMenu();
-    
-    setTimeout(() => {
-        window.location.href = `activate.html?app=${appId}`;
-    }, 300);
 }
 
 /**
@@ -192,9 +194,9 @@ document.addEventListener('DOMContentLoaded', function() {
     loadMobileMenuApps();
     
     // Mobile Menu Toggle
-    const menuBtn = document.getElementById('menuBtn');
-    const closeMenu = document.getElementById('closeMenu');
-    const mobileNav = document.getElementById('mobileNav');    
+    const menuBtn = document.getElementById('menuBtn');    const closeMenu = document.getElementById('closeMenu');
+    const mobileNav = document.getElementById('mobileNav');
+    
     if (menuBtn) {
         menuBtn.addEventListener('click', function(e) {
             e.preventDefault();
@@ -241,6 +243,6 @@ document.addEventListener('click', function(event) {
     if (mobileNav && menuBtn && 
         !mobileNav.contains(event.target) && 
         !menuBtn.contains(event.target) && 
-        mobileNav.classList.contains('active')) {
-        closeMobileMenu();
-    }});
+        mobileNav.classList.contains('active')) {        closeMobileMenu();
+    }
+});
