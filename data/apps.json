@@ -6,8 +6,13 @@
       "description": "Professional IPTV player with advanced features",
       "price": 70,
       "currency": "USD",
-      "image_url": "https://raw.githubusercontent.com/flixnettv/Iptv-World/main/assets/images/IPTVSmartersPro.webp",
-      "features": ["Multi-Screen", "EPG Guide", "Catch-up TV", "Parental Control"],
+      "image_url": "/assets/images/IPTVSmartersPro.webp",
+      "features": [
+        "Multi-Screen Support",
+        "EPG Guide",
+        "Catch-up TV",
+        "Parental Control"
+      ],
       "category": "iptv-application",
       "is_active": true
     },
@@ -17,8 +22,13 @@
       "description": "Premium streaming service with thousands of channels",
       "price": 70,
       "currency": "USD",
-      "image_url": "https://raw.githubusercontent.com/flixnettv/Iptv-World/main/assets/images/aroma.png",
-      "features": ["10,000+ Channels", "FHD & 4K", "VOD Library", "24/7 Support"],
+      "image_url": "/assets/images/aroma.png",
+      "features": [
+        "10,000+ Channels",
+        "FHD & 4K Quality",
+        "VOD Library",
+        "24/7 Support"
+      ],
       "category": "iptv-application",
       "is_active": true
     },
@@ -28,20 +38,29 @@
       "description": "Lightweight and fast IPTV player",
       "price": 70,
       "currency": "USD",
-      "image_url": "https://raw.githubusercontent.com/flixnettv/Iptv-World/main/assets/images/elk.png",
-      "features": ["Lightweight", "Fast Loading", "Firestick Support", "Clean UI"],
+      "image_url": "/assets/images/elk.png",
+      "features": [
+        "Lightweight",
+        "Fast Loading",
+        "Firestick Support",
+        "Clean Interface"
+      ],
       "category": "smart-tv-activation",
       "is_active": true
-    },
-    {
+    },    {
       "id": "flix-iptv",
       "name": "Flix IPTV",
       "description": "Best live streaming experience",
       "price": 70,
       "currency": "USD",
-      "image_url": "https://raw.githubusercontent.com/flixnettv/Iptv-World/main/assets/images/flixiptv.png",
-      "features": ["Live TV & Movies", "Sports Channels", "Series Library", "Multi-Device"],
-      "category": "iptv-application",
+      "image_url": "/assets/images/flixiptv.png",
+      "features": [
+        "Live TV & Movies",
+        "Sports Channels",
+        "Series Library",
+        "Multi-Device"
+      ],
+      "category": "smart-tv-activation",
       "is_active": true
     },
     {
@@ -50,8 +69,13 @@
       "description": "Professional IPTV solution for Smart TV",
       "price": 70,
       "currency": "USD",
-      "image_url": "https://raw.githubusercontent.com/flixnettv/Iptv-World/main/assets/images/ibo.png",
-      "features": ["Smart TV Support", "Playlist Management", "High Quality", "Easy Setup"],
+      "image_url": "/assets/images/ibo.png",
+      "features": [
+        "Smart TV Support",
+        "Playlist Management",
+        "High Quality",
+        "Easy Setup"
+      ],
       "category": "smart-tv-activation",
       "is_active": true
     },
@@ -61,19 +85,28 @@
       "description": "Ultimate entertainment experience",
       "price": 70,
       "currency": "USD",
-      "image_url": "https://raw.githubusercontent.com/flixnettv/Iptv-World/main/assets/images/megatv.png",
-      "features": ["Premium Channels", "Live Events", "Movies & Series", "Sports Package"],
+      "image_url": "/assets/images/megatv.png",
+      "features": [
+        "Premium Channels",
+        "Live Events",
+        "Movies & Series",
+        "Sports Package"
+      ],
       "category": "iptv-application",
       "is_active": true
     },
     {
-      "id": "smartone-iptv",
-      "name": "Smartone IPTV",
+      "id": "smartone-iptv",      "name": "Smartone IPTV",
       "description": "Smart streaming solution",
       "price": 70,
       "currency": "USD",
-      "image_url": "https://raw.githubusercontent.com/flixnettv/Iptv-World/main/assets/images/smartone_iptv.webp",
-      "features": ["Smart Interface", "HD Quality", "Fast Servers", "Reliable Service"],
+      "image_url": "/assets/images/smartone_iptv.webp",
+      "features": [
+        "Smart Interface",
+        "HD Quality",
+        "Fast Servers",
+        "Reliable Service"
+      ],
       "category": "iptv-application",
       "is_active": true
     }
