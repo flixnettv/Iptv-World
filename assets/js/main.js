@@ -76,8 +76,8 @@ async function loadApps() {
         }
         
         container.innerHTML = apps.map((app, index) => {
-            // Determine activation page based on category
-            const activatePage = app.category === 'smart-tv-activation' 
+            // Determine activation page based on activation_type
+            const activatePage = app.activation_type === 'smart-tv' 
                 ? 'activate-smart-tv.html' 
                 : 'activate-app.html';
             
@@ -120,8 +120,8 @@ async function loadMobileMenuApps() {
         if (!submenu) return;
         
         submenu.innerHTML = apps.map(app => {
-            // Determine activation page based on category
-            const activatePage = app.category === 'smart-tv-activation' 
+            // Determine activation page based on activation_type
+            const activatePage = app.activation_type === 'smart-tv' 
                 ? 'activate-smart-tv.html' 
                 : 'activate-app.html';
             

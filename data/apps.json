@@ -14,6 +14,7 @@
         "Parental Control"
       ],
       "category": "iptv-application",
+      "activation_type": "app",
       "is_active": true
     },
     {
@@ -30,6 +31,7 @@
         "24/7 Support"
       ],
       "category": "iptv-application",
+      "activation_type": "app",
       "is_active": true
     },
     {
@@ -45,9 +47,10 @@
         "Firestick Support",
         "Clean Interface"
       ],
-      "category": "smart-tv-activation",
+      "category": "smart-tv-activation",      "activation_type": "smart-tv",
       "is_active": true
-    },    {
+    },
+    {
       "id": "flix-iptv",
       "name": "Flix IPTV",
       "description": "Best live streaming experience",
@@ -61,6 +64,7 @@
         "Multi-Device"
       ],
       "category": "smart-tv-activation",
+      "activation_type": "smart-tv",
       "is_active": true
     },
     {
@@ -77,6 +81,7 @@
         "Easy Setup"
       ],
       "category": "smart-tv-activation",
+      "activation_type": "smart-tv",
       "is_active": true
     },
     {
@@ -91,12 +96,13 @@
         "Live Events",
         "Movies & Series",
         "Sports Package"
-      ],
-      "category": "iptv-application",
+      ],      "category": "iptv-application",
+      "activation_type": "app",
       "is_active": true
     },
     {
-      "id": "smartone-iptv",      "name": "Smartone IPTV",
+      "id": "smartone-iptv",
+      "name": "Smartone IPTV",
       "description": "Smart streaming solution",
       "price": 70,
       "currency": "USD",
@@ -108,6 +114,7 @@
         "Reliable Service"
       ],
       "category": "iptv-application",
+      "activation_type": "app",
       "is_active": true
     }
   ],
