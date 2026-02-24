@@ -51,13 +51,122 @@
             border: 1px solid #f1f3f5;
         }
         
+        /* Promotional Banner */
+        .v16-promo-banner {
+            background: linear-gradient(135deg, #fff5f7 0%, #ffeef2 100%);
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            margin: -35px -35px 25px -35px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.15);
+        }
+        
+        .v16-promo-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .v16-promo-header i {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .v16-promo-content {
+            padding: 20px;
+        }
+        
+        .v16-promo-content h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+            text-align: center;
+            line-height: 1.4;
+        }
+        
+        .v16-price-tag {            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .old-price {
+            font-size: 1.3rem;
+            color: #999;
+            text-decoration: line-through;
+            font-weight: 600;
+        }
+        
+        .current-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--success);
+            background: linear-gradient(135deg, #10b981, #059669);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .v16-promo-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+        
+        .v16-promo-features li {
+            padding: 8px 0;
+            color: var(--text);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .v16-promo-features li i {
+            color: var(--success);
+            font-size: 1rem;
+        }
+        
+        .v16-trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            padding-top: 15px;            border-top: 1px dashed #ddd;
+        }
+        
+        .v16-trust-badges span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .v16-trust-badges i {
+            color: var(--primary);
+        }
+        
         /* App Header */
         .v16-app-header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
             padding: 20px;
             border-radius: 25px;
-            margin: -35px -35px 25px -35px;
+            margin-bottom: 25px;
             box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
         }
         
@@ -85,8 +194,7 @@
         }
         
         /* Buttons */
-        .v16-btn {
-            width: 100%;
+        .v16-btn {            width: 100%;
             height: 58px;
             border-radius: var(--radius-lg);
             border: none;
@@ -96,7 +204,8 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 12px;            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 12px;
+            transition: transform 0.2s, box-shadow 0.2s;
             font-size: 15px;
             text-decoration: none !important;
             font-family: inherit;
@@ -134,8 +243,7 @@
         .v16-notice { font-size: 12px; color: #adb5bd; margin-top: 10px; display: block; }
         
         /* Price Box */
-        .v16-price-box {
-            background: #fcfcfc;
+        .v16-price-box {            background: #fcfcfc;
             border: 1px solid #f1f3f5;
             border-radius: 25px;
             padding: 25px;
@@ -145,7 +253,8 @@
         .v16-mac-pill {
             background: #e7f1ff;
             color: #007bff;
-            padding: 6px 15px;            border-radius: 10px;
+            padding: 6px 15px;
+            border-radius: 10px;
             font-size: 13px;
             font-weight: 700;
             display: inline-block;
@@ -183,19 +292,47 @@
             background: #fff;
             display: none;
         }
-        
-        .v16-dev-logo { height: 40px; margin-bottom: 15px; object-fit: contain; }
+                .v16-dev-logo { height: 40px; margin-bottom: 15px; object-fit: contain; }
         
         /* Responsive */
         @media (max-width: 480px) {
             .v16-container { padding: 25px 20px; }
             .v16-amount { font-size: 40px; }
             .v16-app-header h2 { font-size: 1.2rem; }
+            .v16-promo-content h3 { font-size: 1rem; }
+            .current-price { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
+
     <div class="v16-container">
+        
+        <!-- Promotional Banner -->
+        <div class="v16-promo-banner">
+            <div class="v16-promo-header">
+                <i class="fas fa-gift"></i>
+                <span>Special Offer</span>
+            </div>
+            <div class="v16-promo-content">
+                <h3>Activation + Channel List 12 months</h3>
+                <div class="v16-price-tag">
+                    <span class="old-price">$100</span>
+                    <span class="current-price">$70</span>
+                </div>
+                <ul class="v16-promo-features">
+                    <li><i class="fas fa-check-circle"></i> 10,000+ Live Channels</li>
+                    <li><i class="fas fa-check-circle"></i> FHD & 4K Quality</li>
+                    <li><i class="fas fa-check-circle"></i> Movies & Series Library</li>
+                    <li><i class="fas fa-check-circle"></i> 24/7 Premium Support</li>
+                    <li><i class="fas fa-check-circle"></i> Instant Activation</li>
+                </ul>
+                <div class="v16-trust-badges">
+                    <span><i class="fas fa-shield-alt"></i> Secure Payment</span>
+                    <span><i class="fas fa-undo"></i> 7-Day Guarantee</span>
+                </div>
+            </div>
+        </div>
         
         <!-- App Header (Dynamic) -->
         <div class="v16-app-header">
@@ -204,8 +341,7 @@
         </div>
         
         <!-- Step 1: MAC Address (Smart TV Only) -->
-        <div id="v16-step1" class="v16-step active">
-            <h3 style="font-weight:800; margin-bottom:10px;">Device Activation</h3>
+        <div id="v16-step1" class="v16-step active">            <h3 style="font-weight:800; margin-bottom:10px;">Device Activation</h3>
             <p style="color:var(--text-muted); margin-bottom:20px;">Enter your device MAC Address</p>
             <input type="text" id="v16-mac-input" class="v16-input" placeholder="00:1A:2B:3C:4D:5E" maxlength="17">
             <span class="v16-notice">Please double check your MAC address before proceeding</span>
@@ -244,6 +380,7 @@
                 <i class="fas fa-arrow-right"></i> BACK
             </button>
         </div>
+
         <!-- Step 4: Payment (Shared) -->
         <div id="v16-step4" class="v16-step">
             <h3 style="font-weight:800; margin-bottom:15px;">Choose Payment</h3>
@@ -253,8 +390,7 @@
                 <a href="#" id="v16-wa" target="_blank" rel="noopener" class="v16-social-item whatsapp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
-                <a href="#" id="v16-tg" target="_blank" rel="noopener" class="v16-social-item telegram">
-                    <i class="fab fa-telegram-plane"></i>
+                <a href="#" id="v16-tg" target="_blank" rel="noopener" class="v16-social-item telegram">                    <i class="fab fa-telegram-plane"></i>
                 </a>
                 <a href="#" id="v16-fb" target="_blank" rel="noopener" class="v16-social-item messenger">
                     <i class="fab fa-facebook-messenger"></i>
@@ -292,7 +428,8 @@
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>    <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
+    <script>
         // ===== Configuration =====
         const CONFIG = {
             appId: new URLSearchParams(window.location.search).get('app') || '',
@@ -302,8 +439,7 @@
         let phoneInput;
         let appData = null;
         
-        // ===== Initialize =====
-        document.addEventListener('DOMContentLoaded', async function() {
+        // ===== Initialize =====        document.addEventListener('DOMContentLoaded', async function() {
             // Fetch app data from JSON
             try {
                 const res = await fetch('/data/apps.json');
@@ -341,7 +477,8 @@
                                 .then(data => callback(data.country))
                                 .catch(() => callback("eg"));
                         },
-                        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"                    });
+                        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
+                    });
                 }
                 
                 // MAC input formatter
@@ -351,8 +488,7 @@
                         let value = e.target.value.toUpperCase().replace(/[^0-9A-F]/g, '');
                         let formatted = '';
                         for (let i = 0; i < value.length && i < 12; i++) {
-                            if (i > 0 && i % 2 === 0) formatted += ':';
-                            formatted += value[i];
+                            if (i > 0 && i % 2 === 0) formatted += ':';                            formatted += value[i];
                         }
                         e.target.value = formatted;
                     });
@@ -390,7 +526,8 @@
             
             if (!macPattern.test(mac)) {
                 alert('⚠️ Invalid MAC Address format!\nExample: 00:1A:2B:3C:4D:5E');
-                return;            }
+                return;
+            }
             
             document.getElementById('v16-mac-display').textContent = mac;
             
@@ -400,8 +537,7 @@
                 const vendor = response.ok ? await response.text() : null;
                 
                 // Set logo based on vendor
-                let logo = 'https://raw.githubusercontent.com/flixnettv/Iptv-World/main/assets/images/default-device.png';
-                if (vendor) {
+                let logo = 'https://raw.githubusercontent.com/flixnettv/Iptv-World/main/assets/images/default-device.png';                if (vendor) {
                     const v = vendor.toLowerCase();
                     if (v.includes('samsung')) logo = 'https://raw.githubusercontent.com/flixnettv/Iptv-World/main/assets/images/samsung-logo.png';
                     else if (v.includes('lg')) logo = 'https://raw.githubusercontent.com/flixnettv/Iptv-World/main/assets/images/lg-logo.png';
@@ -433,13 +569,14 @@
             }
             
             // Build order message
-            let msg = `📺 Order ${CONFIG.appName || appData.name}:\n`;
+            let msg = `📺 Order ${appData.name}:\n`;
             msg += `🔹 App: ${appData.name}\n`;
             if (CONFIG.type === 'smart_tv' && mac) {
                 msg += `🔹 MAC: ${mac}\n`;
             }
             msg += `🔹 Name: ${name}\n`;
-            msg += `🔹 Phone: ${phone}\n`;            msg += `🔹 Price: $${appData.price || 70}/year`;
+            msg += `🔹 Phone: ${phone}\n`;
+            msg += `🔹 Price: $${appData.price || 70}/year`;
             
             const encodedMsg = encodeURIComponent(msg);
             
@@ -449,7 +586,6 @@
             document.getElementById('v16-fb').href = `https://m.me/Hany.Yousseff?text=${encodedMsg}`;
             
             goToStep(4);
-        }
-    </script>
+        }    </script>
 </body>
 </html>
