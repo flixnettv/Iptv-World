@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Subscribe to IPTV World - Premium IPTV Service">
-    <title>Subscribe - IPTV World</title>
+    <meta name="description" content="IPTV App Activation - IPTV World">
+    <title>IPTV App Activation - IPTV World</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css">
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         :root {
             --primary: #e91e63;
             --primary-dark: #c2185b;
@@ -24,7 +24,6 @@
             --radius-xl: 35px;
             --shadow-xl: 0 20px 60px rgba(0,0,0,0.1);
         }
-        
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
@@ -35,285 +34,271 @@
             padding: 20px;
             color: var(--text);
         }
-        
-        .subscribe-container {
-            max-width: 600px;
+        .v16-container {
+            max-width: 450px;
             width: 100%;
             margin: 0 auto;
-        }
-        
-        /* Promotional Banner */
-        .v16-promo-banner {
-            background: linear-gradient(135deg, #fff5f7 0%, #ffeef2 100%);
-            border: 2px solid var(--primary);
-            border-radius: var(--radius-xl);
-            overflow: hidden;            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.15);
-            margin-bottom: 30px;
-        }
-        
-        .v16-promo-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 15px;
-            text-align: center;
-            font-weight: 700;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .v16-promo-header i {
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-        
-        .v16-promo-content {
-            padding: 30px;
-        }
-        
-        .v16-promo-content h2 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--dark);
-            margin-bottom: 20px;
-            text-align: center;
-            line-height: 1.4;
-        }
-        
-        .v16-price-tag {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        
-        .old-price {
-            font-size: 1.5rem;
-            color: #999;            text-decoration: line-through;
-            font-weight: 600;
-        }
-        
-        .current-price {
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--success);
-            background: linear-gradient(135deg, #10b981, #059669);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .v16-promo-features {
-            list-style: none;
-            padding: 0;
-            margin: 0 25px 25px 0;
-        }
-        
-        .v16-promo-features li {
-            padding: 10px 0;
-            color: var(--text);
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .v16-promo-features li i {
-            color: var(--success);
-            font-size: 1.1rem;
-        }
-        
-        .v16-trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            padding-top: 20px;
-            border-top: 1px dashed #ddd;
-        }
-        
-        .v16-trust-badges span {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }        
-        .v16-trust-badges i {
-            color: var(--primary);
-        }
-        
-        /* App Info Card */
-        .app-info-card {
+            padding: 35px;
             background: var(--light);
             border-radius: var(--radius-xl);
-            padding: 30px;
-            text-align: center;
             box-shadow: var(--shadow-xl);
-            margin-bottom: 20px;
+            text-align: center;
+            border: 1px solid #f1f3f5;
         }
-        
-        .app-info-card h2 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--dark);
-            margin-bottom: 10px;
-        }
-        
-        .app-info-card p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 25px;
-        }
-        
-        /* Activate Button */
-        .activate-btn {
-            width: 100%;
-            height: 65px;
+        .v16-app-header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white !important;
-            border: none;
+            color: white;            padding: 20px;
+            border-radius: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+        }
+        .v16-app-header h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 0;
+            line-height: 1.3;
+        }
+        .v16-app-header p {
+            margin: 5px 0 0 0;
+            opacity: 0.95;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .v16-step { display: none; }
+        .v16-step.active { display: block; animation: v16Fade 0.5s ease; }
+        @keyframes v16Fade {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .v16-btn {
+            width: 100%;
+            height: 58px;
             border-radius: var(--radius-lg);
-            font-size: 1.2rem;
+            border: none;
             font-weight: 700;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
+            margin-bottom: 12px;
             transition: transform 0.2s, box-shadow 0.2s;
+            font-size: 15px;
+            text-decoration: none !important;
+            font-family: inherit;
+        }
+        .v16-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+        .v16-btn:active { transform: translateY(0); }
+        .v16-btn-blue { background: #007bff; color: #fff !important; }
+        .v16-btn-dark { background: #1a202c; color: #fff !important; }
+        .v16-btn-green { background: #28a745; color: #fff !important; }
+        .v16-btn-outline { background: #f8f9fa; color: #495057 !important; border: 1px solid #e9ecef; }
+        .v16-input {
+            width: 100% !important;
+            height: 60px;
+            border: 2px solid #e9ecef;            border-radius: var(--radius-lg);
+            padding: 0 20px;
+            font-size: 17px;
+            text-align: center;
+            margin-bottom: 5px;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .v16-input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 4px rgba(0,123,255,0.1);
+        }
+        .v16-input.text-left { text-align: left !important; }
+        .v16-price-box {
+            background: #fcfcfc;
+            border: 1px solid #f1f3f5;
+            border-radius: 25px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        .v16-amount { font-size: 52px; font-weight: 900; color: var(--success); line-height: 1; }
+        .v16-social-nav { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; }
+        .v16-social-item {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff !important; font-size: 22px;
             text-decoration: none;
-            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
+            transition: transform 0.2s;
         }
-        
-        .activate-btn:hover {
-            transform: translateY(-3px);            box-shadow: 0 12px 35px rgba(233, 30, 99, 0.5);
+        .v16-social-item:hover { transform: translateY(-5px) scale(1.1); }
+        .v16-social-item.whatsapp { background: #25D366; }
+        .v16-social-item.telegram { background: #0088cc; }
+        .v16-social-item.messenger { background: #0084FF; }
+        .v16-pay-area { margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; }
+        .v16-secure-info {
+            border: 2px dashed #eee;
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 10px;
+            background: #fff;
+            display: none;
         }
-        
-        .activate-btn:active {
-            transform: translateY(0);
-        }
-        
-        /* Responsive */
         @media (max-width: 480px) {
-            .v16-promo-content { padding: 20px; }
-            .v16-promo-content h2 { font-size: 1.2rem; }
-            .current-price { font-size: 2.5rem; }
-            .app-info-card { padding: 20px; }
-            .app-info-card h2 { font-size: 1.4rem; }
-            .activate-btn { font-size: 1rem; height: 60px; }
+            .v16-container { padding: 25px 20px; }
+            .v16-amount { font-size: 40px; }
+            .v16-app-header h2 { font-size: 1.2rem; }
         }
-    </style>
-</head>
+    </style></head>
 <body>
 
-    <div class="subscribe-container">
+    <div class="v16-container">
         
-        <!-- Promotional Banner (ONLY ON LANDING PAGE) -->
-        <div class="v16-promo-banner">
-            <div class="v16-promo-header">
-                <i class="fas fa-gift"></i>
-                <span>Special Offer</span>
-            </div>
-            <div class="v16-promo-content">
-                <h2>Activation + Channel List 12 months</h2>
-                <div class="v16-price-tag">
-                    <span class="old-price">$100</span>
-                    <span class="current-price">$70</span>
-                </div>
-                <ul class="v16-promo-features">
-                    <li><i class="fas fa-check-circle"></i> 10,000+ Live Channels</li>
-                    <li><i class="fas fa-check-circle"></i> FHD & 4K Quality</li>
-                    <li><i class="fas fa-check-circle"></i> Movies & Series Library</li>
-                    <li><i class="fas fa-check-circle"></i> 24/7 Premium Support</li>
-                    <li><i class="fas fa-check-circle"></i> Instant Activation</li>
-                </ul>
-                <div class="v16-trust-badges">
-                    <span><i class="fas fa-shield-alt"></i> Secure Payment</span>
-                    <span><i class="fas fa-undo"></i> 7-Day Guarantee</span>
-                </div>
-            </div>
+        <!-- App Header -->
+        <div class="v16-app-header">
+            <h2 id="app-name">Loading...</h2>
+            <p>IPTV App Activation</p>
         </div>
         
-        <!-- App Info Card with Activate Button -->
-        <div class="app-info-card">            <h2 id="app-name">Loading...</h2>
-            <p id="app-type">Choose your activation method</p>
-            
-            <button id="activate-btn" class="activate-btn">
-                <i class="fas fa-credit-card"></i>
-                <span>Activate Now</span>
+        <!-- Step 1: Contact Info (First Step for IPTV Apps) -->
+        <div id="v16-step1" class="v16-step active">
+            <h3 style="font-weight:800; margin-bottom:15px;">Contact Info</h3>
+            <p style="color:var(--text-muted); margin-bottom:20px;">Enter your details for activation</p>
+            <input type="text" id="v16-name" class="v16-input text-left" placeholder="Full Name" style="text-align:left; margin-bottom:15px;">
+            <div style="text-align:left;"><input type="tel" id="v16-phone" class="v16-input"></div>
+            <button class="v16-btn v16-btn-blue" style="margin-top:25px;" onclick="handleStep1()">
+                CONTINUE <i class="fas fa-arrow-left"></i>
             </button>
+        </div>
+
+        <!-- Step 2: Payment -->
+        <div id="v16-step2" class="v16-step">
+            <h3 style="font-weight:800; margin-bottom:15px;">Choose Payment</h3>
+            <p style="color:var(--text-muted); margin-bottom:20px;">Select your preferred payment method</p>
+            
+            <div class="v16-social-nav">
+                <a href="#" id="v16-wa" target="_blank" rel="noopener" class="v16-social-item whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" id="v16-tg" target="_blank" rel="noopener" class="v16-social-item telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+                <a href="#" id="v16-fb" target="_blank" rel="noopener" class="v16-social-item messenger">
+                    <i class="fab fa-facebook-messenger"></i>
+                </a>
+            </div>
+            
+            <div class="v16-pay-area">
+                <a href="https://accept.paymob.com/api/acceptance/iframes/YOUR_ID" target="_blank" rel="noopener" class="v16-btn v16-btn-blue">
+                    <i class="fas fa-wallet"></i> PAY WITH PAYMOB (LOCAL)
+                </a>
+                
+                <button class="v16-btn v16-btn-dark" onclick="toggleInfo('v16-paybis-info')">
+                    <i class="fas fa-credit-card"></i> PAY WITH CARD (GLOBAL)
+                </button>
+                <div id="v16-paybis-info" class="v16-secure-info">
+                    <p style="font-size:12px; color:var(--text-muted);"><i class="fas fa-lock"></i> Secure payment via Paybis Gateway</p>
+                    <a href="https://paybis.com/buy-tether-trc20/?fiat_amount=70&address=TPoZKbvUE82CPnPwwwkXv4HaxgD4F5Y68i" target="_blank" rel="noopener" class="v16-btn v16-btn-blue">                        Open Paybis →
+                    </a>
+                </div>
+                
+                <button class="v16-btn v16-btn-green" onclick="toggleInfo('v16-usdt-info')">
+                    <i class="fab fa-ethereum"></i> PAY WITH USDT
+                </button>
+                <div id="v16-usdt-info" class="v16-secure-info" style="padding:0; overflow:hidden;">
+                    <iframe src="https://nowpayments.io/embeds/payment-widget?iid=4331670336" width="100%" height="450" frameborder="0" style="border-radius: 0 0 20px 20px;"></iframe>
+                </div>
+            </div>
         </div>
 
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
     <script>
-        // Get app info from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const appId = urlParams.get('app');
-        
-        // App configurations
-        const appConfig = {
-            'iptv-smarters-pro': {
-                name: 'IPTV Smarters Pro',
-                type: 'IPTV App Activation',
-                page: 'activate-app.html'
-            },
-            'mega-tv': {
-                name: 'MEGA TV',
-                type: 'IPTV App Activation',
-                page: 'activate-app.html'
-            },
-            'aroma-iptv': {
-                name: 'Aroma IPTV',
-                type: 'IPTV App Activation',
-                page: 'activate-app.html'
-            },
-            'smartone-iptv': {
-                name: 'Smartone IPTV',
-                type: 'IPTV App Activation',
-                page: 'activate-app.html'
-            },
-            'flix-iptv': {
-                name: 'Flix IPTV',
-                type: 'Smart TV Activation',
-                page: 'activate-smart-tv.html'
-            },
-            'elk-player': {
-                name: 'ELK Player',
-                type: 'Smart TV Activation',
-                page: 'activate-smart-tv.html'
-            },
-            'ibo-player': {
-                name: 'Ibo Player',                type: 'Smart TV Activation',
-                page: 'activate-smart-tv.html'
-            }
+        const CONFIG = {
+            appId: new URLSearchParams(window.location.search).get('app') || ''
         };
         
-        // Load app info
-        if (appId && appConfig[appId]) {
-            const app = appConfig[appId];
-            document.getElementById('app-name').textContent = app.name;
-            document.getElementById('app-type').textContent = app.type;
-            
-            // Redirect to activation form when clicking Activate button
-            document.getElementById('activate-btn').addEventListener('click', function() {
-                window.location.href = `${app.page}?app=${appId}`;
-            });
-        } else {
-            document.getElementById('app-name').textContent = 'IPTV World';
-            document.getElementById('app-type').textContent = 'Choose your subscription';
-            document.getElementById('activate-btn').addEventListener('click', function() {
-                window.location.href = 'index.html#apps';
-            });
+        let phoneInput;
+        let appData = null;
+        
+        // Navigation Functions
+        function goToStep(stepNum) {
+            document.querySelectorAll('.v16-step').forEach(s => s.classList.remove('active'));
+            document.getElementById('v16-step' + stepNum).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+        
+        function toggleInfo(elementId) {
+            const el = document.getElementById(elementId);
+            if (el) {
+                el.style.display = el.style.display === 'none' ? 'block' : 'none';
+            }
+        }
+        
+        // Step Handler
+        function handleStep1() {
+            const name = document.getElementById('v16-name').value.trim();
+            const phone = phoneInput?.getNumber() || document.getElementById('v16-phone').value.trim();
+            
+            if (!name || name.length < 3) {
+                alert('⚠️ Please enter your full name');
+                return;
+            }
+            
+            if (!phone || phone.length < 10) {                alert('⚠️ Please enter a valid phone number');
+                return;
+            }
+            
+            let msg = `📺 Order ${appData ? appData.name : CONFIG.appId}:\n`;
+            msg += `🔹 App: ${appData ? appData.name : CONFIG.appId}\n`;
+            msg += `🔹 Name: ${name}\n`;
+            msg += `🔹 Phone: ${phone}\n`;
+            msg += `🔹 Price: $${appData ? appData.price : 70}/year`;
+            
+            const encodedMsg = encodeURIComponent(msg);
+            
+            document.getElementById('v16-wa').href = `https://wa.me/201112246002?text=${encodedMsg}`;
+            document.getElementById('v16-tg').href = `https://t.me/FLlXX?text=${encodedMsg}`;
+            document.getElementById('v16-fb').href = `https://m.me/Hany.Yousseff?text=${encodedMsg}`;
+            
+            goToStep(2);
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                const res = await fetch('/data/apps.json');
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                
+                const json = await res.json();
+                appData = json.apps.find(a => a.id === CONFIG.appId);
+                
+                if (!appData) {
+                    appData = json.apps.find(a => CONFIG.appId.includes(a.id) || a.id.includes(CONFIG.appId));
+                }
+                
+                if (appData) {
+                    document.getElementById('app-name').textContent = appData.name;
+                } else {
+                    document.getElementById('app-name').textContent = 'IPTV App Activation';
+                }
+                
+                // Initialize phone input
+                const phoneEl = document.querySelector("#v16-phone");
+                if (phoneEl && window.intlTelInput) {
+                    phoneInput = window.intlTelInput(phoneEl, {
+                        initialCountry: "auto",
+                        geoIpLookup: function(callback) {
+                            fetch("https://ipapi.co/json/")
+                                .then(res => res.json())
+                                .then(data => callback(data.country))
+                                .catch(() => callback("eg"));
+                        },
+                        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"                    });
+                }
+                
+            } catch (err) {
+                console.error('Error loading app data:', err);
+            }
+        });
     </script>
 </body>
 </html>

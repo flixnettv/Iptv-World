@@ -216,7 +216,7 @@
 
     <div class="subscribe-container">
         
-        <!-- Promotional Banner (ONLY ON LANDING PAGE) -->
+        <!-- Promotional Banner -->
         <div class="v16-promo-banner">
             <div class="v16-promo-header">
                 <i class="fas fa-gift"></i>
@@ -244,7 +244,7 @@
         
         <!-- App Info Card with Activate Button -->
         <div class="app-info-card">            <h2 id="app-name">Loading...</h2>
-            <p id="app-type">Choose your activation method</p>
+            <p id="app-type">Loading application details...</p>
             
             <button id="activate-btn" class="activate-btn">
                 <i class="fas fa-credit-card"></i>
@@ -259,7 +259,9 @@
         const urlParams = new URLSearchParams(window.location.search);
         const appId = urlParams.get('app');
         
-        // App configurations
+        console.log('🔍 App ID from URL:', appId);
+        
+        // App configurations - MUST MATCH EXACTLY WITH apps.json IDs
         const appConfig = {
             'iptv-smarters-pro': {
                 name: 'IPTV Smarters Pro',
@@ -290,30 +292,58 @@
                 name: 'ELK Player',
                 type: 'Smart TV Activation',
                 page: 'activate-smart-tv.html'
-            },
-            'ibo-player': {
-                name: 'Ibo Player',                type: 'Smart TV Activation',
+            },            'ibo-player': {
+                name: 'Ibo Player',
+                type: 'Smart TV Activation',
                 page: 'activate-smart-tv.html'
             }
         };
         
-        // Load app info
-        if (appId && appConfig[appId]) {
-            const app = appConfig[appId];
-            document.getElementById('app-name').textContent = app.name;
-            document.getElementById('app-type').textContent = app.type;
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            const activateBtn = document.getElementById('activate-btn');
+            const appNameEl = document.getElementById('app-name');
+            const appTypeEl = document.getElementById('app-type');
             
-            // Redirect to activation form when clicking Activate button
-            document.getElementById('activate-btn').addEventListener('click', function() {
-                window.location.href = `${app.page}?app=${appId}`;
-            });
-        } else {
-            document.getElementById('app-name').textContent = 'IPTV World';
-            document.getElementById('app-type').textContent = 'Choose your subscription';
-            document.getElementById('activate-btn').addEventListener('click', function() {
-                window.location.href = 'index.html#apps';
-            });
-        }
+            if (!appId) {
+                console.error('❌ No app ID in URL');
+                appNameEl.textContent = 'Error';
+                appTypeEl.textContent = 'No application selected';
+                if (activateBtn) {
+                    activateBtn.disabled = true;
+                    activateBtn.style.opacity = '0.5';
+                }
+                return;
+            }
+            
+            const app = appConfig[appId];
+            
+            if (!app) {
+                console.error('❌ App not found in config:', appId);
+                appNameEl.textContent = 'Application Not Found';
+                appTypeEl.textContent = `App ID: ${appId}`;
+                if (activateBtn) {
+                    activateBtn.disabled = true;
+                    activateBtn.style.opacity = '0.5';
+                }
+                return;
+            }
+            
+            console.log('✅ App found:', app);
+            
+            // Set app name and type
+            appNameEl.textContent = app.name;
+            appTypeEl.textContent = app.type;
+            
+            // Add click event to button
+            if (activateBtn) {
+                activateBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('🚀 Redirecting to:', `${app.page}?app=${appId}`);
+                    window.location.href = `${app.page}?app=${encodeURIComponent(appId)}`;
+                });                console.log('✅ Button event listener attached');
+            }
+        });
     </script>
 </body>
 </html>

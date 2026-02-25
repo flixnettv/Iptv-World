@@ -45,94 +45,9 @@
             text-align: center;
             border: 1px solid #f1f3f5;
         }
-        .v16-promo-banner {
-            background: linear-gradient(135deg, #fff5f7 0%, #ffeef2 100%);
-            border: 2px solid var(--primary);            border-radius: 20px;
-            margin: -35px -35px 25px -35px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.15);
-        }
-        .v16-promo-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 12px;
-            text-align: center;
-            font-weight: 700;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        .v16-promo-header i { animation: pulse 2s ease-in-out infinite; }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-        .v16-promo-content { padding: 20px; }
-        .v16-promo-content h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 15px;
-            text-align: center;
-            line-height: 1.4;
-        }
-        .v16-price-tag {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        .old-price {
-            font-size: 1.3rem;
-            color: #999;
-            text-decoration: line-through;
-            font-weight: 600;
-        }
-        .current-price {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--success);
-            background: linear-gradient(135deg, #10b981, #059669);
-            -webkit-background-clip: text;            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .v16-promo-features {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 20px 0;
-        }
-        .v16-promo-features li {
-            padding: 8px 0;
-            color: var(--text);
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .v16-promo-features li i { color: var(--success); font-size: 1rem; }
-        .v16-trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            padding-top: 15px;
-            border-top: 1px dashed #ddd;
-        }
-        .v16-trust-badges span {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .v16-trust-badges i { color: var(--primary); }
         .v16-app-header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 20px;
+            color: white;            padding: 20px;
             border-radius: 25px;
             margin-bottom: 25px;
             box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
@@ -145,7 +60,8 @@
         }
         .v16-app-header p {
             margin: 5px 0 0 0;
-            opacity: 0.95;            font-size: 0.85rem;
+            opacity: 0.95;
+            font-size: 0.85rem;
             font-weight: 500;
         }
         .v16-step { display: none; }
@@ -180,8 +96,7 @@
         .v16-input {
             width: 100% !important;
             height: 60px;
-            border: 2px solid #e9ecef;
-            border-radius: var(--radius-lg);
+            border: 2px solid #e9ecef;            border-radius: var(--radius-lg);
             padding: 0 20px;
             font-size: 17px;
             text-align: center;
@@ -194,7 +109,8 @@
             border-color: #007bff;
             box-shadow: 0 0 0 4px rgba(0,123,255,0.1);
         }
-        .v16-input.text-left { text-align: left !important; }        .v16-notice { font-size: 12px; color: #adb5bd; margin-top: 10px; display: block; }
+        .v16-input.text-left { text-align: left !important; }
+        .v16-notice { font-size: 12px; color: #adb5bd; margin-top: 10px; display: block; }
         .v16-price-box {
             background: #fcfcfc;
             border: 1px solid #f1f3f5;
@@ -229,8 +145,7 @@
         .v16-social-item.messenger { background: #0084FF; }
         .v16-pay-area { margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; }
         .v16-secure-info {
-            border: 2px dashed #eee;
-            border-radius: 20px;
+            border: 2px dashed #eee;            border-radius: 20px;
             padding: 20px;
             margin-top: 10px;
             background: #fff;
@@ -243,35 +158,10 @@
             .v16-app-header h2 { font-size: 1.2rem; }
         }
     </style>
-</head><body>
+</head>
+<body>
 
     <div class="v16-container">
-        
-        <!-- Promotional Banner -->
-        <div class="v16-promo-banner">
-            <div class="v16-promo-header">
-                <i class="fas fa-gift"></i>
-                <span>Special Offer</span>
-            </div>
-            <div class="v16-promo-content">
-                <h3>Activation + Channel List 12 months</h3>
-                <div class="v16-price-tag">
-                    <span class="old-price">$100</span>
-                    <span class="current-price">$70</span>
-                </div>
-                <ul class="v16-promo-features">
-                    <li><i class="fas fa-check-circle"></i> 10,000+ Live Channels</li>
-                    <li><i class="fas fa-check-circle"></i> FHD & 4K Quality</li>
-                    <li><i class="fas fa-check-circle"></i> Movies & Series Library</li>
-                    <li><i class="fas fa-check-circle"></i> 24/7 Premium Support</li>
-                    <li><i class="fas fa-check-circle"></i> Instant Activation</li>
-                </ul>
-                <div class="v16-trust-badges">
-                    <span><i class="fas fa-shield-alt"></i> Secure Payment</span>
-                    <span><i class="fas fa-undo"></i> 7-Day Guarantee</span>
-                </div>
-            </div>
-        </div>
         
         <!-- App Header -->
         <div class="v16-app-header">
@@ -292,7 +182,8 @@
 
         <!-- Step 2: Confirmation -->
         <div id="v16-step2" class="v16-step">
-            <img id="v16-dev-logo" class="v16-dev-logo" src="" alt="Device">            <div class="v16-price-box">
+            <img id="v16-dev-logo" class="v16-dev-logo" src="" alt="Device">
+            <div class="v16-price-box">
                 <div id="v16-mac-display" class="v16-mac-pill">--:--:--:--:--:--</div>
                 <div class="v16-amount">$70</div>
             </div>
@@ -303,8 +194,7 @@
                 <button class="v16-btn v16-btn-blue" style="flex:2;" onclick="goToStep(3)">
                     CONFIRM <i class="fas fa-arrow-left"></i>
                 </button>
-            </div>
-        </div>
+            </div>        </div>
 
         <!-- Step 3: Contact Info -->
         <div id="v16-step3" class="v16-step">
@@ -341,7 +231,8 @@
                 <a href="https://accept.paymob.com/api/acceptance/iframes/YOUR_ID" target="_blank" rel="noopener" class="v16-btn v16-btn-blue">
                     <i class="fas fa-wallet"></i> PAY WITH PAYMOB (LOCAL)
                 </a>
-                                <button class="v16-btn v16-btn-dark" onclick="toggleInfo('v16-paybis-info')">
+                
+                <button class="v16-btn v16-btn-dark" onclick="toggleInfo('v16-paybis-info')">
                     <i class="fas fa-credit-card"></i> PAY WITH CARD (GLOBAL)
                 </button>
                 <div id="v16-paybis-info" class="v16-secure-info">
@@ -352,8 +243,7 @@
                 </div>
                 
                 <button class="v16-btn v16-btn-green" onclick="toggleInfo('v16-usdt-info')">
-                    <i class="fab fa-ethereum"></i> PAY WITH USDT
-                </button>
+                    <i class="fab fa-ethereum"></i> PAY WITH USDT                </button>
                 <div id="v16-usdt-info" class="v16-secure-info" style="padding:0; overflow:hidden;">
                     <iframe src="https://nowpayments.io/embeds/payment-widget?iid=4331670336" width="100%" height="450" frameborder="0" style="border-radius: 0 0 20px 20px;"></iframe>
                 </div>
@@ -390,7 +280,8 @@
         async function handleStep1() {
             const mac = document.getElementById('v16-mac-input').value.trim();
             const macPattern = /^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/;
-                        if (!macPattern.test(mac)) {
+            
+            if (!macPattern.test(mac)) {
                 alert('⚠️ Invalid MAC Address format!\nExample: 00:1A:2B:3C:4D:5E');
                 return;
             }
@@ -401,8 +292,7 @@
                 const response = await fetch(`https://api.macvendors.com/${encodeURIComponent(mac)}`);
                 const vendor = response.ok ? await response.text() : null;
                 
-                let logo = 'https://raw.githubusercontent.com/flixnettv/Iptv-World/main/assets/images/default-device.png';
-                if (vendor) {
+                let logo = 'https://raw.githubusercontent.com/flixnettv/Iptv-World/main/assets/images/default-device.png';                if (vendor) {
                     const v = vendor.toLowerCase();
                     if (v.includes('samsung')) logo = 'https://raw.githubusercontent.com/flixnettv/Iptv-World/main/assets/images/samsung-logo.png';
                     else if (v.includes('lg')) logo = 'https://raw.githubusercontent.com/flixnettv/Iptv-World/main/assets/images/lg-logo.png';
@@ -439,7 +329,8 @@
             msg += `🔹 Phone: ${phone}\n`;
             msg += `🔹 Price: $${appData ? appData.price : 70}/year`;
             
-            const encodedMsg = encodeURIComponent(msg);            
+            const encodedMsg = encodeURIComponent(msg);
+            
             document.getElementById('v16-wa').href = `https://wa.me/201112246002?text=${encodedMsg}`;
             document.getElementById('v16-tg').href = `https://t.me/FLlXX?text=${encodedMsg}`;
             document.getElementById('v16-fb').href = `https://m.me/Hany.Yousseff?text=${encodedMsg}`;
@@ -450,8 +341,7 @@
         // Initialize
         document.addEventListener('DOMContentLoaded', async function() {
             try {
-                const res = await fetch('/data/apps.json');
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const res = await fetch('/data/apps.json');                if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 
                 const json = await res.json();
                 appData = json.apps.find(a => a.id === CONFIG.appId);
@@ -488,16 +378,16 @@
                         let value = e.target.value.toUpperCase().replace(/[^0-9A-F]/g, '');
                         let formatted = '';
                         for (let i = 0; i < value.length && i < 12; i++) {
-                            if (i > 0 && i % 2 === 0) formatted += ':';                            formatted += value[i];
+                            if (i > 0 && i % 2 === 0) formatted += ':';
+                            formatted += value[i];
                         }
                         e.target.value = formatted;
                     });
                 }
                 
             } catch (err) {
-                console.error('Error loading app data:', err);
+                console.error('Error loading app ', err);
             }
         });
     </script>
-</body>
-</html>
+</body></html>
